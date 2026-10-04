@@ -141,7 +141,7 @@
     const box = el("sliders"); box.innerHTML = "";
     const seen = new Set();
     for (const s of SCEN) {
-      const pid = SLIDER[s]; if (seen.has(pid)) continue; seen.add(pid);
+      const pid = SLIDER[s]; if (!pid || seen.has(pid)) continue; seen.add(pid);
       const p = state.ledger.parameters[pid];
       const lo = p.low, hi = p.high, step = (hi - lo) / 200;
       const input = h("input", { type: "range", min: lo, max: hi, step, value: p.default });
