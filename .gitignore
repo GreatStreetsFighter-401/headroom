@@ -1,0 +1,13 @@
+# Raw downloads are never committed: the acquisition scripts retrieve them
+# from their authoritative sources (challenge rule) and record a manifest.
+cache/
+# Virtualenv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Build outputs except the committed reference results used by the
+# reproducibility check.
+out/*
+!out/README.md
+!out/reference/

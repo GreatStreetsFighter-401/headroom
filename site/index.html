@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Headroom — Rhode Island</title>
+<meta name="description" content="How much housing a state-level reform makes room for: five-year permitted-unit estimates for Rhode Island under five reform scenarios, as ranges, with every assumption traceable.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Housing Data and Technology Innovation Challenge · Rhode Island</p>
+    <h1>Headroom</h1>
+    <p class="standfirst">How much housing a state-level reform makes room for. Five-year estimates of
+      permitted units under five reform scenarios, shown as ranges, with every number traceable to a
+      public dataset, a statute section or a named assumption.</p>
+    <div class="controls">
+      <label>Data tier
+        <select id="tier">
+          <option value="B">B — State zoning layer (Rhode Island, 2025)</option>
+          <option value="A">A — + ordinance-derived allowed uses (MuniAnchor)</option>
+          <option value="C">C — Census structure counts only (any state)</option>
+        </select>
+      </label>
+      <span id="meta" class="meta"></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="summary" class="cards" aria-label="Statewide five-year results"></section>
+
+  <section class="panel">
+    <h2>Statewide permits by year <span class="muted">P50, with P10–P90 band for the baseline</span></h2>
+    <div id="chart" class="chart" role="img" aria-label="Permitted units per year, baseline and scenarios"></div>
+    <p class="note" id="chart-note"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Try an assumption <span class="muted">moves the median; the bands come from the full run</span></h2>
+    <div id="sliders" class="sliders"></div>
+    <p class="note">Each slider is one ledger entry. The scenario increments are proportional to their
+      uptake rate, so the median scales exactly with the slider; the P10–P90 band is only recomputed by
+      <code>headroom run</code>. The “why” link opens the entry’s source and justification.</p>
+  </section>
+
+  <section class="panel">
+    <h2>What drives each result <span class="muted">rank correlation of each parameter with the five-year increment</span></h2>
+    <div id="sensitivity"></div>
+  </section>
+
+  <section class="panel">
+    <h2>By municipality <span class="muted">five-year P50 increment over the baseline</span></h2>
+    <div class="tablewrap"><table id="towns"></table></div>
+  </section>
+
+  <section class="panel">
+    <h2>Scenarios and what they cannot tell you</h2>
+    <div id="scenarios"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Data</h2>
+    <div id="data"></div>
+  </section>
+</main>
+
+<aside id="why" class="why" hidden>
+  <div class="why-card">
+    <button class="close" id="why-close" aria-label="Close">×</button>
+    <div id="why-body"></div>
+  </div>
+</aside>
+
+<footer class="wrap foot">
+  <p>Headroom · Apache-2.0 · results from <code>headroom run</code>, seed and draws shown above ·
+    every value in this page is in <code>site/data/*.json</code> and reproducible from the sources
+    listed under Data.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

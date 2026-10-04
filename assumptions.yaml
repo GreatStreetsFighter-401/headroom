@@ -1,0 +1,650 @@
+# Headroom — the assumption ledger.
+#
+# Every behavioural, cost, feasibility and baseline-shape parameter the model
+# uses lives here, and nowhere else. The Monte Carlo samples from these
+# ranges; `headroom explain <id>` prints an entry; the Model and Assumptions
+# Overview's assumptions chapter is generated from this file. A value with
+# status `placeholder` is a number we have not yet collected and say so;
+# `prior` is evidence from elsewhere adapted to Rhode Island; `verified` is
+# read from a primary Rhode Island source; `statutory` is fixed by law or by
+# the challenge handbook; `design` is a modelling choice, not a fact.
+#
+# Distributions: `lognormal` reads low–high as a 90% interval around the
+# default (median); `triangular` uses (low, default, high); `uniform` ignores
+# the default; `fixed` never varies.
+
+meta:
+  schema_version: 1
+  title: Headroom assumption ledger
+  metric: permitted housing units (new privately owned residential units authorised by building permit)
+  metric_justification: >
+    Permits are the metric Rhode Island's own statutory Integrated Housing Report and the
+    Housing 2030 goal (15,000 permits, 2026–2030) use, the only production metric the State
+    publishes by municipality for every year since 2018, and the one the Census Building
+    Permits Survey publishes for every permit-issuing place in the country, which is what
+    lets the same code run in another state. Completions (certificates of occupancy) are
+    shown where the State has them (2025 only) and are not forecast.
+  horizon: [2027, 2031]
+  baseline_window: [2018, 2025]
+  baseline_recent_years: 3   # the "recent mean" the trend is blended with
+  monte_carlo_draws: 2000
+  seed: 20261216
+  state: RI
+
+scenarios:
+  baseline:
+    label: Baseline (current law, no new reform)
+    handbook_definition: >
+      Housing production under the current regulatory and economic environment, with no
+      policy changes.
+    modelled_as: >
+      Per municipality, a blend of the 2018–2025 linear trend and the 2023–2025 mean of
+      permitted units (Census BPS, with the State's 2025 municipal survey as a cross-check),
+      with multiplicative noise, capped statewide by a construction-capacity ceiling.
+      Current Rhode Island law is part of the baseline: § 45-24-73 ADUs by right on lots of
+      20,000 sq ft or more and within existing footprints (2024), and the one-space parking
+      cap near transit in § 45-24-33(a)(28) (2026).
+    ri_law_today: >
+      R.I.G.L. § 45-24-73 (ADUs, as amended 2024); § 45-24-33(a)(28) (parking near transit,
+      2026-H 8005A); chapter 45-53 (comprehensive permits / 10 % low-moderate income housing).
+    what_it_cannot_say: >
+      Whether 2025's record permit year (3,778 units, the highest since the 1980s) is a new
+      level or a peak; the band is wide for that reason and the trend weight is a parameter.
+
+  adu:
+    label: Accessory dwelling units
+    handbook_definition: >
+      Allow one ADU on parcels with existing single-family buildings. Assume detached and
+      semi-detached ADUs of at least 600 square feet are allowed, and no additional parking
+      is required.
+    modelled_as: >
+      Stage 1 counts existing single-family structures (E-911 R1 points) in residential
+      districts by municipality, split by whether the district's minimum lot size is 20,000
+      sq ft or more (by-right detached ADU under current law) and by sewer service. The
+      scenario extends detached by-right eligibility to every single-family lot. Stage 2
+      applies an annual uptake rate to newly eligible lots, ramping over a few years, with a
+      septic multiplier. Reported as the increment over current law.
+    ri_law_today: >
+      § 45-24-73 already allows one ADU by right on lots ≥ 20,000 sq ft, within an existing
+      footprint on any lot, and for a family member with a disability; towns may cap size at
+      800 sq ft (from 2025-07-01); at most one parking space per bedroom; no short-term
+      rental. Rhode Island therefore already has part of this scenario in force, and the
+      State publishes ADU permits by municipality for 2024–2025.
+    what_it_cannot_say: >
+      How many ADUs are rented versus occupied by family; whether towns' 800 sq ft caps bind;
+      effects on rents.
+
+  missing_middle:
+    label: Missing middle / gentle density
+    handbook_definition: >
+      Allow 2–6 dwelling units on parcels currently restricted to single-family use, with
+      building heights up to three stories; assume setback and lot coverage requirements do
+      not constrain development.
+    modelled_as: >
+      Stage 1 counts single-family structures in districts that permit only single-family
+      use — read from the ordinance (tier A) or the State layer's district text (tier B), or
+      from a statewide share (tier C). Stage 2 applies an annual conversion rate, a units-per-
+      conversion count (net of the unit replaced), a market-feasibility share and a septic
+      multiplier.
+    ri_law_today: >
+      No state preemption of single-family zoning; two-family use is a local decision in all
+      39 municipalities.
+    what_it_cannot_say: >
+      Which lots convert first, or whether conversions displace existing residents; the
+      Minneapolis and Portland evidence shows 2–3-unit conversions are rare and 4+-unit
+      buildings on upzoned land do most of the work.
+
+  parking:
+    label: Parking requirement reduction
+    handbook_definition: >
+      Reduce or eliminate minimum parking requirements for new residential development,
+      specifying assumptions about developer-provided parking absent mandates.
+    modelled_as: >
+      A cost channel: the per-unit cost of mandated spaces developers would not otherwise
+      build, divided by all-in cost per unit, times a supply-cost elasticity, applied to the
+      baseline's multifamily (2+ unit) permits. Inside transit buffers current law already
+      caps the mandate at one space, so the increment there is smaller.
+    ri_law_today: >
+      § 45-24-33(a)(28) (2026): no more than one space per multifamily unit within ¼ mile of
+      a regional mobility hub or ⅛ mile of a frequent transit stop. Elsewhere, local minimums
+      apply.
+    what_it_cannot_say: >
+      Where the saved parking goes (rent, land, more units) — the elasticity bundles those.
+
+  fees:
+    label: Development fee reduction
+    handbook_definition: >
+      Reduce total development fees (planning, environmental review, building, impact) by
+      50 %, assuming baseline fees of $50,000 per unit across all major fee categories.
+    modelled_as: >
+      The same cost channel as parking: the fee reduction divided by all-in cost per unit,
+      times the supply-cost elasticity, applied to all baseline permits. Run twice — at the
+      handbook's $50,000 benchmark, and at Rhode Island's actual per-unit fees, which are far
+      lower.
+    ri_law_today: >
+      Impact fees are enabled by chapter 45-22.4 but adopted by few municipalities; building
+      permit fees are typically set per $1,000 of construction value.
+    what_it_cannot_say: >
+      Anything about fee *levels* in other states; the Rhode Island actual is a placeholder
+      until the 39 fee schedules are collected.
+
+  tod:
+    label: Transit-oriented density
+    handbook_definition: >
+      Increase allowable residential density near major transit stops through higher heights
+      and/or floor area ratios, with reduced or eliminated parking requirements; teams define
+      and justify the proximity threshold.
+    modelled_as: >
+      Stage 1 buffers RIPTA stops: ⅛ mile around frequent stops and ¼ mile around hub stops,
+      the two statutory distances. Net capacity is residential land inside the buffers times
+      (scenario density − current density implied by minimum lot size). Stage 2 applies an
+      annual realisation rate with a ramp. The parking channel is already in current law
+      inside these buffers.
+    ri_law_today: >
+      Distances fixed by § 45-24-33(a)(28); "frequent transit stop" and "regional mobility
+      hub" are defined by the 2020 Rhode Island Transit Master Plan, applied here through two
+      parameters.
+    what_it_cannot_say: >
+      Site assembly, infrastructure limits and design review inside the buffers; these are
+      bundled into the realisation rate.
+
+parameters:
+
+  # ---------------------------------------------------------------- baseline
+  baseline_trend_weight:
+    label: Weight on the linear trend versus the recent mean
+    scenarios: [all]
+    stage: 2
+    unit: share (0 = recent three-year mean, 1 = 2018–2025 linear trend)
+    default: 0.5
+    low: 0.0
+    high: 1.0
+    distribution: uniform
+    status: design
+    source: Modelling choice; Census Building Permits Survey 2018–2025 by place.
+    justification: >
+      Rhode Island's 2025 permits (3,778) are the highest since the late 1980s after a decade
+      near 1,000–1,500. A pure trend extrapolates the surge; a pure mean assumes it holds.
+      Neither is knowable, so the blend is sampled uniformly and the band carries it.
+    what_it_cannot_say: Whether the 2025 level persists.
+
+  permit_undercount_adjustment:
+    label: Uncertainty on the Census-to-State permit scaling ratio
+    scenarios: [all]
+    stage: 2
+    unit: multiplier on the computed 2025 ratio (State survey ÷ Census BPS)
+    default: 1.0
+    low: 0.8
+    high: 1.2
+    distribution: triangular
+    status: verified
+    source: >
+      EOH 2025 Integrated Housing Report, Fig. 2.1 (3,778 units permitted in 2025, municipal
+      survey) and Fig. 2.2 note ("this data is used as it is more accurate than the Census
+      survey"); Census BPS place file ne2025a.txt (1,738 units for the same 39 places).
+    justification: >
+      The Census survey carries roughly half of Rhode Island's permits because many towns do
+      not return its monthly form and the imputation does not recover them. Baseline levels
+      are therefore the BPS series scaled by the 2025 ratio computed at build time (≈ 2.17);
+      this parameter carries the uncertainty of applying one year's ratio to eight. In a state
+      whose BPS is complete the ratio is 1.0 and this parameter does nothing.
+    what_it_cannot_say: Whether the undercount is stable across years and towns; only 2025 can be compared.
+
+  baseline_noise_cv:
+    label: Year-to-year noise in municipal permits (coefficient of variation)
+    scenarios: [all]
+    stage: 2
+    unit: share of the expected value, on top of count (Poisson) noise
+    default: 0.35
+    low: 0.15
+    high: 0.60
+    distribution: triangular
+    status: verified
+    source: >
+      Residuals of each municipality's 2018–2025 Census BPS series around its linear trend;
+      the median coefficient of variation across the 39 towns is 0.40 (computed at the
+      2026-10-04 build by `pipeline.noise_cv_from_history`).
+    justification: >
+      Small towns permit 5–50 units a year and a single project moves a year by half. The
+      model adds Poisson count noise to this level noise, so the parameter is set a little
+      below the raw residual CV, which already contains the count component. The hindcast
+      (`headroom hindcast`) reports how often observed 2024–2025 values fell inside the band.
+
+  statewide_permit_capacity:
+    label: Statewide ceiling on annual permits (construction capacity)
+    scenarios: [all]
+    stage: 2
+    unit: units per year
+    default: 6000
+    low: 4000
+    high: 8000
+    distribution: triangular
+    status: prior
+    source: >
+      Units permitted 1980–2025 (EOH 2025 Integrated Housing Report, Fig. 2.2: peak ≈ 7,300
+      in 1986–87); BLS construction employment, Rhode Island.
+    justification: >
+      Zoning creates room; builders fill it. The state has not permitted more than ~7,300
+      units in any year on record, and construction employment has not grown in step with
+      2025's permits. The cap binds only when scenarios stack.
+
+  # --------------------------------------------------------------------- ADU
+  adu_by_right_lot_sf:
+    label: Lot size at which a detached ADU is by right under current law
+    scenarios: [adu]
+    stage: 1
+    unit: square feet
+    default: 20000
+    distribution: fixed
+    status: statutory
+    source: R.I.G.L. § 45-24-73 (as amended by 2024 acts, effective 2024-06-25).
+    justification: Fixed by statute; used to split current-law from scenario eligibility.
+
+  adu_uptake_detached_annual:
+    label: Annual uptake of a detached or semi-detached ADU on newly eligible lots
+    scenarios: [adu]
+    stage: 2
+    unit: share of eligible single-family lots per year, at steady state
+    default: 0.002
+    low: 0.0005
+    high: 0.006
+    distribution: lognormal
+    status: prior
+    source: >
+      HousingWorks RI 2025 Housing Fact Book (Rhode Island ADU permits 11 in 2021, 163 in
+      2024); California HCD Annual Progress Report dashboard (statewide ADU permits 1,269 in
+      2016, 14,702 in 2019, ~23,000 in 2023 against roughly 7–8 million single-family homes,
+      i.e. ≈ 0.3 %/yr of all single-family homes by 2023 after six years of ramp).
+    justification: >
+      Set so that the model's own current-law eligibility (detached by right on the ~40 % of
+      single-family structures in districts with 20,000 sq ft minimum lots, conversions by
+      right everywhere, septic lots discounted) reproduces Rhode Island's observed 163 ADU
+      permits in 2024 between ramp year one and ramp year two — 2024 was the first full year
+      of the expanded statute but the second since the 2022 one. At steady state 0.2 %/yr of
+      eligible lots is below California's 2023 rate.
+    ri_calibration: >
+      `headroom calibrate` prints the 2024 permits the defaults imply at ramp year one and
+      two against the observed 163. The EOH annual ADU report (2024–2025 by municipality) is
+      the next anchor and will let the rate vary by town.
+    what_it_cannot_say: Who builds them; the split between rental and family occupancy.
+
+  adu_uptake_conversion_annual:
+    label: Annual uptake of a within-footprint ADU (already by right on any lot)
+    scenarios: [adu]
+    stage: 2
+    unit: share of single-family lots per year
+    default: 0.0008
+    low: 0.0002
+    high: 0.0025
+    distribution: lognormal
+    status: prior
+    source: Same as adu_uptake_detached_annual; conversions are a minority of California ADUs.
+    justification: >
+      Conversions are by right everywhere in Rhode Island today, so they are part of the
+      baseline and this parameter only matters for the calibration check, not the increment.
+
+  adu_ramp_years:
+    label: Years for ADU uptake to reach its steady-state rate
+    scenarios: [adu]
+    stage: 2
+    unit: years
+    default: 3
+    low: 1
+    high: 5
+    distribution: triangular
+    status: prior
+    source: California statewide series 2016–2023 (HCD); Rhode Island 2021–2024.
+    justification: >
+      Both series roughly doubled annually for the first three years after by-right rules
+      arrived, then grew more slowly. Uptake is scaled linearly from 1/ramp in year one.
+
+  adu_septic_multiplier:
+    label: Uptake multiplier for lots without sewer service
+    scenarios: [adu]
+    stage: 2
+    unit: multiplier on uptake
+    default: 0.5
+    low: 0.2
+    high: 0.8
+    distribution: triangular
+    status: prior
+    source: RIGIS Sewered Areas; RIDEM OWTS rules (a second unit needs septic capacity).
+    justification: >
+      An unsewered lot needs an onsite system sized for the added bedrooms, which is often
+      the binding cost in Rhode Island's rural towns. The multiplier is applied to the share
+      of eligible lots outside sewered areas, computed from the State layer.
+
+  tierc_lot20k_share:
+    label: Share of single-family lots of 20,000 sq ft or more (used only without a zoning layer)
+    scenarios: [adu]
+    stage: 1
+    unit: share
+    default: 0.35
+    low: 0.20
+    high: 0.50
+    distribution: triangular
+    status: prior
+    source: Rhode Island State zoning layer (computed at tier B; 2026-10-04 build).
+    justification: >
+      At tier C there is no lot-size information. The default is the tier-B value for Rhode
+      Island, which another state can replace with its own.
+
+  # ------------------------------------------------------------ missing middle
+  mm_conversion_rate_annual:
+    label: Annual conversion of single-family-only lots to 2–6 unit buildings
+    scenarios: [missing_middle]
+    stage: 2
+    unit: share of eligible single-family lots per year, at steady state
+    default: 0.0005
+    low: 0.0001
+    high: 0.002
+    distribution: lognormal
+    status: prior
+    source: >
+      Portland Residential Infill Project monitoring (514 middle-housing units in RIP year one,
+      Aug 2022–Jul 2023, across ~150,000 single-dwelling lots); Minneapolis 2040 outcomes
+      (a few dozen 2–3-unit buildings 2020–2023; ~1,000 units in 4+-unit buildings on
+      formerly restrictive land).
+    justification: >
+      Portland's first year is ≈ 0.13 % of lots if a project averages 2.5 units; Minneapolis
+      is an order of magnitude lower for small buildings. The default is between them and the
+      range covers both.
+    what_it_cannot_say: >
+      Whether Rhode Island towns would also see the 4+-unit response Minneapolis did; that is
+      outside the 2–6 unit definition.
+
+  mm_units_per_conversion:
+    label: Units in a converted or replaced building
+    scenarios: [missing_middle]
+    stage: 2
+    unit: dwelling units (one is netted off for the house replaced)
+    default: 3
+    low: 2
+    high: 6
+    distribution: triangular
+    status: statutory
+    source: Challenge handbook scenario definition (2–6 units).
+    justification: Most middle-housing projects in Portland and Minneapolis are 2–4 units; 6 is the handbook ceiling.
+
+  mm_feasibility_share:
+    label: Share of eligible lots where redevelopment is economically plausible within five years
+    scenarios: [missing_middle]
+    stage: 2
+    unit: share
+    default: 0.5
+    low: 0.25
+    high: 0.8
+    distribution: triangular
+    status: placeholder
+    source: To be set from assessor land-to-improvement value ratios (municipal GIS) and FHFA HPI.
+    justification: >
+      A conversion needs land worth more than the house on it. Until assessor data is joined
+      this is an explicit guess with a wide range, and the sensitivity chart shows its weight.
+
+  mm_septic_multiplier:
+    label: Conversion multiplier for lots without sewer service
+    scenarios: [missing_middle]
+    stage: 2
+    unit: multiplier on conversion rate
+    default: 0.3
+    low: 0.1
+    high: 0.6
+    distribution: triangular
+    status: prior
+    source: RIGIS Sewered Areas; RIDEM OWTS rules.
+    justification: Three to six units on septic is rarely approvable in Rhode Island; the multiplier reflects that.
+
+  mm_ramp_years:
+    label: Years for conversion activity to reach its steady-state rate
+    scenarios: [missing_middle]
+    stage: 2
+    unit: years
+    default: 3
+    low: 1
+    high: 5
+    distribution: triangular
+    status: prior
+    source: Portland RIP and Minneapolis 2040 monitoring reports.
+    justification: Builders, lenders and designers take a few years to adopt a new product type.
+
+  tierc_sf_only_share:
+    label: Share of single-family structures in districts that permit only single-family use
+    scenarios: [missing_middle]
+    stage: 1
+    unit: share
+    default: 0.85
+    low: 0.60
+    high: 0.95
+    distribution: triangular
+    status: prior
+    source: >
+      Rhode Island Zoning Atlas (HousingWorks RI, 2023): 87 % of the state's land is zoned
+      single-family by right, 8 % allows four or more units by right.
+    justification: >
+      Used at tier C (no zoning layer) and, at tier B, for districts whose description text
+      says nothing about allowed uses. Replaced by the ordinance reading at tier A.
+
+  tierc_sewered_share:
+    label: Share of single-family structures with sewer service (used only without GIS)
+    scenarios: [adu, missing_middle]
+    stage: 1
+    unit: share
+    default: 0.55
+    low: 0.35
+    high: 0.75
+    distribution: triangular
+    status: prior
+    source: Rhode Island State layers (computed at tier B; 2026-10-04 build).
+    justification: At tier C the default is Rhode Island's tier-B value; another state substitutes its own.
+
+  # ------------------------------------------------------------ cost channel
+  parking_required_mf_baseline:
+    label: Mandated off-street spaces per multifamily unit under local ordinances
+    scenarios: [parking]
+    stage: 2
+    unit: spaces per unit
+    default: 1.5
+    low: 1.0
+    high: 2.0
+    distribution: triangular
+    status: placeholder
+    source: To be read from the 39 zoning ordinances (parking schedules); MuniAnchor table classifier already locates them.
+    justification: Rhode Island suburbs typically require 2 per unit, cities 1–1.5; the hand-coded table replaces this.
+
+  parking_provided_unmandated:
+    label: Spaces per multifamily unit developers provide without a mandate
+    scenarios: [parking, tod]
+    stage: 2
+    unit: spaces per unit
+    default: 0.8
+    low: 0.4
+    high: 1.2
+    distribution: triangular
+    status: prior
+    source: >
+      Seattle (after reform, new housing near transit included 40 % less parking than
+      previously required); Buffalo (68 % of post-reform units in buildings that would not
+      have met the old requirement); Minneapolis/St Paul reporting.
+    justification: Developers still build parking where buyers want it; the mandate's cost is only the excess.
+
+  mf_permit_share_in_tod_buffers:
+    label: Share of baseline multifamily permits located inside the transit buffers
+    scenarios: [parking]
+    stage: 2
+    unit: share
+    default: 0.3
+    low: 0.1
+    high: 0.6
+    distribution: triangular
+    status: placeholder
+    source: To be computed by geocoding 2025 permit addresses against the transit buffers.
+    justification: >
+      Inside the buffers current law already caps the mandate at one space, so the parking
+      scenario's increment there is smaller; this share splits the baseline accordingly.
+
+  parking_cost_per_space:
+    label: Construction cost of one off-street parking space
+    scenarios: [parking, tod]
+    stage: 2
+    unit: USD per space
+    default: 20000
+    low: 8000
+    high: 45000
+    distribution: triangular
+    status: prior
+    source: >
+      Surface spaces $5,000–15,000; structured $25,000–50,000 (industry cost surveys and
+      the Seattle estimate of $537 million saved on 40 % less parking).
+    justification: Rhode Island multifamily is mostly surface or podium parking; the triangular mode sits low.
+
+  dev_cost_per_unit_mf:
+    label: All-in development cost per multifamily unit
+    scenarios: [parking, fees, tod]
+    stage: 2
+    unit: USD per unit
+    default: 400000
+    low: 300000
+    high: 550000
+    distribution: triangular
+    status: prior
+    source: RIHousing-financed developments 2023–2025 (public awards); market multifamily pro formas.
+    justification: Sets the denominator that turns a dollar saving into a percentage cost change.
+
+  dev_cost_per_unit_sf:
+    label: All-in development cost per single-family unit
+    scenarios: [fees]
+    stage: 2
+    unit: USD per unit
+    default: 450000
+    low: 350000
+    high: 650000
+    distribution: triangular
+    status: prior
+    source: Census BPS average permit valuation for Rhode Island 1-unit buildings (2024–2025) plus land.
+    justification: Same role as dev_cost_per_unit_mf for the single-family share of baseline permits.
+
+  supply_cost_elasticity:
+    label: Elasticity of new units with respect to per-unit development cost
+    scenarios: [parking, fees]
+    stage: 2
+    unit: percent change in permits per one percent fall in cost
+    default: 0.8
+    low: 0.3
+    high: 1.5
+    distribution: lognormal
+    status: prior
+    source: >
+      Baum-Snow & Duranton (2025): tract-level unit-supply elasticity to price ≈ 0.5 across
+      306 metros; Saiz (2010) metro elasticities; cost-side responses are typically of the
+      same order over a five-year horizon.
+    justification: >
+      A cost reduction works like a price increase on the developer's margin. The default is
+      near the middle of the cross-metro range; New England is on the inelastic side, which
+      the low end covers.
+    what_it_cannot_say: How the saving is split between rents, land prices and more units.
+
+  fee_per_unit_handbook:
+    label: Baseline total development fee per unit (challenge benchmark)
+    scenarios: [fees]
+    stage: 2
+    unit: USD per unit
+    default: 50000
+    distribution: fixed
+    status: statutory
+    source: Challenge handbook scenario 5.
+    justification: Fixed by the handbook so entries are comparable across states.
+
+  fee_reduction_share:
+    label: Fee reduction under the scenario
+    scenarios: [fees]
+    stage: 2
+    unit: share of fees removed
+    default: 0.5
+    distribution: fixed
+    status: statutory
+    source: Challenge handbook scenario 5.
+    justification: Fixed by the handbook.
+
+  fee_per_unit_ri:
+    label: Rhode Island actual total development fee per unit
+    scenarios: [fees]
+    stage: 2
+    unit: USD per unit
+    default: 8000
+    low: 4000
+    high: 15000
+    distribution: triangular
+    status: placeholder
+    source: To be collected from the 39 municipal fee schedules (building permit fees per $1,000 of value; impact fees under chapter 45-22.4 where adopted).
+    justification: >
+      Rhode Island towns charge building fees of roughly $10–15 per $1,000 of construction
+      value and few levy impact fees, so the per-unit total is a fraction of the handbook's
+      $50,000. The scenario is run at both numbers so the difference is visible.
+
+  # --------------------------------------------------------------------- TOD
+  tod_frequent_peak_departures_per_hour:
+    label: Peak-hour departures that make a stop a "frequent transit stop"
+    scenarios: [tod, parking]
+    stage: 1
+    unit: scheduled departures per hour, 7–9 am weekday
+    default: 4
+    low: 2
+    high: 6
+    distribution: triangular
+    status: prior
+    source: >
+      2020 Rhode Island Transit Master Plan (frequent service network at 15-minute
+      headways), referenced by § 45-24-33(a)(28); RIPTA GTFS feed.
+    justification: Four an hour is a 15-minute headway; the range covers 10- to 30-minute service.
+
+  tod_hub_min_routes:
+    label: Distinct routes serving a stop for it to count as a regional mobility hub
+    scenarios: [tod, parking]
+    stage: 1
+    unit: routes
+    default: 6
+    low: 4
+    high: 10
+    distribution: triangular
+    status: placeholder
+    source: 2020 Rhode Island Transit Master Plan names the hubs; this proxy stands in until the list is encoded.
+    justification: Kennedy Plaza, Pawtucket–Central Falls and the other named hubs all carry many routes; the proxy finds them and little else.
+
+  tod_scenario_density_upa:
+    label: Residential density allowed inside the buffers under the scenario
+    scenarios: [tod]
+    stage: 2
+    unit: dwelling units per acre
+    default: 20
+    low: 12
+    high: 40
+    distribution: triangular
+    status: design
+    source: Challenge handbook scenario 3 (teams define); comparable TOD overlays (MBTA Communities 15 units/acre minimum).
+    justification: Twenty units an acre is three-story walk-up density; forty is mid-rise.
+
+  tod_realization_rate_annual:
+    label: Share of net new capacity inside the buffers built per year
+    scenarios: [tod]
+    stage: 2
+    unit: share of net capacity per year, at steady state
+    default: 0.004
+    low: 0.001
+    high: 0.012
+    distribution: lognormal
+    status: prior
+    source: Build-out rates of TOD overlays and upzonings (Seattle station areas, MBTA Communities early filings, Minneapolis 2040).
+    justification: Upzoned land near transit builds out over decades; a few tenths of a percent a year is the observed order.
+
+  tod_ramp_years:
+    label: Years for TOD development to reach its steady-state rate
+    scenarios: [tod]
+    stage: 2
+    unit: years
+    default: 3
+    low: 1
+    high: 5
+    distribution: triangular
+    status: prior
+    source: Same as tod_realization_rate_annual.
+    justification: Entitlement and design take two to three years before permits follow.
