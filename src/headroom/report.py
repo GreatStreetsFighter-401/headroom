@@ -230,6 +230,38 @@ def chapter_tiers(results: dict[str, dict]) -> str:
     return "\n".join(lines)
 
 
+def chapter_other_states(results: dict[str, dict]) -> str:
+    lines = [
+        "# Other states — tier C from federal data alone",
+        "",
+        "`headroom build --state XX && headroom run --state XX`: county subdivisions from the Census "
+        "geography index, permits from the Building Permits Survey place file, structure counts from "
+        "the ACS summary files. No state-specific code. Two caveats travel with every number: the "
+        "permit level is the Census series as published (Rhode Island's undercounts by about half, "
+        "and this state's may too), and the eligibility shares (`tierc_*`) are Rhode Island's tier-B "
+        "values until replaced with the state's own.",
+        "",
+        "| Scenario | " + " | ".join(f"{st} (P10 / P50 / P90)" for st in results) + " |",
+        "|---|" + "---|" * len(results),
+    ]
+    for s in ("baseline",) + SCEN_ORDER:
+        if s == "fees_handbook":
+            continue
+        cells = []
+        for _st, res in results.items():
+            f = res["statewide"][s]["five_year"]
+            sign = "" if s == "baseline" else "+"
+            cells.append(f"{sign}{_fmt(f['p10'])} / {sign}{_fmt(f['p50'])} / {sign}{_fmt(f['p90'])}")
+        lines.append(f"| {SCEN_LABEL.get(s, 'Baseline')} | " + " | ".join(cells) + " |")
+    lines += [
+        "",
+        "Towns with a permit series / county subdivisions: "
+        + "; ".join(f"{st} {res['meta'].get('n_towns', len(res['towns']))}" for st, res in results.items())
+        + ".",
+    ]
+    return "\n".join(lines)
+
+
 def write_all(*, tier: str = "B") -> list[Path]:
     ledger = load_ledger()
     DOCS.mkdir(parents=True, exist_ok=True)
@@ -255,4 +287,11 @@ def write_all(*, tier: str = "B") -> list[Path]:
     if len(results) >= 2:
         (DOCS / "tiers.md").write_text(chapter_tiers(results) + stamp)
         out.append(DOCS / "tiers.md")
+    others = {}
+    for p in sorted(OUT_DIR.glob("results_tierC_*.json")):
+        st = p.stem.split("_")[-1]
+        others[st] = json.loads(p.read_text())
+    if others:
+        (DOCS / "other_states.md").write_text(chapter_other_states(others) + stamp)
+        out.append(DOCS / "other_states.md")
     return out

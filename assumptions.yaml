@@ -595,6 +595,7 @@ parameters:
     high: 6
     distribution: triangular
     status: prior
+    sensitivity: false   # applied at build time (the buffers are geometry); vary it by rebuilding
     source: >
       2020 Rhode Island Transit Master Plan (frequent service network at 15-minute
       headways), referenced by § 45-24-33(a)(28); RIPTA GTFS feed.
@@ -610,6 +611,7 @@ parameters:
     high: 10
     distribution: triangular
     status: design
+    sensitivity: false   # build-time, and unused where a named hub list exists
     source: >
       Used only where no named hub list exists. For Rhode Island the eight regional mobility
       hubs named by Transit Forward RI 2040 (the 2020 Transit Master Plan § 45-24-33(a)(28)

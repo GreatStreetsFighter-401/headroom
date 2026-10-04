@@ -229,12 +229,15 @@ class Model:
         # statewide increment of each scenario it belongs to.
         for s, arr in inc.items():
             five = arr.sum(axis=(1, 2))
-            scen_key = "fees" if s.startswith("fees") else s
+            if s == "combined":
+                keys = {"fees" if c.startswith("fees") else c for c in COMBINED}
+            else:
+                keys = {"fees" if s.startswith("fees") else s}
             rows = []
             for pid, par in self.ledger.parameters.items():
                 if par.distribution == "fixed" or not par.sensitivity:
                     continue
-                if not (scen_key in par.scenarios or "all" in par.scenarios):
+                if not (keys & set(par.scenarios) or "all" in par.scenarios):
                     continue
                 x = p[pid]
                 if np.ptp(x) == 0 or np.ptp(five) == 0:

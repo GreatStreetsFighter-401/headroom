@@ -75,4 +75,4 @@ Every dataset is retrieved by `headroom acquire` from the source below; the mani
 Stock source: census_acs_sf (ACS 2024 5-yr B25024/B25002, summary files). EOH report: available.
 
 ---
-_Generated 2026-10-04T20:40+00:00 by `headroom report`._
+_Generated 2026-10-04T20:44+00:00 by `headroom report`._

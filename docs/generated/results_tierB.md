@@ -73,9 +73,7 @@ Spearman rank correlation between each sampled parameter and the scenario's five
 | `baseline_trend_weight` | +0.16 | +170 | +250 | design |
 | `mf_permit_share_in_tod_buffers` | -0.10 | +227 | +183 | placeholder |
 | `permit_undercount_adjustment` | +0.10 | +181 | +225 | verified |
-| `tod_hub_min_routes` | +0.03 | +186 | +200 | design |
 | `baseline_noise_cv` | -0.02 | +217 | +201 | verified |
-| `tod_frequent_peak_departures_per_hour` | +0.02 | +205 | +199 | prior |
 | `statewide_capacity_multiple` | -0.01 | +204 | +204 | prior |
 
 ### Fee reduction (handbook $50,000 baseline)
@@ -114,8 +112,6 @@ Spearman rank correlation between each sampled parameter and the scenario's five
 | `statewide_capacity_multiple` | +0.04 | +364 | +361 | prior |
 | `baseline_trend_weight` | -0.03 | +407 | +347 | design |
 | `dev_cost_per_unit_mf` | -0.03 | +402 | +349 | prior |
-| `tod_frequent_peak_departures_per_hour` | +0.02 | +337 | +366 | prior |
-| `tod_hub_min_routes` | +0.02 | +361 | +401 | design |
 | `parking_cost_per_space` | +0.01 | +374 | +386 | prior |
 | `baseline_noise_cv` | +0.01 | +352 | +393 | verified |
 | `parking_provided_unmandated` | -0.01 | +387 | +358 | prior |
@@ -125,10 +121,33 @@ Spearman rank correlation between each sampled parameter and the scenario's five
 
 | Parameter | ρ | P50 at low quintile | P50 at high quintile | Status |
 |---|---|---|---|---|
+| `adu_uptake_detached_annual` | +0.78 | +1,765 | +4,554 | prior |
+| `mm_conversion_rate_annual` | +0.32 | +2,304 | +3,504 | prior |
+| `tod_realization_rate_annual` | +0.30 | +2,197 | +3,391 | prior |
+| `supply_cost_elasticity` | +0.16 | +2,388 | +2,979 | prior |
+| `tod_scenario_density_upa` | +0.15 | +2,478 | +3,147 | design |
+| `mm_units_per_conversion` | +0.15 | +2,516 | +3,082 | statutory |
+| `adu_ramp_years` | -0.14 | +2,964 | +2,447 | prior |
+| `mm_feasibility_share` | +0.10 | +2,424 | +2,892 | placeholder |
+| `parking_cost_per_space` | +0.09 | +2,544 | +2,771 | prior |
+| `parking_provided_unmandated` | -0.05 | +2,798 | +2,547 | prior |
+| `dev_cost_per_unit_mf` | -0.05 | +2,787 | +2,517 | prior |
+| `tierc_sewered_share` | -0.05 | +2,776 | +2,628 | prior |
+| `fee_per_unit_ri` | +0.04 | +2,667 | +2,841 | placeholder |
+| `mm_septic_multiplier` | +0.04 | +2,510 | +2,698 | prior |
 | `baseline_trend_weight` | -0.03 | +2,763 | +2,645 | design |
 | `permit_undercount_adjustment` | +0.03 | +2,724 | +2,651 | verified |
+| `tierc_sf_only_share` | -0.02 | +2,725 | +2,739 | prior |
+| `mm_ramp_years` | -0.02 | +2,689 | +2,615 | prior |
+| `parking_required_mf_baseline` | +0.02 | +2,734 | +2,779 | placeholder |
+| `tod_ramp_years` | -0.02 | +2,689 | +2,644 | prior |
+| `adu_septic_multiplier` | -0.02 | +2,775 | +2,784 | prior |
+| `mf_permit_share_in_tod_buffers` | +0.01 | +2,745 | +2,759 | placeholder |
 | `statewide_capacity_multiple` | +0.01 | +2,636 | +2,670 | prior |
+| `adu_uptake_conversion_annual` | +0.01 | +2,648 | +2,718 | prior |
+| `dev_cost_per_unit_sf` | -0.01 | +2,665 | +2,682 | prior |
 | `baseline_noise_cv` | -0.01 | +2,658 | +2,655 | verified |
+| `tierc_lot20k_share` | -0.00 | +2,747 | +2,718 | prior |
 
 ## By municipality (5-year P50 increment)
 
@@ -175,4 +194,4 @@ Spearman rank correlation between each sampled parameter and the scenario's five
 | Woonsocket | 1,008 | +40 | +8 | +12 | +44 | +8 | +8 | +90 |
 
 ---
-_Generated 2026-10-04T20:40+00:00 by `headroom report`._
+_Generated 2026-10-04T20:44+00:00 by `headroom report`._
