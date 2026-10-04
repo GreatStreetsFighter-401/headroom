@@ -103,6 +103,26 @@ SOURCES: dict[str, Source] = {
             "B25024 units in structure, B25002 occupancy, B25003 tenure.",
         ),
         Source(
+            "census_acs_sf",
+            "American Community Survey 5-year estimates — table-based summary files",
+            "U.S. Census Bureau",
+            "https://www2.census.gov/programs-surveys/acs/summary_file/",
+            "Public domain (U.S. federal government work). No API key needed.",
+            "One pipe-delimited file per table for every geography in the country (≈48 MB each); "
+            "the acquisition streams the file and keeps only the state's county subdivisions. "
+            "Geography names and codes from the Geos{year}5YR.txt index.",
+        ),
+        Source(
+            "ri_transit_master_plan",
+            "Transit Forward RI 2040 — regional mobility hubs",
+            "Rhode Island Division of Statewide Planning / RIPTA (2020 Transit Master Plan)",
+            "https://www.ripta.com/wp-content/uploads/2021/07/SPC-9-10-20.pdf",
+            "State of Rhode Island public record.",
+            "The eight regional mobility hubs the plan names, encoded in data/ri_mobility_hubs.csv "
+            "with coordinates taken from RIPTA's GTFS stops; the statute (§ 45-24-33(a)(28)) "
+            "defers to this plan for the definition.",
+        ),
+        Source(
             "eoh_integrated_2025",
             "2025 Integrated Housing Report",
             "Rhode Island Executive Office of Housing (published 2026-04-15; attested by the "
@@ -218,6 +238,50 @@ def fetch(
         path=path,
         content_type=resp.headers.get("Content-Type", ""),
     )
+    return path
+
+
+def fetch_filtered(
+    url: str,
+    *,
+    name: str,
+    source_id: str,
+    keep,
+    refresh: bool = False,
+    timeout: int = 300,
+) -> Path:
+    """Stream a large text file and cache only the lines ``keep(line)`` accepts.
+
+    For the Census summary files, which carry every geography in the country
+    in one 48 MB file per table: the cache keeps the state's rows (a few KB)
+    and the manifest records the source URL and the SHA-256 of what was kept,
+    together with the SHA-256 of the full stream, so a republished file is
+    still detectable.
+    """
+    if source_id not in SOURCES:
+        raise KeyError(f"Unregistered source id {source_id!r}; add it to SOURCES")
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    path = CACHE_DIR / _slug(name)
+    if path.exists() and not refresh:
+        return path
+    full_hash = hashlib.sha256()
+    kept: list[str] = []
+    with requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=timeout, stream=True) as resp:
+        resp.raise_for_status()
+        for raw in resp.iter_lines(decode_unicode=False):
+            full_hash.update(raw)
+            full_hash.update(b"\n")
+            line = raw.decode("utf-8-sig", errors="replace")
+            if keep(line):
+                kept.append(line)
+    tmp = path.with_suffix(path.suffix + ".part")
+    tmp.write_text("\n".join(kept) + "\n", encoding="utf-8")
+    tmp.replace(path)
+    entry = record(_slug(name), source_id=source_id, url=url, path=path, content_type="text/plain")
+    m = _load_manifest()
+    m["entries"][entry["name"]]["sha256_full_stream"] = full_hash.hexdigest()
+    m["entries"][entry["name"]]["lines_kept"] = len(kept)
+    _save_manifest(m)
     return path
 
 

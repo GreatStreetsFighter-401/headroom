@@ -80,8 +80,11 @@ modelled, the Rhode Island law in force, and what each cannot tell a policymaker
 Per municipality: a blend of the 2018–2025 linear trend and the 2023–2025 mean (the blend
 weight is sampled uniformly, because 2025 was the highest permit year since the late 1980s
 and whether it is a level or a peak is not knowable), times level noise plus Poisson count
-noise, capped statewide by a construction-capacity ceiling (no year on record exceeds ~7,300
-units).
+noise. A statewide construction-capacity ceiling — a multiple of the state's own recent
+annual permits, default 2×, because Rhode Island's record year (≈ 7,300 in 1986–87) was
+about 2.4× today's level — applies to the baseline and to every scenario total, so a stacked
+reform cannot exceed what the industry has ever delivered. Being a multiple, the same
+ceiling scales to any state.
 
 **Hindcast.** The baseline is the only component with a time series to test against, so it
 is tested out of sample: fit on 2018–2023, predict 2024–2025, score against what happened.
@@ -113,18 +116,21 @@ let the rate vary by town.
 
 | Scenario | Five-year increment over baseline, P10 / P50 / P90 |
 |---|---|
-| Baseline (level) | 16,189 / 18,601 / 21,387 |
-| Accessory dwelling units | +432 / +1,162 / +3,174 |
+| Baseline (level) | 16,189 / 18,607 / 21,434 |
+| Accessory dwelling units | +432 / +1,162 / +3,173 |
 | Missing middle (2–6 units) | +97 / +357 / +1,260 |
 | Parking minimums reduced | +69 / +201 / +499 |
-| Fees −50 % at the handbook's $50,000 | +427 / +820 / +1,492 |
+| Fees −50 % at the handbook's $50,000 | +426 / +820 / +1,493 |
 | Fees −50 % at Rhode Island's actual fees | +70 / +142 / +280 |
-| Transit-oriented density | +112 / +337 / +950 |
+| Transit-oriented density | +127 / +372 / +1,047 |
+| All five together (fees at RI level; upper bound) | +1,549 / +2,708 / +4,644 |
 
 Against the Housing 2030 goal of 15,000 permits over 2026–2030, the baseline median already
 clears it; the reforms add between a few hundred and a few thousand units each over five
-years, with ADUs the largest single channel. Full tables, by year and by municipality, are in
-`docs/generated/results_tierB.md`; the three tiers side by side in `docs/generated/tiers.md`.
+years, with ADUs the largest single channel, and all five together about 15 % on top of the
+baseline (an upper bound: increments are added and only the capacity ceiling limits the sum).
+Full tables, by year and by municipality, are in `docs/generated/results_tierB.md`; the three
+tiers side by side in `docs/generated/tiers.md`.
 
 ## 8. Sensitivity
 
@@ -148,19 +154,33 @@ collects assessor land-value ratios before the deadline.
   description text says nothing about allowed uses, and the statewide share applies there.
 * Effects of state funding (the housing bond), interest rates or construction labour beyond
   the statewide capacity ceiling.
-* Interactions between scenarios beyond the shared cost channel; scenarios are reported one
-  at a time.
-* The transit "hub" definition: until the 2020 Transit Master Plan's list is encoded, hubs are
-  stops served by six or more routes, which finds downtown Providence and the Pawtucket–
-  Central Falls transit centre and little else.
+* Interactions between scenarios beyond the shared cost channel; the "all five together"
+  line adds the increments and caps the total, nothing more.
+* Which transit stops are "frequent" beyond the schedule: four peak departures an hour is
+  the Transit Master Plan's 15-minute standard applied to RIPTA's published timetable, not
+  a ridership measure. The eight regional mobility hubs are the plan's own list
+  (`data/ri_mobility_hubs.csv`), located at their RIPTA stops.
 
 ## 10. Replicability
 
 * **Tiers.** The same model runs at three input tiers; tier C needs only the Census permit
-  survey and ACS structure counts, which every state has. The tier comparison chapter shows
-  what the State layer and the ordinance reading buy — for Rhode Island, tier C's ADU and
+  survey and ACS structure counts, which every state has, and both are read from Census
+  files that need no API key (the Building Permits Survey place files and the ACS table-based
+  summary files, streamed and filtered to the state). The tier comparison chapter shows what
+  the State layer and the ordinance reading buy — for Rhode Island, tier C's ADU and
   missing-middle ranges are within a few percent of tier B's (because the tier-C shares were
   set from tier B), and tier C cannot run the transit scenario at all.
+* **Two more states, run.** `headroom build --state MA && headroom run --state MA` (and CT)
+  produce tier-C results from federal data alone, in under a minute each, with no state-
+  specific code: Massachusetts (351 county subdivisions, 347 with a permit series) baseline
+  61,412 / 69,513 / 77,902 permits over 2027–2031, ADU +2,469 / +6,687 / +17,526; Connecticut
+  (169) baseline 31,474 / 36,412 / 41,951, ADU +1,433 / +3,881 / +10,135. Two caveats are
+  printed with them: the permit level is the Census series as published (Rhode Island's
+  undercounts by half and theirs may too), and the eligibility shares are Rhode Island's
+  tier-B values until replaced with the state's own.
+* **A cross-check that costs nothing.** The State report's ACS tables (units by structure
+  type, all 39 towns) are compared with the Census summary file at build time; they agree
+  town for town, which is recorded in `out/build/towns_tierB.json` and the data chapter.
 * **Reproducibility check.** `headroom check` compares a run's statewide results with the
   committed reference in `out/reference/`; the workflow in `.github/workflows/reproduce.yml`
   re-acquires every source weekly and fails on drift, so a republished source or a changed

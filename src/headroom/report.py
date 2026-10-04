@@ -20,7 +20,7 @@ from headroom.acquire.base import sources_table
 from headroom.ledger import load as load_ledger
 
 DOCS = ROOT / "docs" / "generated"
-SCEN_ORDER = ("adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod")
+SCEN_ORDER = ("adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod", "combined")
 SCEN_LABEL = {
     "adu": "Accessory dwelling units",
     "missing_middle": "Missing middle (2–6 units on single-family lots)",
@@ -28,6 +28,7 @@ SCEN_LABEL = {
     "fees_handbook": "Fee reduction (handbook $50,000 baseline)",
     "fees_ri": "Fee reduction (Rhode Island actual fees)",
     "tod": "Transit-oriented density",
+    "combined": "All five together (fees at RI level; upper bound, capped)",
 }
 
 

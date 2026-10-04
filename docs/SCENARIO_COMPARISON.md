@@ -71,15 +71,25 @@ collected; the direction of the finding does not depend on it.
 
 *Allow more height and floor area near frequent transit, with less parking.*
 
-**Change:** about **+340 homes** (range +110 to +950).
-**What drives it:** residential land within ⅛ mile of a frequent stop or ¼ mile of a hub —
-the distances Rhode Island wrote into law in 2026 — times the gap between a 20-home-per-acre
-allowance and today's minimum-lot density, times a slow realisation rate: upzoned land near
-transit builds out over decades, not years.
+**Change:** about **+370 homes** (range +130 to +1,050).
+**What drives it:** residential land within ⅛ mile of a frequent stop or ¼ mile of one of
+the eight regional mobility hubs named in the State's Transit Master Plan — the distances
+Rhode Island wrote into law in 2026 — times the gap between a 20-home-per-acre allowance and
+today's minimum-lot density, times a slow realisation rate: upzoned land near transit builds
+out over decades, not years.
 **How sure:** least sure of the five. "Frequent" is read from RIPTA's schedule (four
-departures an hour at peak); "hub" is a proxy (six or more routes) until the Transit Master
-Plan's list is encoded, and it finds downtown Providence and Pawtucket and little else.
+departures an hour at peak, the plan's 15-minute standard); the realisation rate is borrowed
+from other cities' station areas.
 **What it cannot say:** site assembly, infrastructure limits, design review.
+
+## All five together
+
+**Change:** about **+2,700 homes** (range +1,550 to +4,640), roughly 15 % on top of the
+baseline. This is an upper bound: the five increments are simply added, with fees at Rhode
+Island's actual level, and only the statewide capacity ceiling limits the sum. No interaction
+between reforms is modelled, and the ceiling (a multiple of today's permit level, because the
+building industry can roughly double its output in a boom and no more) is what keeps the
+total honest.
 
 ## Reading the five together
 
@@ -93,3 +103,7 @@ Plan's list is encoded, and it finds downtown Providence and Pawtucket and littl
 * The three data tiers give nearly the same ranges for ADUs and missing middle, because the
   ordinance reading mostly refines *where* the homes land rather than how many; the transit
   scenario needs a zoning layer and cannot run from Census data alone.
+* The same tool, pointed at Massachusetts or Connecticut with no state-specific code, gives
+  their Census-only answers in under a minute — with the stated caveat that their permit
+  counts are the Census series as published and their eligibility shares are borrowed from
+  Rhode Island until replaced.

@@ -49,26 +49,37 @@ def _int(s: str) -> int:
     return int(s) if s else 0
 
 
-def fetch_year(year: int, *, refresh: bool = False) -> list[dict]:
-    """Rhode Island rows for one year, keyed to canonical municipality names."""
+def fetch_year(
+    year: int,
+    *,
+    refresh: bool = False,
+    state_fips: str = STATE_FIPS_RI,
+    mcd_to_name: dict[str, str] | None = None,
+) -> list[dict]:
+    """One state's rows for one year, keyed to municipality names by MCD code.
+
+    Rhode Island's 39 towns are the default mapping; another state passes the
+    MCD → name mapping read from the Census geography index (``acquire.geos``).
+    """
     path = fetch(
         BASE.format(year=year),
         name=f"bps_place_ne_{year}a.txt",
         source_id="census_bps",
         refresh=refresh,
     )
+    mapping = mcd_to_name if mcd_to_name is not None else MCD_TO_MUNICIPALITY
     text = path.read_text(encoding="latin-1")
     rows: list[dict] = []
     reader = csv.reader(io.StringIO(text))
     for i, rec in enumerate(reader):
         if i < 2 or len(rec) < 28:
             continue
-        if rec[COLS["state"]].strip() != STATE_FIPS_RI:
+        if rec[COLS["state"]].strip() != str(state_fips).zfill(2):
             continue
         mcd = rec[COLS["mcd"]].strip()
-        muni = MCD_TO_MUNICIPALITY.get(mcd)
+        muni = mapping.get(mcd)
         if muni is None:
-            # A place that is not one of the 39 municipalities (none expected in RI).
+            # A permit-issuing place that is not a county subdivision we track.
             continue
         u1, u2, u34, u5 = (
             _int(rec[COLS["u1_units"]]),
@@ -96,8 +107,14 @@ def fetch_year(year: int, *, refresh: bool = False) -> list[dict]:
     return rows
 
 
-def fetch_years(years: range | list[int], *, refresh: bool = False) -> list[dict]:
+def fetch_years(
+    years: range | list[int],
+    *,
+    refresh: bool = False,
+    state_fips: str = STATE_FIPS_RI,
+    mcd_to_name: dict[str, str] | None = None,
+) -> list[dict]:
     out: list[dict] = []
     for y in years:
-        out.extend(fetch_year(int(y), refresh=refresh))
+        out.extend(fetch_year(int(y), refresh=refresh, state_fips=state_fips, mcd_to_name=mcd_to_name))
     return out

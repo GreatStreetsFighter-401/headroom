@@ -48,6 +48,16 @@ def test_run_shapes_and_monotone_percentiles():
     assert set(res["towns"]) == {"Alpha", "Beta"}
 
 
+def test_combined_is_at_most_the_sum_and_at_least_the_largest_part():
+    ledger = load()
+    res = Model(ledger, _towns(), draws=300, seed=11).run()
+    sw = res["statewide"]
+    parts = ["adu", "missing_middle", "parking", "fees_ri", "tod"]
+    total = sum(sw[s]["five_year_mean"] for s in parts)
+    assert sw["combined"]["five_year_mean"] <= total + 1e-6
+    assert sw["combined"]["five_year_mean"] >= max(sw[s]["five_year_mean"] for s in parts) - 1e-6
+
+
 def test_adu_increment_is_zero_where_every_lot_is_already_eligible():
     ledger = load()
     res = Model(ledger, _towns(), draws=200, seed=2).run()

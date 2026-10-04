@@ -3,7 +3,7 @@
    those files; the sliders rescale medians client-side and say so. */
 (function () {
   "use strict";
-  const SCEN = ["adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod"];
+  const SCEN = ["adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod", "combined"];
   const LABEL = {
     baseline: "Baseline (current law)",
     adu: "Accessory dwelling units",
@@ -12,6 +12,7 @@
     fees_handbook: "Fees −50 % ($50k baseline)",
     fees_ri: "Fees −50 % (RI actual fees)",
     tod: "Transit-oriented density",
+    combined: "All five together (upper bound)",
   };
   // Which ledger parameter each scenario's median scales linearly with.
   const SLIDER = {
@@ -21,6 +22,7 @@
     fees_handbook: "supply_cost_elasticity",
     fees_ri: "supply_cost_elasticity",
     tod: "tod_realization_rate_annual",
+    combined: null,
   };
   const fmt = (v) => Math.round(v).toLocaleString("en-US");
   const el = (id) => document.getElementById(id);
@@ -50,14 +52,33 @@
     el("why-close").addEventListener("click", () => { el("why").hidden = true; });
     el("why").addEventListener("click", (e) => { if (e.target === el("why")) el("why").hidden = true; });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") el("why").hidden = true; });
+    try { state.calibration = await (await fetch("data/calibration.json")).json(); } catch (e) { state.calibration = null; }
+    try { state.hindcast = await (await fetch("data/hindcast.json")).json(); } catch (e) { state.hindcast = null; }
     render();
     renderScenarios();
     renderData();
     renderSliders();
+    renderValidation();
+  }
+
+  function renderValidation() {
+    const box = el("validation"); if (!box) return; box.innerHTML = "";
+    const c = state.calibration, hc = state.hindcast;
+    if (c) {
+      box.append(h("p", {}, h("strong", {}, "ADU calibration. "),
+        `Under current law the model counts ${fmt(c.eligible_lots_detached_by_right_today_sewer_adjusted)} single-family lots eligible for a detached ADU by right (sewer-adjusted) and ${fmt(c.eligible_lots_conversion_sewer_adjusted)} for a within-footprint conversion. With the default rates it implies ${fmt(c.implied_2024_if_ramp_year_1)} ADU permits in 2024 if that was ramp year one and ${fmt(c.implied_2024_if_ramp_year_2)} if year two; Rhode Island permitted ${c.observed_2024_adu_permits} (${c.observed_source}). `,
+        h("button", { class: "why-link", onclick: () => why("adu_uptake_detached_annual") }, "why")));
+    }
+    if (hc) {
+      box.append(h("p", {}, h("strong", {}, "Baseline hindcast. "),
+        `Fit on 2018–${hc.fit_through}, scored on ${hc.test_years.join(" and ")} (Census level, ${hc.n_town_years} town-years): mean absolute error of the median ${hc.mean_absolute_error_p50} units per town-year; statewide the median was ${hc.statewide_error_pct}% off (${fmt(hc.statewide_p50)} vs ${fmt(hc.statewide_observed)} observed) — a trend through ${hc.fit_through} misses the 2024–25 surge; ${Math.round(hc.share_inside_p10_p90 * 100)}% of observed town-years fell inside the P10–P90 band. `,
+        h("button", { class: "why-link", onclick: () => why("baseline_noise_cv") }, "why")));
+    }
+    if (!c && !hc) box.textContent = "Run `headroom hindcast` and `headroom site` to populate.";
   }
 
   function res() { return state.results[state.tier] || state.results.B; }
-  function scaleFor(s) { return s === "baseline" ? 1 : (state.scale[SLIDER[s]] || 1); }
+  function scaleFor(s) { return (s === "baseline" || !SLIDER[s]) ? 1 : (state.scale[SLIDER[s]] || 1); }
 
   function render() {
     const r = res();
@@ -83,7 +104,8 @@
     const c = h("div", { class: "card", style: `border-top-color: var(--${s})` },
       h("h3", {}, title), h("div", { class: "big" }, big), h("div", { class: "range" }, range),
       h("div", { class: "note" }, note));
-    if (s !== "baseline") c.append(h("button", { class: "why-link", onclick: () => why(SLIDER[s]) }, "why this number"));
+    if (s !== "baseline" && SLIDER[s]) c.append(h("button", { class: "why-link", onclick: () => why(SLIDER[s]) }, "why this number"));
+    if (s === "combined") c.append(h("button", { class: "why-link", onclick: () => why("statewide_capacity_multiple") }, "why capped"));
     return c;
   }
 
@@ -112,7 +134,7 @@
     const legend = h("div", { class: "legend-html" });
     for (const s of series) legend.append(h("span", { style: `color: var(--${s.k})` }, LABEL[s.k]));
     el("chart").append(legend);
-    el("chart-note").textContent = `Scenario lines are baseline plus that scenario's median increment, one at a time. Shaded band: baseline P10–P90. Statewide capacity ceiling (ledger: statewide_permit_capacity) applies to every draw.`;
+    el("chart-note").textContent = `Scenario lines are baseline plus that scenario's median increment, one at a time. Shaded band: baseline P10–P90. A statewide capacity ceiling (ledger: statewide_capacity_multiple, a multiple of the recent permit level) applies to every total.`;
   }
 
   function renderSliders() {

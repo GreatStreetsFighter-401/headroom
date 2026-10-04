@@ -15,6 +15,10 @@ import numpy as np
 from headroom.ledger import Ledger
 
 SCENARIOS = ("adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod")
+# The five enacted together (fees at the state's actual level), reported as an
+# upper bound: increments are added and only the statewide capacity ceiling
+# limits the sum; no interaction between reforms is modelled.
+COMBINED = ("adu", "missing_middle", "parking", "fees_ri", "tod")
 PCTS = (10, 50, 90)
 
 
@@ -103,6 +107,7 @@ class Model:
         # Census BPS → State-survey level (data), times its uncertainty (ledger).
         ratio = float((self.towns_meta.get("permit_undercount") or {}).get("eoh_to_bps_ratio_2025", 1.0))
         scale = ratio * p["permit_undercount_adjustment"]
+        recent_total = np.zeros(N)
         for j, name in enumerate(self.names):
             t = self.towns[name]
             hist = {int(k): v for k, v in t["permits_bps"].items()}
@@ -111,12 +116,18 @@ class Model:
             w = p["baseline_trend_weight"][:, None]
             expected = (w * trend[None, :] + (1 - w) * recent) * scale[:, None]
             out[:, j, :] = expected * level_noise(expected, p["baseline_noise_cv"], rng)
-        # Statewide construction-capacity ceiling, applied per draw and year.
-        total = out.sum(axis=1)  # (N, Y)
-        cap = p["statewide_permit_capacity"][:, None]
-        scale = np.where(total > cap, cap / np.maximum(total, 1e-9), 1.0)
-        out *= scale[:, None, :]
-        return out
+            recent_total += recent * scale
+        # Statewide construction-capacity ceiling: a multiple of the state's own
+        # recent annual level, so the same ledger entry scales to any state.
+        self.ceiling = p["statewide_capacity_multiple"] * recent_total  # (N,)
+        return self.cap_total(out)
+
+    def cap_total(self, arr: np.ndarray) -> np.ndarray:
+        """Scale every town down proportionally in any draw-year above the ceiling."""
+        total = arr.sum(axis=1)  # (N, Y)
+        ceiling = self.ceiling[:, None]
+        scale = np.where(total > ceiling, ceiling / np.maximum(total, 1e-9), 1.0)
+        return arr * scale[:, None, :]
 
     # ------------------------------------------------------------ scenarios
     def increments(self, p: dict, base: np.ndarray) -> dict[str, np.ndarray]:
@@ -178,6 +189,12 @@ class Model:
                 net = np.maximum(0.0, dens - cur[None, :]) * area[None, :]
                 cap = net.sum(axis=1)
                 inc["tod"][:, j, :] = (cap * p["tod_realization_rate_annual"])[:, None] * tod_ramp
+
+        # The ceiling applies to every scenario total, and to all five together.
+        combined = sum(inc[s] for s in COMBINED)
+        for s in SCENARIOS:
+            inc[s] = np.maximum(0.0, self.cap_total(base + inc[s]) - base)
+        inc["combined"] = np.maximum(0.0, self.cap_total(base + combined) - base)
         return inc
 
     # ------------------------------------------------------------ run

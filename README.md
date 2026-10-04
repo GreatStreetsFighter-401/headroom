@@ -66,9 +66,12 @@ headroom acquire                                 # fetch every input from its so
 headroom build --tier all                        # Stage 1 at tiers A, B, C
 headroom run --tier all                          # Stage 2 Monte Carlo (2,000 draws, seeded)
 headroom calibrate                               # implied vs observed 2024 ADU permits
+headroom hindcast                                # fit the baseline through 2023, score 2024–2025
 headroom explain adu_uptake_detached_annual      # any ledger entry
 headroom report                                  # generate docs/generated/*.md
 headroom site                                    # publish results into site/ (open site/index.html)
+headroom check                                   # compare with the committed reference results
+headroom build --state MA && headroom run --state MA   # any other state, tier C, Census data only
 ```
 
 The acquisition step downloads about 100 MB (the statewide structure layer is 420,000 points)

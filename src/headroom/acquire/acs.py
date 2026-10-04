@@ -85,6 +85,73 @@ def fetch_acs(year: int = 2023, *, refresh: bool = False) -> list[dict] | None:
     return out
 
 
+SF_URL = (
+    "https://www2.census.gov/programs-surveys/acs/summary_file/{year}/table-based-SF/data/5YRData/"
+    "acsdt5y{year}-{table}.dat"
+)
+SF_TABLES = ("b25024", "b25002", "b25003")
+_SF_COLS = {
+    # table-based summary file column name → our field (estimates only)
+    "B25024_E001": "units_total",
+    "B25024_E002": "units_1_detached",
+    "B25024_E003": "units_1_attached",
+    "B25024_E004": "units_2",
+    "B25024_E005": "units_3_4",
+    "B25024_E006": "units_5_9",
+    "B25024_E007": "units_10_19",
+    "B25024_E008": "units_20_49",
+    "B25024_E009": "units_50plus",
+    "B25024_E010": "units_mobile",
+    "B25002_E002": "occupied",
+    "B25002_E003": "vacant",
+    "B25003_E002": "owner_occupied",
+    "B25003_E003": "renter_occupied",
+}
+
+
+def _sf_rows(path, geo_prefix: str) -> dict[str, dict[str, int]]:
+    """Parse a filtered summary-file table into GEO_ID → {column: value}."""
+    lines = path.read_text(encoding="utf-8").splitlines()
+    if not lines:
+        return {}
+    header = lines[0].split("|")
+    out: dict[str, dict[str, int]] = {}
+    for line in lines[1:]:
+        parts = line.split("|")
+        if not parts or not parts[0].startswith(geo_prefix):
+            continue
+        rec = {}
+        for col, val in zip(header[1:], parts[1:], strict=False):
+            if col in _SF_COLS:
+                rec[_SF_COLS[col]] = int(val) if val not in ("", ".", "-", None) else None
+        out[parts[0]] = rec
+    return out
+
+
+def fetch_summary_stock(state_fips: str, *, year: int = 2024, refresh: bool = False) -> dict[str, dict]:
+    """Units in structure, occupancy and tenure for one state's county subdivisions,
+    read from the table-based summary files (no API key). Keyed by GEO_ID."""
+    from headroom.acquire.base import fetch_filtered
+
+    state_fips = str(state_fips).zfill(2)
+    prefix = f"0600000US{state_fips}"
+    merged: dict[str, dict] = {}
+    for table in SF_TABLES:
+        path = fetch_filtered(
+            SF_URL.format(year=year, table=table),
+            name=f"acs_sf_{year}_{table}_cousub_{state_fips}.dat",
+            source_id="census_acs_sf",
+            keep=lambda line, p=prefix: line.startswith("GEO_ID") or line.startswith(p),
+            refresh=refresh,
+        )
+        for geo, rec in _sf_rows(path, prefix).items():
+            merged.setdefault(geo, {"geo_id": geo, "acs_year": year, "source": "census_acs_sf"}).update(rec)
+    for rec in merged.values():
+        rec["units_1"] = (rec.get("units_1_detached") or 0) + (rec.get("units_1_attached") or 0)
+        rec["units_5plus"] = sum((rec.get(k) or 0) for k in ("units_5_9", "units_10_19", "units_20_49", "units_50plus"))
+    return merged
+
+
 def write_csv(rows: list[dict], path) -> None:
     with open(path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))

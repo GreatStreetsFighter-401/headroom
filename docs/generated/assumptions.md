@@ -17,7 +17,7 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 | `baseline_trend_weight` — Weight on the linear trend versus the recent mean | 0.5 share (0 = recent three-year mean, 1 = 2018–2025 linear trend) | 0.0 – 1.0 (uniform) | design | Modelling choice; Census Building Permits Survey 2018–2025 by place. |
 | `permit_undercount_adjustment` — Uncertainty on the Census-to-State permit scaling ratio | 1.0 multiplier on the computed 2025 ratio (State survey ÷ Census BPS) | 0.8 – 1.2 (triangular) | verified | EOH 2025 Integrated Housing Report, Fig. 2.1 (3,778 units permitted in 2025, municipal survey) and Fig. 2.2 note ("this data is used as it is more accurate than the Census survey"); Census BPS place file ne2025a.txt (1,738 units for the same 39 places). |
 | `baseline_noise_cv` — Year-to-year noise in municipal permits (coefficient of variation) | 0.35 share of the expected value, on top of count (Poisson) noise | 0.15 – 0.6 (triangular) | verified | Residuals of each municipality's 2018–2025 Census BPS series around its linear trend; the median coefficient of variation across the 39 towns is 0.40 (computed at the 2026-10-04 build by `pipeline.noise_cv_from_history`). |
-| `statewide_permit_capacity` — Statewide ceiling on annual permits (construction capacity) | 6000.0 units per year | 4000.0 – 8000.0 (triangular) | prior | Units permitted 1980–2025 (EOH 2025 Integrated Housing Report, Fig. 2.2: peak ≈ 7,300 in 1986–87); BLS construction employment, Rhode Island. |
+| `statewide_capacity_multiple` — Statewide ceiling on annual permits, as a multiple of the recent level (construction capacity) | 2.0 multiple of the state's mean annual permits over the last three years (at the scaled level) | 1.5 – 3.0 (triangular) | prior | Units permitted 1980–2025 (EOH 2025 Integrated Housing Report, Fig. 2.2: the record, ≈ 7,300 in 1986–87, is about 2.4 × the 2023–2025 mean at the State-survey level); BLS construction employment, Rhode Island. |
 
 ### `baseline_trend_weight`
 
@@ -35,9 +35,9 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 
 **Why this value.** Small towns permit 5–50 units a year and a single project moves a year by half. The model adds Poisson count noise to this level noise, so the parameter is set a little below the raw residual CV, which already contains the count component. The hindcast (`headroom hindcast`) reports how often observed 2024–2025 values fell inside the band.
 
-### `statewide_permit_capacity`
+### `statewide_capacity_multiple`
 
-**Why this value.** Zoning creates room; builders fill it. The state has not permitted more than ~7,300 units in any year on record, and construction employment has not grown in step with 2025's permits. The cap binds only when scenarios stack.
+**Why this value.** Zoning creates room; builders fill it. A state's building industry can roughly double its recent output in a boom and no more within five years, which is what Rhode Island's own record shows. Expressed as a multiple so the same ceiling scales to any state; it is applied to the baseline and to every scenario total, so a stacked reform cannot exceed what the industry has ever delivered.
 
 ## Accessory dwelling units
 
@@ -160,7 +160,7 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 | `dev_cost_per_unit_mf` — All-in development cost per multifamily unit | 400000.0 USD per unit | 300000.0 – 550000.0 (triangular) | prior | RIHousing-financed developments 2023–2025 (public awards); market multifamily pro formas. |
 | `supply_cost_elasticity` — Elasticity of new units with respect to per-unit development cost | 0.8 percent change in permits per one percent fall in cost | 0.3 – 1.5 (lognormal) | prior | Baum-Snow & Duranton (2025): tract-level unit-supply elasticity to price ≈ 0.5 across 306 metros; Saiz (2010) metro elasticities; cost-side responses are typically of the same order over a five-year horizon. |
 | `tod_frequent_peak_departures_per_hour` — Peak-hour departures that make a stop a "frequent transit stop" | 4.0 scheduled departures per hour, 7–9 am weekday | 2.0 – 6.0 (triangular) | prior | 2020 Rhode Island Transit Master Plan (frequent service network at 15-minute headways), referenced by § 45-24-33(a)(28); RIPTA GTFS feed. |
-| `tod_hub_min_routes` — Distinct routes serving a stop for it to count as a regional mobility hub | 6.0 routes | 4.0 – 10.0 (triangular) | placeholder | 2020 Rhode Island Transit Master Plan names the hubs; this proxy stands in until the list is encoded. |
+| `tod_hub_min_routes` — Distinct routes serving a stop for it to count as a regional mobility hub (fallback only) | 6.0 routes | 4.0 – 10.0 (triangular) | design | Used only where no named hub list exists. For Rhode Island the eight regional mobility hubs named by Transit Forward RI 2040 (the 2020 Transit Master Plan § 45-24-33(a)(28) refers to) are encoded in data/ri_mobility_hubs.csv — Kennedy Plaza, Providence Station, Jewelry District, Pawtucket Downtown, Woonsocket Downtown, Warwick/CCRI, Newport Gateway Center, Wickford Junction — with coordinates from RIPTA's GTFS stops. |
 
 ### `parking_required_mf_baseline`
 
@@ -194,7 +194,7 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 
 ### `tod_hub_min_routes`
 
-**Why this value.** Kennedy Plaza, Pawtucket–Central Falls and the other named hubs all carry many routes; the proxy finds them and little else.
+**Why this value.** A route-count proxy finds downtown Providence and Pawtucket and little else; the named list is what the statute points at. Another state without a hub list gets the proxy and this range.
 
 ## Development fee reduction
 
@@ -257,7 +257,7 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 | `parking_cost_per_space` — Construction cost of one off-street parking space | 20000.0 USD per space | 8000.0 – 45000.0 (triangular) | prior | Surface spaces $5,000–15,000; structured $25,000–50,000 (industry cost surveys and the Seattle estimate of $537 million saved on 40 % less parking). |
 | `dev_cost_per_unit_mf` — All-in development cost per multifamily unit | 400000.0 USD per unit | 300000.0 – 550000.0 (triangular) | prior | RIHousing-financed developments 2023–2025 (public awards); market multifamily pro formas. |
 | `tod_frequent_peak_departures_per_hour` — Peak-hour departures that make a stop a "frequent transit stop" | 4.0 scheduled departures per hour, 7–9 am weekday | 2.0 – 6.0 (triangular) | prior | 2020 Rhode Island Transit Master Plan (frequent service network at 15-minute headways), referenced by § 45-24-33(a)(28); RIPTA GTFS feed. |
-| `tod_hub_min_routes` — Distinct routes serving a stop for it to count as a regional mobility hub | 6.0 routes | 4.0 – 10.0 (triangular) | placeholder | 2020 Rhode Island Transit Master Plan names the hubs; this proxy stands in until the list is encoded. |
+| `tod_hub_min_routes` — Distinct routes serving a stop for it to count as a regional mobility hub (fallback only) | 6.0 routes | 4.0 – 10.0 (triangular) | design | Used only where no named hub list exists. For Rhode Island the eight regional mobility hubs named by Transit Forward RI 2040 (the 2020 Transit Master Plan § 45-24-33(a)(28) refers to) are encoded in data/ri_mobility_hubs.csv — Kennedy Plaza, Providence Station, Jewelry District, Pawtucket Downtown, Woonsocket Downtown, Warwick/CCRI, Newport Gateway Center, Wickford Junction — with coordinates from RIPTA's GTFS stops. |
 | `tod_scenario_density_upa` — Residential density allowed inside the buffers under the scenario | 20.0 dwelling units per acre | 12.0 – 40.0 (triangular) | design | Challenge handbook scenario 3 (teams define); comparable TOD overlays (MBTA Communities 15 units/acre minimum). |
 | `tod_realization_rate_annual` — Share of net new capacity inside the buffers built per year | 0.004 share of net capacity per year, at steady state | 0.001 – 0.012 (lognormal) | prior | Build-out rates of TOD overlays and upzonings (Seattle station areas, MBTA Communities early filings, Minneapolis 2040). |
 | `tod_ramp_years` — Years for TOD development to reach its steady-state rate | 3.0 years | 1.0 – 5.0 (triangular) | prior | Same as tod_realization_rate_annual. |
@@ -280,7 +280,7 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 
 ### `tod_hub_min_routes`
 
-**Why this value.** Kennedy Plaza, Pawtucket–Central Falls and the other named hubs all carry many routes; the proxy finds them and little else.
+**Why this value.** A route-count proxy finds downtown Providence and Pawtucket and little else; the named list is what the statute points at. Another state without a hub list gets the proxy and this range.
 
 ### `tod_scenario_density_upa`
 
@@ -296,4 +296,4 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 
 
 ---
-_Generated 2026-10-04T20:29+00:00 by `headroom report`._
+_Generated 2026-10-04T20:40+00:00 by `headroom report`._

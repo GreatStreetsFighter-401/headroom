@@ -22,9 +22,27 @@ from pathlib import Path
 from headroom import DATA_DIR, OUT_DIR
 from headroom.ledger import load as load_ledger
 
+STATE_FIPS = {
+    "RI": "44",
+    "MA": "25",
+    "CT": "09",
+    "NH": "33",
+    "VT": "50",
+    "ME": "23",
+    "NJ": "34",
+    "NY": "36",
+    "PA": "42",
+}
 
-def _towns_path(tier: str) -> Path:
-    return OUT_DIR / "build" / f"towns_tier{tier.upper()}.json"
+
+def _towns_path(tier: str, state: str = "RI") -> Path:
+    suffix = "" if state.upper() == "RI" else f"_{state.upper()}"
+    return OUT_DIR / "build" / f"towns_tier{tier.upper()}{suffix}.json"
+
+
+def _results_path(tier: str, state: str = "RI") -> Path:
+    suffix = "" if state.upper() == "RI" else f"_{state.upper()}"
+    return OUT_DIR / f"results_tier{tier.upper()}{suffix}.json"
 
 
 def cmd_acquire(args) -> int:
@@ -45,6 +63,19 @@ def cmd_build(args) -> int:
     from headroom.build import pipeline
 
     ledger = load_ledger()
+    state = (getattr(args, "state", "RI") or "RI").upper()
+    if state != "RI":
+        # Another state: tier C only, from federal data alone.
+        if state not in STATE_FIPS:
+            print(f"unknown state {state!r}; known: {', '.join(STATE_FIPS)}", file=sys.stderr)
+            return 2
+        out = pipeline.build_state_tier_c(STATE_FIPS[state], state)
+        print(f"tier C ({state}): {_towns_path('C', state)}")
+        print(
+            f"  county subdivisions: {out['n_county_subdivisions']}; with a permit series: "
+            f"{out['n_with_permit_series']}; stock from: {out['stock_source']}"
+        )
+        return 0
     inputs = pipeline.acquire_all(refresh=False, with_transit=not args.no_transit)
     tiers = ["A", "B", "C"] if args.tier == "all" else [args.tier.upper()]
     params_path = Path(args.params) if args.params else (DATA_DIR / "district_params_ri.csv")
@@ -77,6 +108,12 @@ def cmd_build(args) -> int:
             "| EOH:",
             "ok" if out["eoh_available"] else out["eoh_error"],
         )
+        if out.get("stock_cross_check"):
+            cc = out["stock_cross_check"]
+            print(
+                "  State report vs Census summary file (ACS units by town):",
+                "agree" if cc["agree"] else f"{len(cc['mismatches'])} mismatches {cc['mismatches'][:3]}",
+            )
     return 0
 
 
@@ -84,25 +121,33 @@ def cmd_run(args) -> int:
     from headroom.model.core import Model
 
     ledger = load_ledger()
-    tiers = ["A", "B", "C"] if args.tier == "all" else [args.tier.upper()]
+    state = (getattr(args, "state", "RI") or "RI").upper()
+    if state != "RI":
+        tiers = ["C"]
+    else:
+        tiers = ["A", "B", "C"] if args.tier == "all" else [args.tier.upper()]
     for tier in tiers:
-        p = _towns_path(tier)
+        p = _towns_path(tier, state)
         if not p.exists():
-            print(f"no build for tier {tier}; run `headroom build --tier {tier}`", file=sys.stderr)
+            print(
+                f"no build for tier {tier} ({state}); run `headroom build --tier {tier} --state {state}`",
+                file=sys.stderr,
+            )
             return 2
         towns = json.loads(p.read_text())
         model = Model(ledger, towns, draws=args.draws, seed=args.seed)
         res = model.run()
-        out = OUT_DIR / f"results_tier{tier}.json"
+        res["meta"]["state"] = state
+        out = _results_path(tier, state)
         out.write_text(json.dumps(res, indent=1))
         sw = res["statewide"]
-        print(f"tier {tier} → {out}")
+        print(f"tier {tier} ({state}) → {out}")
         print(
             f"  baseline 5-yr permits  P10/P50/P90: "
             f"{sw['baseline']['five_year']['p10']:.0f} / {sw['baseline']['five_year']['p50']:.0f} / "
             f"{sw['baseline']['five_year']['p90']:.0f}"
         )
-        for s in ("adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod"):
+        for s in ("adu", "missing_middle", "parking", "fees_handbook", "fees_ri", "tod", "combined"):
             f = sw[s]["five_year"]
             print(f"  {s:16s} +{f['p10']:.0f} / +{f['p50']:.0f} / +{f['p90']:.0f}")
     return 0
@@ -199,6 +244,17 @@ def cmd_site(args) -> int:
     if manifest_path().exists():
         shutil.copy(manifest_path(), dest / "manifest.json")
         copied.append("manifest.json")
+    # Validation artefacts: the ADU calibration and the baseline hindcast.
+    from headroom.model.core import calibrate_adu
+
+    tb = _towns_path("B")
+    if tb.exists():
+        (dest / "calibration.json").write_text(json.dumps(calibrate_adu(ledger, json.loads(tb.read_text())), indent=1))
+        copied.append("calibration.json")
+    hc = OUT_DIR / "hindcast.json"
+    if hc.exists():
+        shutil.copy(hc, dest / "hindcast.json")
+        copied.append("hindcast.json")
     print("site/data:", ", ".join(copied + ["ledger.json"]))
     return 0
 
@@ -266,12 +322,14 @@ def main(argv=None) -> int:
     b.add_argument("--tier", default="B", help="A, B, C or all")
     b.add_argument("--params", default=None, help="district_params CSV (tier A)")
     b.add_argument("--no-transit", action="store_true")
+    b.add_argument("--state", default="RI", help="RI (all tiers) or another state's USPS code (tier C only)")
     b.set_defaults(fn=cmd_build)
 
     r = sub.add_parser("run", help="Stage 2: Monte Carlo over the ledger")
     r.add_argument("--tier", default="B")
     r.add_argument("--draws", type=int, default=None)
     r.add_argument("--seed", type=int, default=None)
+    r.add_argument("--state", default="RI")
     r.set_defaults(fn=cmd_run)
 
     c = sub.add_parser("calibrate", help="implied vs observed 2024 ADU permits")

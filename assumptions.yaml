@@ -210,23 +210,26 @@ parameters:
       below the raw residual CV, which already contains the count component. The hindcast
       (`headroom hindcast`) reports how often observed 2024–2025 values fell inside the band.
 
-  statewide_permit_capacity:
-    label: Statewide ceiling on annual permits (construction capacity)
+  statewide_capacity_multiple:
+    label: Statewide ceiling on annual permits, as a multiple of the recent level (construction capacity)
     scenarios: [all]
     stage: 2
-    unit: units per year
-    default: 6000
-    low: 4000
-    high: 8000
+    unit: multiple of the state's mean annual permits over the last three years (at the scaled level)
+    default: 2.0
+    low: 1.5
+    high: 3.0
     distribution: triangular
     status: prior
     source: >
-      Units permitted 1980–2025 (EOH 2025 Integrated Housing Report, Fig. 2.2: peak ≈ 7,300
-      in 1986–87); BLS construction employment, Rhode Island.
+      Units permitted 1980–2025 (EOH 2025 Integrated Housing Report, Fig. 2.2: the record,
+      ≈ 7,300 in 1986–87, is about 2.4 × the 2023–2025 mean at the State-survey level); BLS
+      construction employment, Rhode Island.
     justification: >
-      Zoning creates room; builders fill it. The state has not permitted more than ~7,300
-      units in any year on record, and construction employment has not grown in step with
-      2025's permits. The cap binds only when scenarios stack.
+      Zoning creates room; builders fill it. A state's building industry can roughly double
+      its recent output in a boom and no more within five years, which is what Rhode Island's
+      own record shows. Expressed as a multiple so the same ceiling scales to any state; it is
+      applied to the baseline and to every scenario total, so a stacked reform cannot exceed
+      what the industry has ever delivered.
 
   # --------------------------------------------------------------------- ADU
   adu_by_right_lot_sf:
@@ -598,7 +601,7 @@ parameters:
     justification: Four an hour is a 15-minute headway; the range covers 10- to 30-minute service.
 
   tod_hub_min_routes:
-    label: Distinct routes serving a stop for it to count as a regional mobility hub
+    label: Distinct routes serving a stop for it to count as a regional mobility hub (fallback only)
     scenarios: [tod, parking]
     stage: 1
     unit: routes
@@ -606,9 +609,17 @@ parameters:
     low: 4
     high: 10
     distribution: triangular
-    status: placeholder
-    source: 2020 Rhode Island Transit Master Plan names the hubs; this proxy stands in until the list is encoded.
-    justification: Kennedy Plaza, Pawtucket–Central Falls and the other named hubs all carry many routes; the proxy finds them and little else.
+    status: design
+    source: >
+      Used only where no named hub list exists. For Rhode Island the eight regional mobility
+      hubs named by Transit Forward RI 2040 (the 2020 Transit Master Plan § 45-24-33(a)(28)
+      refers to) are encoded in data/ri_mobility_hubs.csv — Kennedy Plaza, Providence Station,
+      Jewelry District, Pawtucket Downtown, Woonsocket Downtown, Warwick/CCRI, Newport Gateway
+      Center, Wickford Junction — with coordinates from RIPTA's GTFS stops.
+    justification: >
+      A route-count proxy finds downtown Providence and Pawtucket and little else; the named
+      list is what the statute points at. Another state without a hub list gets the proxy and
+      this range.
 
   tod_scenario_density_upa:
     label: Residential density allowed inside the buffers under the scenario
