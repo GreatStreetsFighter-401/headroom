@@ -1,21 +1,20 @@
 # Reproducibility check.
 #
 # Re-runs acquisition → build → model from the authoritative sources on a
-# schedule and on every push, then compares the statewide results with the
-# committed reference (out/reference/). A drift means either a source was
+# schedule and on every push to main, then compares the statewide results with
+# the committed reference (out/reference/). A drift means either a source was
 # republished (the manifest shows which) or the code changed its answer; both
 # are things a reader of the overview should be able to see. Replicable is a
 # badge you can click, not a sentence.
 #
-# This file is written for the standalone public repository (the challenge
-# entry); inside the MuniAnchor monorepo it is inert until the directory is
-# split out with `git subtree split -P headroom`.
+# The fast gate (unit tests, lint) is ci.yml; this workflow is the slow one.
 
 name: reproduce
 
 on:
   push:
-  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
   schedule:
     - cron: "17 6 * * 1"  # Mondays 06:17 UTC
 
@@ -25,13 +24,12 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - uses: astral-sh/setup-uv@v5
-      - name: Install
-        run: |
-          uv venv
-          uv pip install -e ".[dev]"
-      - name: Unit tests
-        run: uv run pytest -q
+      - name: Set up
+        run: sh scripts/setup.sh
       - name: Acquire from authoritative sources
         env:
           CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
@@ -46,7 +44,7 @@ jobs:
         run: |
           uv run headroom report
           uv run headroom site
-      - name: SBOM
+      - name: SBOM (CycloneDX, runtime dependencies; GitHub's own export is the source of truth)
         run: uv run cyclonedx-py environment --of JSON -o sbom.json .venv
       - uses: actions/upload-artifact@v4
         with:

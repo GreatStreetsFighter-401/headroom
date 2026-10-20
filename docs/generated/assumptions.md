@@ -296,4 +296,4 @@ Generated from `assumptions.yaml`. Status: **statutory** fixed by law or by the 
 
 
 ---
-_Generated 2026-10-04T20:44+00:00 by `headroom report`._
+_Generated 2026-10-20T13:28+00:00 by `headroom report`._

@@ -1,7 +1,7 @@
 """RIPTA GTFS: stops and weekday service frequency.
 
 The transit-oriented scenario needs "frequent transit stops" and "regional
-mobility hubs" in the sense of R.I.G.L. § 45-24-78. Frequency is computed
+mobility hubs" in the sense of R.I.G.L. § 45-24-33(a)(28). Frequency is computed
 from the schedule itself: for each stop, the number of scheduled weekday
 departures in the service day and in the peak window. The thresholds that
 turn a count into "frequent" are ledger parameters, not constants here.

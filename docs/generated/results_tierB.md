@@ -194,4 +194,4 @@ Spearman rank correlation between each sampled parameter and the scenario's five
 | Woonsocket | 1,008 | +40 | +8 | +12 | +44 | +8 | +8 | +90 |
 
 ---
-_Generated 2026-10-04T20:44+00:00 by `headroom report`._
+_Generated 2026-10-20T13:28+00:00 by `headroom report`._

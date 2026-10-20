@@ -15,4 +15,4 @@
 Towns with a permit series / county subdivisions: CT 169; MA 351.
 
 ---
-_Generated 2026-10-04T20:44+00:00 by `headroom report`._
+_Generated 2026-10-20T13:28+00:00 by `headroom report`._

@@ -14,4 +14,4 @@ The same model run on three input sets. Tier A adds ordinance-derived allowed us
 | All five together (fees at RI level; upper bound, capped) | +1,549 / +2,708 / +4,644 | +1,549 / +2,708 / +4,644 | +1,188 / +2,173 / +4,134 |
 
 ---
-_Generated 2026-10-04T20:44+00:00 by `headroom report`._
+_Generated 2026-10-20T13:28+00:00 by `headroom report`._

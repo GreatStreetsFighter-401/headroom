@@ -141,7 +141,7 @@ SOURCES: dict[str, Source] = {
             "https://ripta.com/RIPTA-GTFS.zip",
             "Published for public developer use.",
             "Stops, trips and stop_times used to identify frequent-transit stops for the "
-            "transit-oriented scenario per R.I.G.L. § 45-24-78.",
+            "transit-oriented scenario per R.I.G.L. § 45-24-33(a)(28).",
         ),
         Source(
             "munianchor_district_params",

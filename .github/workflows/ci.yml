@@ -1,0 +1,29 @@
+# Continuous integration: the challenge's command contract, run on every push and
+# pull request. A green check here is the evidence for the "automated tests" and
+# "reproducible setup" eligibility gates: the same two scripts a reviewer runs from
+# a clean checkout (scripts/setup.sh, scripts/test.sh) are what CI runs.
+#
+# The full acquire → build → model → check reproduction against the authoritative
+# sources runs separately in reproduce.yml (weekly, and on every push to main).
+
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v5
+      - name: Set up
+        run: sh scripts/setup.sh
+      - name: Test
+        run: sh scripts/test.sh

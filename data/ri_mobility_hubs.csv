@@ -1,0 +1,9 @@
+name,municipality,lat,lon,gtfs_stop_reference,source
+Providence / Kennedy Plaza,Providence,41.825110,-71.411145,"Kennedy Plaza (Stop D), stop 16485","Transit Forward RI 2040 (Rhode Island Transit Master Plan, 2020), regional mobility hubs; coordinates from RIPTA GTFS stops.txt (feed 2026-09-16)"
+Providence / Providence Station,Providence,41.828625,-71.412958,"Providence Station (Park Row W before Exchange), stop 72015","Transit Forward RI 2040; RIPTA GTFS"
+Providence / Jewelry District,Providence,41.819625,-71.408118,"Dyer before Ship, stop 15040","Transit Forward RI 2040; RIPTA GTFS"
+Pawtucket / Downtown,Pawtucket,41.878601,-71.391456,"Pawtucket-Central Falls Transit Center (Stop A), stop 23085","Transit Forward RI 2040; RIPTA GTFS"
+Woonsocket / Downtown,Woonsocket,42.003004,-71.513641,"Main Street (Municipal Parking Lot), stop 26015, beside Depot Square","Transit Forward RI 2040; RIPTA GTFS"
+Warwick / CCRI,Warwick,41.712537,-71.479991,"CCRI Warwick (Stop B), stop 6325","Transit Forward RI 2040; RIPTA GTFS"
+Newport / Gateway Center,Newport,41.491325,-71.313499,"Marlborough before Farewell, stop 1365 (Gateway Visitors Center)","Transit Forward RI 2040; RIPTA GTFS"
+North Kingstown / Wickford Junction,North Kingstown,41.581094,-71.491828,"Wickford Train Station (Park & Ride), stop 70540","Transit Forward RI 2040; RIPTA GTFS"

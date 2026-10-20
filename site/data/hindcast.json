@@ -1,0 +1,717 @@
+{
+ "fit_through": 2023,
+ "test_years": [
+  2024,
+  2025
+ ],
+ "n_town_years": 78,
+ "mean_absolute_error_p50": 26.9,
+ "statewide_observed": 3495.0,
+ "statewide_p50": 2414.3,
+ "statewide_error_pct": -30.9,
+ "share_inside_p10_p90": 0.603,
+ "rows": [
+  {
+   "municipality": "Barrington",
+   "year": 2024,
+   "observed": 5,
+   "p10": 0.7,
+   "p50": 4.8,
+   "p90": 12.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Barrington",
+   "year": 2025,
+   "observed": 9,
+   "p10": 0.7,
+   "p50": 5.0,
+   "p90": 12.3,
+   "inside_band": true
+  },
+  {
+   "municipality": "Bristol",
+   "year": 2024,
+   "observed": 14,
+   "p10": 11.0,
+   "p50": 18.8,
+   "p90": 30.9,
+   "inside_band": true
+  },
+  {
+   "municipality": "Bristol",
+   "year": 2025,
+   "observed": 11,
+   "p10": 11.0,
+   "p50": 18.7,
+   "p90": 31.1,
+   "inside_band": true
+  },
+  {
+   "municipality": "Burrillville",
+   "year": 2024,
+   "observed": 36,
+   "p10": 19.5,
+   "p50": 32.6,
+   "p90": 52.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Burrillville",
+   "year": 2025,
+   "observed": 27,
+   "p10": 19.8,
+   "p50": 33.3,
+   "p90": 54.3,
+   "inside_band": true
+  },
+  {
+   "municipality": "Central Falls",
+   "year": 2024,
+   "observed": 27,
+   "p10": 0.2,
+   "p50": 0.7,
+   "p90": 2.1,
+   "inside_band": false
+  },
+  {
+   "municipality": "Central Falls",
+   "year": 2025,
+   "observed": 65,
+   "p10": 0.1,
+   "p50": 0.4,
+   "p90": 1.5,
+   "inside_band": false
+  },
+  {
+   "municipality": "Charlestown",
+   "year": 2024,
+   "observed": 12,
+   "p10": 14.8,
+   "p50": 25.1,
+   "p90": 42.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "Charlestown",
+   "year": 2025,
+   "observed": 19,
+   "p10": 13.1,
+   "p50": 23.4,
+   "p90": 39.4,
+   "inside_band": true
+  },
+  {
+   "municipality": "Coventry",
+   "year": 2024,
+   "observed": 58,
+   "p10": 33.5,
+   "p50": 56.1,
+   "p90": 89.2,
+   "inside_band": true
+  },
+  {
+   "municipality": "Coventry",
+   "year": 2025,
+   "observed": 50,
+   "p10": 33.9,
+   "p50": 56.5,
+   "p90": 88.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Cranston",
+   "year": 2024,
+   "observed": 51,
+   "p10": 23.7,
+   "p50": 39.1,
+   "p90": 61.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Cranston",
+   "year": 2025,
+   "observed": 59,
+   "p10": 21.4,
+   "p50": 37.0,
+   "p90": 61.9,
+   "inside_band": true
+  },
+  {
+   "municipality": "Cumberland",
+   "year": 2024,
+   "observed": 25,
+   "p10": 20.8,
+   "p50": 35.3,
+   "p90": 58.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Cumberland",
+   "year": 2025,
+   "observed": 61,
+   "p10": 18.4,
+   "p50": 31.7,
+   "p90": 53.5,
+   "inside_band": false
+  },
+  {
+   "municipality": "East Greenwich",
+   "year": 2024,
+   "observed": 9,
+   "p10": 32.5,
+   "p50": 53.5,
+   "p90": 85.8,
+   "inside_band": false
+  },
+  {
+   "municipality": "East Greenwich",
+   "year": 2025,
+   "observed": 20,
+   "p10": 34.5,
+   "p50": 57.0,
+   "p90": 91.4,
+   "inside_band": false
+  },
+  {
+   "municipality": "East Providence",
+   "year": 2024,
+   "observed": 126,
+   "p10": 7.5,
+   "p50": 13.5,
+   "p90": 24.0,
+   "inside_band": false
+  },
+  {
+   "municipality": "East Providence",
+   "year": 2025,
+   "observed": 268,
+   "p10": 8.0,
+   "p50": 15.2,
+   "p90": 27.0,
+   "inside_band": false
+  },
+  {
+   "municipality": "Exeter",
+   "year": 2024,
+   "observed": 7,
+   "p10": 8.9,
+   "p50": 15.5,
+   "p90": 26.6,
+   "inside_band": false
+  },
+  {
+   "municipality": "Exeter",
+   "year": 2025,
+   "observed": 9,
+   "p10": 7.7,
+   "p50": 14.2,
+   "p90": 24.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Foster",
+   "year": 2024,
+   "observed": 5,
+   "p10": 2.4,
+   "p50": 4.9,
+   "p90": 9.8,
+   "inside_band": true
+  },
+  {
+   "municipality": "Foster",
+   "year": 2025,
+   "observed": 6,
+   "p10": 2.2,
+   "p50": 4.6,
+   "p90": 9.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "Glocester",
+   "year": 2024,
+   "observed": 37,
+   "p10": 16.6,
+   "p50": 28.3,
+   "p90": 46.0,
+   "inside_band": true
+  },
+  {
+   "municipality": "Glocester",
+   "year": 2025,
+   "observed": 17,
+   "p10": 16.4,
+   "p50": 27.4,
+   "p90": 44.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Hopkinton",
+   "year": 2024,
+   "observed": 22,
+   "p10": 9.7,
+   "p50": 16.9,
+   "p90": 28.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Hopkinton",
+   "year": 2025,
+   "observed": 12,
+   "p10": 9.4,
+   "p50": 16.5,
+   "p90": 27.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "Jamestown",
+   "year": 2024,
+   "observed": 22,
+   "p10": 11.2,
+   "p50": 19.3,
+   "p90": 32.2,
+   "inside_band": true
+  },
+  {
+   "municipality": "Jamestown",
+   "year": 2025,
+   "observed": 7,
+   "p10": 10.8,
+   "p50": 18.2,
+   "p90": 31.0,
+   "inside_band": false
+  },
+  {
+   "municipality": "Johnston",
+   "year": 2024,
+   "observed": 21,
+   "p10": 15.9,
+   "p50": 26.9,
+   "p90": 44.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Johnston",
+   "year": 2025,
+   "observed": 18,
+   "p10": 16.1,
+   "p50": 27.1,
+   "p90": 43.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "Lincoln",
+   "year": 2024,
+   "observed": 78,
+   "p10": 45.4,
+   "p50": 73.1,
+   "p90": 115.7,
+   "inside_band": true
+  },
+  {
+   "municipality": "Lincoln",
+   "year": 2025,
+   "observed": 101,
+   "p10": 45.2,
+   "p50": 75.1,
+   "p90": 118.8,
+   "inside_band": true
+  },
+  {
+   "municipality": "Little Compton",
+   "year": 2024,
+   "observed": 10,
+   "p10": 6.7,
+   "p50": 12.0,
+   "p90": 20.9,
+   "inside_band": true
+  },
+  {
+   "municipality": "Little Compton",
+   "year": 2025,
+   "observed": 14,
+   "p10": 6.8,
+   "p50": 12.0,
+   "p90": 20.8,
+   "inside_band": true
+  },
+  {
+   "municipality": "Middletown",
+   "year": 2024,
+   "observed": 16,
+   "p10": 17.0,
+   "p50": 29.3,
+   "p90": 48.7,
+   "inside_band": false
+  },
+  {
+   "municipality": "Middletown",
+   "year": 2025,
+   "observed": 29,
+   "p10": 17.9,
+   "p50": 30.7,
+   "p90": 52.0,
+   "inside_band": true
+  },
+  {
+   "municipality": "Narragansett",
+   "year": 2024,
+   "observed": 6,
+   "p10": 5.8,
+   "p50": 10.6,
+   "p90": 19.0,
+   "inside_band": true
+  },
+  {
+   "municipality": "Narragansett",
+   "year": 2025,
+   "observed": 11,
+   "p10": 5.1,
+   "p50": 9.5,
+   "p90": 17.3,
+   "inside_band": true
+  },
+  {
+   "municipality": "New Shoreham",
+   "year": 2024,
+   "observed": 13,
+   "p10": 4.1,
+   "p50": 7.8,
+   "p90": 14.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "New Shoreham",
+   "year": 2025,
+   "observed": 12,
+   "p10": 4.2,
+   "p50": 7.8,
+   "p90": 14.4,
+   "inside_band": true
+  },
+  {
+   "municipality": "Newport",
+   "year": 2024,
+   "observed": 12,
+   "p10": 4.8,
+   "p50": 8.6,
+   "p90": 15.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "Newport",
+   "year": 2025,
+   "observed": 9,
+   "p10": 4.8,
+   "p50": 8.8,
+   "p90": 15.9,
+   "inside_band": true
+  },
+  {
+   "municipality": "North Kingstown",
+   "year": 2024,
+   "observed": 95,
+   "p10": 44.7,
+   "p50": 71.6,
+   "p90": 110.8,
+   "inside_band": true
+  },
+  {
+   "municipality": "North Kingstown",
+   "year": 2025,
+   "observed": 50,
+   "p10": 43.4,
+   "p50": 71.1,
+   "p90": 113.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "North Providence",
+   "year": 2024,
+   "observed": 7,
+   "p10": 1.5,
+   "p50": 3.1,
+   "p90": 6.7,
+   "inside_band": false
+  },
+  {
+   "municipality": "North Providence",
+   "year": 2025,
+   "observed": 0,
+   "p10": 1.3,
+   "p50": 2.8,
+   "p90": 6.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "North Smithfield",
+   "year": 2024,
+   "observed": 37,
+   "p10": 0.5,
+   "p50": 3.4,
+   "p90": 9.4,
+   "inside_band": false
+  },
+  {
+   "municipality": "North Smithfield",
+   "year": 2025,
+   "observed": 4,
+   "p10": 0.4,
+   "p50": 3.5,
+   "p90": 9.0,
+   "inside_band": true
+  },
+  {
+   "municipality": "Pawtucket",
+   "year": 2024,
+   "observed": 2,
+   "p10": 9.0,
+   "p50": 15.4,
+   "p90": 26.3,
+   "inside_band": false
+  },
+  {
+   "municipality": "Pawtucket",
+   "year": 2025,
+   "observed": 2,
+   "p10": 8.4,
+   "p50": 14.8,
+   "p90": 26.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "Portsmouth",
+   "year": 2024,
+   "observed": 117,
+   "p10": 14.6,
+   "p50": 24.6,
+   "p90": 41.7,
+   "inside_band": false
+  },
+  {
+   "municipality": "Portsmouth",
+   "year": 2025,
+   "observed": 56,
+   "p10": 14.5,
+   "p50": 24.7,
+   "p90": 41.1,
+   "inside_band": false
+  },
+  {
+   "municipality": "Providence",
+   "year": 2024,
+   "observed": 269,
+   "p10": 77.3,
+   "p50": 125.3,
+   "p90": 197.0,
+   "inside_band": false
+  },
+  {
+   "municipality": "Providence",
+   "year": 2025,
+   "observed": 324,
+   "p10": 73.7,
+   "p50": 124.2,
+   "p90": 198.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "Richmond",
+   "year": 2024,
+   "observed": 22,
+   "p10": 1.1,
+   "p50": 7.1,
+   "p90": 17.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "Richmond",
+   "year": 2025,
+   "observed": 12,
+   "p10": 1.1,
+   "p50": 7.0,
+   "p90": 17.0,
+   "inside_band": true
+  },
+  {
+   "municipality": "Scituate",
+   "year": 2024,
+   "observed": 10,
+   "p10": 8.9,
+   "p50": 15.5,
+   "p90": 26.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "Scituate",
+   "year": 2025,
+   "observed": 18,
+   "p10": 8.4,
+   "p50": 15.3,
+   "p90": 25.8,
+   "inside_band": true
+  },
+  {
+   "municipality": "Smithfield",
+   "year": 2024,
+   "observed": 25,
+   "p10": 9.1,
+   "p50": 16.0,
+   "p90": 27.1,
+   "inside_band": true
+  },
+  {
+   "municipality": "Smithfield",
+   "year": 2025,
+   "observed": 30,
+   "p10": 8.5,
+   "p50": 15.4,
+   "p90": 26.4,
+   "inside_band": false
+  },
+  {
+   "municipality": "South Kingstown",
+   "year": 2024,
+   "observed": 86,
+   "p10": 44.0,
+   "p50": 73.0,
+   "p90": 118.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "South Kingstown",
+   "year": 2025,
+   "observed": 87,
+   "p10": 44.2,
+   "p50": 71.0,
+   "p90": 114.2,
+   "inside_band": true
+  },
+  {
+   "municipality": "Tiverton",
+   "year": 2024,
+   "observed": 3,
+   "p10": 10.5,
+   "p50": 18.8,
+   "p90": 32.0,
+   "inside_band": false
+  },
+  {
+   "municipality": "Tiverton",
+   "year": 2025,
+   "observed": 16,
+   "p10": 8.9,
+   "p50": 16.5,
+   "p90": 29.9,
+   "inside_band": true
+  },
+  {
+   "municipality": "Warren",
+   "year": 2024,
+   "observed": 6,
+   "p10": 1.1,
+   "p50": 7.4,
+   "p90": 18.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Warren",
+   "year": 2025,
+   "observed": 56,
+   "p10": 1.2,
+   "p50": 7.4,
+   "p90": 18.2,
+   "inside_band": false
+  },
+  {
+   "municipality": "Warwick",
+   "year": 2024,
+   "observed": 317,
+   "p10": 51.5,
+   "p50": 83.8,
+   "p90": 134.8,
+   "inside_band": false
+  },
+  {
+   "municipality": "Warwick",
+   "year": 2025,
+   "observed": 119,
+   "p10": 53.1,
+   "p50": 85.4,
+   "p90": 133.6,
+   "inside_band": true
+  },
+  {
+   "municipality": "West Greenwich",
+   "year": 2024,
+   "observed": 5,
+   "p10": 5.0,
+   "p50": 9.2,
+   "p90": 16.8,
+   "inside_band": false
+  },
+  {
+   "municipality": "West Greenwich",
+   "year": 2025,
+   "observed": 4,
+   "p10": 3.4,
+   "p50": 7.6,
+   "p90": 15.2,
+   "inside_band": true
+  },
+  {
+   "municipality": "West Warwick",
+   "year": 2024,
+   "observed": 82,
+   "p10": 18.5,
+   "p50": 31.2,
+   "p90": 50.5,
+   "inside_band": false
+  },
+  {
+   "municipality": "West Warwick",
+   "year": 2025,
+   "observed": 55,
+   "p10": 18.7,
+   "p50": 31.3,
+   "p90": 50.9,
+   "inside_band": false
+  },
+  {
+   "municipality": "Westerly",
+   "year": 2024,
+   "observed": 36,
+   "p10": 37.6,
+   "p50": 60.3,
+   "p90": 99.7,
+   "inside_band": false
+  },
+  {
+   "municipality": "Westerly",
+   "year": 2025,
+   "observed": 43,
+   "p10": 38.5,
+   "p50": 62.9,
+   "p90": 100.5,
+   "inside_band": true
+  },
+  {
+   "municipality": "Woonsocket",
+   "year": 2024,
+   "observed": 26,
+   "p10": 63.6,
+   "p50": 107.4,
+   "p90": 178.3,
+   "inside_band": false
+  },
+  {
+   "municipality": "Woonsocket",
+   "year": 2025,
+   "observed": 28,
+   "p10": 65.7,
+   "p50": 117.3,
+   "p90": 200.7,
+   "inside_band": false
+  }
+ ]
+}

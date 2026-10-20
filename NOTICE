@@ -1,0 +1,30 @@
+Headroom
+Copyright 2026 Gregory Guertin
+
+This product includes software developed for the Housing Data and Technology
+Innovation Challenge.
+
+This NOTICE file is required by the Apache License, Version 2.0.
+
+--------------------------------------------------------------------------------
+Third-party attributions
+--------------------------------------------------------------------------------
+
+The following files were copied from the challenge's starter template
+(https://github.com/theturnout/housing-challenge-starter-template, The Turnout,
+Apache License 2.0) and are reproduced here unchanged except where noted:
+
+  docs/CHALLENGE_SPEC.md
+  docs/PRESENTATION_GUIDE.md
+  data/DATA_SOURCES.md
+  .github/workflows/codeql.yml
+  .github/PULL_REQUEST_TEMPLATE.md
+
+The document templates in docs/ (MODEL_AND_ASSUMPTIONS.md,
+POLICY_SCENARIO_COMPARISON.md, DATA_PROVENANCE.md, DISCLOSURES.md) follow the
+section structure of the same template; their contents are this project's.
+
+Data: every dataset the tool retrieves carries its publisher's own terms, which
+are recorded in docs/DATA_PROVENANCE.md. Rhode Island Geographic Information
+System (RIGIS) data are used with acknowledgment of RIGIS and of the primary
+producer named for each layer.

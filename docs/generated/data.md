@@ -13,7 +13,7 @@ Every dataset is retrieved by `headroom acquire` from the source below; the mani
 | [American Community Survey 5-year estimates — table-based summary files](https://www2.census.gov/programs-surveys/acs/summary_file/) | U.S. Census Bureau | Public domain (U.S. federal government work). No API key needed. | One pipe-delimited file per table for every geography in the country (≈48 MB each); the acquisition streams the file and keeps only the state's county subdivisions. Geography names and codes from the Geos{year}5YR.txt index. |
 | [Transit Forward RI 2040 — regional mobility hubs](https://www.ripta.com/wp-content/uploads/2021/07/SPC-9-10-20.pdf) | Rhode Island Division of Statewide Planning / RIPTA (2020 Transit Master Plan) | State of Rhode Island public record. | The eight regional mobility hubs the plan names, encoded in data/ri_mobility_hubs.csv with coordinates taken from RIPTA's GTFS stops; the statute (§ 45-24-33(a)(28)) defers to this plan for the definition. |
 | [2025 Integrated Housing Report](https://housing.ri.gov/sites/g/files/xkgbur401/files/2026-04/2025%20Integrated%20Housing%20Report.pdf) | Rhode Island Executive Office of Housing (published 2026-04-15; attested by the Office of Revenue Analysis) | State of Rhode Island public record. | Municipal 2025 permits and certificates of occupancy by building size (EOH municipal survey, Feb–Mar 2026); ACS-derived stock tables; 2024 LMIH chart; household projections 2025–2035. Some hosts refuse automated clients (HTTP 403); the parser also accepts a locally supplied copy. |
-| [RIPTA GTFS schedule feed](https://ripta.com/RIPTA-GTFS.zip) | Rhode Island Public Transit Authority | Published for public developer use. | Stops, trips and stop_times used to identify frequent-transit stops for the transit-oriented scenario per R.I.G.L. § 45-24-78. |
+| [RIPTA GTFS schedule feed](https://ripta.com/RIPTA-GTFS.zip) | Rhode Island Public Transit Authority | Published for public developer use. | Stops, trips and stop_times used to identify frequent-transit stops for the transit-oriented scenario per R.I.G.L. § 45-24-33(a)(28). |
 | [MuniAnchor ordinance-derived district parameters (allowed residential uses by district, dimensional envelopes), Rhode Island](https://munianchor.com/) | MuniAnchor (Gregory Guertin), derived from adopted municipal zoning ordinances | Apache-2.0 for this derived table; the underlying ordinances are public law. Each row cites the ordinance section it was read from. | Optional tier-A input. When the file is absent the model runs at tier B from the State layer alone, which is the data-sparse demonstration. |
 
 ## Files retrieved
@@ -75,4 +75,4 @@ Every dataset is retrieved by `headroom acquire` from the source below; the mani
 Stock source: census_acs_sf (ACS 2024 5-yr B25024/B25002, summary files). EOH report: available.
 
 ---
-_Generated 2026-10-04T20:44+00:00 by `headroom report`._
+_Generated 2026-10-20T13:28+00:00 by `headroom report`._

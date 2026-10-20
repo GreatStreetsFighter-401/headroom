@@ -1,0 +1,3846 @@
+{
+ "tier": "B",
+ "baseline_years": [
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "stock_source": "census_acs_sf (ACS 2024 5-yr B25024/B25002, summary files)",
+ "eoh_available": true,
+ "eoh_error": "",
+ "eoh_checks": {
+  "permits_2025": {
+   "sum_of_municipalities": 3778,
+   "printed_statewide": 3778,
+   "agrees": true
+  },
+  "co_2025": {
+   "sum_of_municipalities": 2162,
+   "printed_statewide": 2162,
+   "agrees": true
+  },
+  "stock": {
+   "sum_of_municipalities": 485932,
+   "printed_statewide": 485932,
+   "agrees": true
+  },
+  "by_type": {
+   "sum_of_municipalities": 485932,
+   "printed_statewide": 485932,
+   "agrees": true
+  },
+  "lmih": {
+   "sum_of_municipalities": 44479,
+   "printed_statewide": 44478,
+   "agrees": false
+  }
+ },
+ "districts_summary": {
+  "n_polygons": 15733,
+  "n_points_loaded": 388830,
+  "n_points_unmatched_by_type": {
+   "R1": 874,
+   "R2": 1859,
+   "R4": 36,
+   "A1": 241,
+   "R6": 10,
+   "R5": 3,
+   "R3": 22,
+   "DV": 1
+  },
+  "n_rows": 15373,
+  "tier_A_rows": 0,
+  "allowed_reading_counts": {
+   "single_family_only": 2675,
+   "allows_2plus": 1535,
+   "unknown": 11163
+  }
+ },
+ "transit": {
+  "service_day": "2026-09-16",
+  "n_frequent_stops": 304,
+  "n_hub_stops": 8,
+  "hub_definition": "named list",
+  "hub_stops": [
+   "Providence / Kennedy Plaza",
+   "Providence / Providence Station",
+   "Providence / Jewelry District",
+   "Pawtucket / Downtown",
+   "Woonsocket / Downtown",
+   "Warwick / CCRI",
+   "Newport / Gateway Center",
+   "North Kingstown / Wickford Junction"
+  ]
+ },
+ "stock_cross_check": {
+  "towns_compared": 39,
+  "mismatches": [],
+  "agree": true
+ },
+ "derived_shares": {
+  "n_R1_total": 263687.0,
+  "n_R1_in_residential_districts": 248804.0,
+  "share_R1_lot20k_plus": 0.396,
+  "share_R1_sewered": 0.6298,
+  "share_R1_sf_only_of_read": 0.7875,
+  "share_R1_unread": 0.5903
+ },
+ "permit_undercount": {
+  "bps_2025_statewide": 1738,
+  "eoh_2025_statewide": 3778,
+  "eoh_to_bps_ratio_2025": 2.1738,
+  "note": "Baseline permit levels are the BPS series scaled by this ratio. The State's report says its survey 'is more accurate than the Census survey'; the ratio is 1.0 when the State report is unavailable, and the overview says so."
+ },
+ "towns": {
+  "Barrington": {
+   "municipality": "Barrington",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 65,
+    "2019": 19,
+    "2020": 22,
+    "2021": 15,
+    "2022": 12,
+    "2023": 10,
+    "2024": 5,
+    "2025": 9
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 18,
+   "co_eoh_2025": 1,
+   "mf_share_2018_2025": 0.4204,
+   "stock": {
+    "units_total": 6498,
+    "units_1": 6110,
+    "units_2": 216,
+    "units_3_4": 25,
+    "units_5plus": 147,
+    "units_mobile": 0,
+    "occupied": 6228,
+    "vacant": 270
+   },
+   "lmih_2024": {
+    "lmih_units": 233,
+    "year_round_units_2020": 6264,
+    "lmih_share": 0.037200000000000004
+   },
+   "n_R1": 5962.0,
+   "n_R1_sewered": 5945.0,
+   "n_R1_lot20k_plus": 2943.0,
+   "n_R1_lot20k_plus_sewered": 2939.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 5790.0,
+   "n_R1_unknown_sewered": 5784.0,
+   "n_R2": 249.0,
+   "n_A1": 229.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2985.0410000000015,
+   "mean_min_lot_sf": 59666.69341153884,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 280.0
+  },
+  "Bristol": {
+   "municipality": "Bristol",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 17,
+    "2019": 22,
+    "2020": 21,
+    "2021": 23,
+    "2022": 21,
+    "2023": 17,
+    "2024": 14,
+    "2025": 11
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 0,
+    "2023": 0,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 139,
+   "co_eoh_2025": 3,
+   "mf_share_2018_2025": 0.0137,
+   "stock": {
+    "units_total": 9510,
+    "units_1": 5876,
+    "units_2": 1306,
+    "units_3_4": 809,
+    "units_5plus": 1497,
+    "units_mobile": 22,
+    "occupied": 8731,
+    "vacant": 779
+   },
+   "lmih_2024": {
+    "lmih_units": 670,
+    "year_round_units_2020": 9292,
+    "lmih_share": 0.0721
+   },
+   "n_R1": 5852.0,
+   "n_R1_sewered": 5689.0,
+   "n_R1_lot20k_plus": 494.0,
+   "n_R1_lot20k_plus_sewered": 343.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 4663.0,
+   "n_R1_unknown_sewered": 4503.0,
+   "n_R2": 1330.0,
+   "n_A1": 299.0,
+   "n_DV": 0.0,
+   "res_area_acres": 3486.070000000002,
+   "mean_min_lot_sf": 21321.756080576502,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 809.0
+  },
+  "Burrillville": {
+   "municipality": "Burrillville",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 23,
+    "2019": 24,
+    "2020": 55,
+    "2021": 69,
+    "2022": 16,
+    "2023": 24,
+    "2024": 36,
+    "2025": 27
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 30,
+   "co_eoh_2025": 26,
+   "mf_share_2018_2025": 0.0365,
+   "stock": {
+    "units_total": 6344,
+    "units_1": 5140,
+    "units_2": 272,
+    "units_3_4": 388,
+    "units_5plus": 386,
+    "units_mobile": 158,
+    "occupied": 6058,
+    "vacant": 286
+   },
+   "lmih_2024": {
+    "lmih_units": 663,
+    "year_round_units_2020": 6507,
+    "lmih_share": 0.10189999999999999
+   },
+   "n_R1": 4477.0,
+   "n_R1_sewered": 1922.0,
+   "n_R1_lot20k_plus": 3763.0,
+   "n_R1_lot20k_plus_sewered": 1230.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 4392.0,
+   "n_R1_unknown_sewered": 1858.0,
+   "n_R2": 1426.0,
+   "n_A1": 912.0,
+   "n_DV": 0.0,
+   "res_area_acres": 26811.214999999986,
+   "mean_min_lot_sf": 175590.30927617438,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 250.0
+  },
+  "Central Falls": {
+   "municipality": "Central Falls",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 2,
+    "2019": 8,
+    "2020": 6,
+    "2021": 1,
+    "2022": 1,
+    "2023": 2,
+    "2024": 27,
+    "2025": 65
+   },
+   "months_reported": {
+    "2018": 11,
+    "2019": 12,
+    "2020": 5,
+    "2021": 12,
+    "2022": 0,
+    "2023": 0,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 92,
+   "co_eoh_2025": 17,
+   "mf_share_2018_2025": 0.8125,
+   "stock": {
+    "units_total": 8426,
+    "units_1": 1397,
+    "units_2": 1855,
+    "units_3_4": 3523,
+    "units_5plus": 1651,
+    "units_mobile": 0,
+    "occupied": 7683,
+    "vacant": 743
+   },
+   "lmih_2024": {
+    "lmih_units": 1451,
+    "year_round_units_2020": 8172,
+    "lmih_share": 0.1776
+   },
+   "n_R1": 594.0,
+   "n_R1_sewered": 594.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 257.0,
+   "n_R1_unknown_sewered": 257.0,
+   "n_R2": 3010.0,
+   "n_A1": 178.0,
+   "n_DV": 0.0,
+   "res_area_acres": 393.4959999999999,
+   "mean_min_lot_sf": 5000.000000000001,
+   "tod_districts": [
+    [
+     0.534,
+     8.712
+    ],
+    [
+     57.181,
+     8.712
+    ],
+    [
+     4.76,
+     8.712
+    ],
+    [
+     0.018,
+     8.712
+    ],
+    [
+     0.018,
+     8.712
+    ]
+   ],
+   "n_R1_tod_any": 63.0,
+   "n_R2_tod_any": 608.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 35.0
+  },
+  "Charlestown": {
+   "municipality": "Charlestown",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 45,
+    "2019": 36,
+    "2020": 29,
+    "2021": 40,
+    "2022": 34,
+    "2023": 21,
+    "2024": 12,
+    "2025": 19
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 45,
+   "co_eoh_2025": 34,
+   "mf_share_2018_2025": 0.0551,
+   "stock": {
+    "units_total": 5458,
+    "units_1": 4755,
+    "units_2": 293,
+    "units_3_4": 154,
+    "units_5plus": 156,
+    "units_mobile": 83,
+    "occupied": 3493,
+    "vacant": 1965
+   },
+   "lmih_2024": {
+    "lmih_units": 148,
+    "year_round_units_2020": 3712,
+    "lmih_share": 0.039900000000000005
+   },
+   "n_R1": 4375.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 4254.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 4254.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 361.0,
+   "n_A1": 412.0,
+   "n_DV": 0.0,
+   "res_area_acres": 13512.875000000004,
+   "mean_min_lot_sf": 95797.16323778164,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 211.0
+  },
+  "Coventry": {
+   "municipality": "Coventry",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 57,
+    "2019": 54,
+    "2020": 56,
+    "2021": 71,
+    "2022": 58,
+    "2023": 53,
+    "2024": 58,
+    "2025": 50
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0
+   },
+   "permits_eoh_2025": 49,
+   "co_eoh_2025": 67,
+   "mf_share_2018_2025": 0.1663,
+   "stock": {
+    "units_total": 15430,
+    "units_1": 12121,
+    "units_2": 613,
+    "units_3_4": 265,
+    "units_5plus": 1426,
+    "units_mobile": 1005,
+    "occupied": 14505,
+    "vacant": 925
+   },
+   "lmih_2024": {
+    "lmih_units": 978,
+    "year_round_units_2020": 14710,
+    "lmih_share": 0.0665
+   },
+   "n_R1": 11001.0,
+   "n_R1_sewered": 775.0,
+   "n_R1_lot20k_plus": 10671.0,
+   "n_R1_lot20k_plus_sewered": 542.0,
+   "n_R1_sf_only": 8.0,
+   "n_R1_sf_only_sewered": 8.0,
+   "n_R1_unknown": 10671.0,
+   "n_R1_unknown_sewered": 542.0,
+   "n_R2": 1159.0,
+   "n_A1": 1039.0,
+   "n_DV": 13.0,
+   "res_area_acres": 36585.85000000001,
+   "mean_min_lot_sf": 19999.999999999993,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 326.0
+  },
+  "Cranston": {
+   "municipality": "Cranston",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 64,
+    "2019": 56,
+    "2020": 59,
+    "2021": 50,
+    "2022": 52,
+    "2023": 37,
+    "2024": 51,
+    "2025": 59
+   },
+   "months_reported": {
+    "2018": 1,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 158,
+   "co_eoh_2025": 48,
+   "mf_share_2018_2025": 0.215,
+   "stock": {
+    "units_total": 33834,
+    "units_1": 22207,
+    "units_2": 3896,
+    "units_3_4": 2360,
+    "units_5plus": 5302,
+    "units_mobile": 69,
+    "occupied": 32595,
+    "vacant": 1239
+   },
+   "lmih_2024": {
+    "lmih_units": 2122,
+    "year_round_units_2020": 34045,
+    "lmih_share": 0.0623
+   },
+   "n_R1": 21507.0,
+   "n_R1_sewered": 18352.0,
+   "n_R1_lot20k_plus": 3012.0,
+   "n_R1_lot20k_plus_sewered": 837.0,
+   "n_R1_sf_only": 16591.0,
+   "n_R1_sf_only_sewered": 13464.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 5403.0,
+   "n_A1": 1506.0,
+   "n_DV": 2.0,
+   "res_area_acres": 10581.971000000012,
+   "mean_min_lot_sf": 42553.69628210089,
+   "tod_districts": [
+    [
+     0.018,
+     3.63
+    ],
+    [
+     0.682,
+     7.26
+    ],
+    [
+     1.768,
+     7.26
+    ],
+    [
+     1.006,
+     7.26
+    ],
+    [
+     0.288,
+     7.26
+    ],
+    [
+     0.936,
+     7.26
+    ],
+    [
+     1.922,
+     7.26
+    ],
+    [
+     2.829,
+     7.26
+    ],
+    [
+     0.69,
+     7.26
+    ],
+    [
+     1.688,
+     7.26
+    ],
+    [
+     2.298,
+     7.26
+    ],
+    [
+     2.254,
+     7.26
+    ],
+    [
+     3.178,
+     7.26
+    ],
+    [
+     0.278,
+     7.26
+    ],
+    [
+     0.122,
+     7.26
+    ],
+    [
+     6.792,
+     7.26
+    ],
+    [
+     1.636,
+     7.26
+    ],
+    [
+     1.743,
+     7.26
+    ],
+    [
+     0.629,
+     7.26
+    ],
+    [
+     0.141,
+     7.26
+    ],
+    [
+     0.171,
+     7.26
+    ],
+    [
+     0.314,
+     7.26
+    ],
+    [
+     0.321,
+     7.26
+    ],
+    [
+     0.187,
+     7.26
+    ],
+    [
+     0.532,
+     7.26
+    ],
+    [
+     2.042,
+     7.26
+    ],
+    [
+     0.708,
+     7.26
+    ],
+    [
+     0.063,
+     7.26
+    ],
+    [
+     0.639,
+     7.26
+    ],
+    [
+     1.556,
+     7.26
+    ]
+   ],
+   "n_R1_tod_any": 242.0,
+   "n_R2_tod_any": 69.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 2696.0
+  },
+  "Cumberland": {
+   "municipality": "Cumberland",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 73,
+    "2019": 63,
+    "2020": 56,
+    "2021": 52,
+    "2022": 37,
+    "2023": 44,
+    "2024": 25,
+    "2025": 61
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 89,
+   "co_eoh_2025": 11,
+   "mf_share_2018_2025": 0.3382,
+   "stock": {
+    "units_total": 14918,
+    "units_1": 11112,
+    "units_2": 520,
+    "units_3_4": 1060,
+    "units_5plus": 2151,
+    "units_mobile": 75,
+    "occupied": 14297,
+    "vacant": 621
+   },
+   "lmih_2024": {
+    "lmih_units": 975,
+    "year_round_units_2020": 14938,
+    "lmih_share": 0.0653
+   },
+   "n_R1": 9974.0,
+   "n_R1_sewered": 6069.0,
+   "n_R1_lot20k_plus": 7846.0,
+   "n_R1_lot20k_plus_sewered": 4886.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 8669.0,
+   "n_R1_unknown_sewered": 5696.0,
+   "n_R2": 2066.0,
+   "n_A1": 501.0,
+   "n_DV": 3.0,
+   "res_area_acres": 5150.853999999996,
+   "mean_min_lot_sf": 23339.661733763,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 930.0
+  },
+  "East Greenwich": {
+   "municipality": "East Greenwich",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 7,
+    "2019": 11,
+    "2020": 34,
+    "2021": 84,
+    "2022": 38,
+    "2023": 34,
+    "2024": 9,
+    "2025": 20
+   },
+   "months_reported": {
+    "2018": 1,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 1,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 5,
+   "co_eoh_2025": 133,
+   "mf_share_2018_2025": 0.3165,
+   "stock": {
+    "units_total": 5690,
+    "units_1": 4753,
+    "units_2": 219,
+    "units_3_4": 187,
+    "units_5plus": 470,
+    "units_mobile": 61,
+    "occupied": 5404,
+    "vacant": 286
+   },
+   "lmih_2024": {
+    "lmih_units": 394,
+    "year_round_units_2020": 5464,
+    "lmih_share": 0.0721
+   },
+   "n_R1": 4279.0,
+   "n_R1_sewered": 2328.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2109.0,
+   "n_R1_unknown_sewered": 2054.0,
+   "n_R2": 509.0,
+   "n_A1": 328.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2003.3249999999996,
+   "mean_min_lot_sf": null,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 80.0
+  },
+  "East Providence": {
+   "municipality": "East Providence",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 0,
+    "2019": 0,
+    "2020": 7,
+    "2021": 7,
+    "2022": 9,
+    "2023": 18,
+    "2024": 126,
+    "2025": 268
+   },
+   "months_reported": {
+    "2018": 7,
+    "2019": 12,
+    "2020": 4,
+    "2021": 12,
+    "2022": 0,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 268,
+   "co_eoh_2025": 0,
+   "mf_share_2018_2025": 0.7885,
+   "stock": {
+    "units_total": 21921,
+    "units_1": 12312,
+    "units_2": 2535,
+    "units_3_4": 2144,
+    "units_5plus": 4805,
+    "units_mobile": 125,
+    "occupied": 20836,
+    "vacant": 1085
+   },
+   "lmih_2024": {
+    "lmih_units": 2347,
+    "year_round_units_2020": 22062,
+    "lmih_share": 0.10640000000000001
+   },
+   "n_R1": 11949.0,
+   "n_R1_sewered": 11948.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 6210.0,
+   "n_R1_sf_only_sewered": 6210.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 3344.0,
+   "n_A1": 868.0,
+   "n_DV": 1.0,
+   "res_area_acres": 3150.8950000000036,
+   "mean_min_lot_sf": 7236.518116281239,
+   "tod_districts": [
+    [
+     0.457,
+     5.808
+    ],
+    [
+     0.746,
+     8.712
+    ],
+    [
+     1.164,
+     5.808
+    ],
+    [
+     5.737,
+     8.712
+    ],
+    [
+     4.096,
+     8.712
+    ],
+    [
+     8.648,
+     8.712
+    ],
+    [
+     10.432,
+     8.712
+    ],
+    [
+     8.134,
+     8.712
+    ],
+    [
+     0.005,
+     8.712
+    ],
+    [
+     0.004,
+     8.712
+    ],
+    [
+     0.014,
+     8.712
+    ]
+   ],
+   "n_R1_tod_any": 158.0,
+   "n_R2_tod_any": 105.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 596.0
+  },
+  "Exeter": {
+   "municipality": "Exeter",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 12,
+    "2019": 24,
+    "2020": 52,
+    "2021": 50,
+    "2022": 7,
+    "2023": 2,
+    "2024": 7,
+    "2025": 9
+   },
+   "months_reported": {
+    "2018": 0,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 11,
+    "2025": 12
+   },
+   "permits_eoh_2025": 32,
+   "co_eoh_2025": 17,
+   "mf_share_2018_2025": 0.5276,
+   "stock": {
+    "units_total": 2528,
+    "units_1": 2062,
+    "units_2": 30,
+    "units_3_4": 95,
+    "units_5plus": 211,
+    "units_mobile": 130,
+    "occupied": 2416,
+    "vacant": 112
+   },
+   "lmih_2024": {
+    "lmih_units": 197,
+    "year_round_units_2020": 2569,
+    "lmih_share": 0.0767
+   },
+   "n_R1": 2215.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 1953.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 421.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 1532.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 168.0,
+   "n_A1": 627.0,
+   "n_DV": 0.0,
+   "res_area_acres": 19335.271000000004,
+   "mean_min_lot_sf": 158137.02077203884,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 233.0
+  },
+  "Foster": {
+   "municipality": "Foster",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 8,
+    "2019": 12,
+    "2020": 4,
+    "2021": 9,
+    "2022": 5,
+    "2023": 6,
+    "2024": 5,
+    "2025": 6
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0
+   },
+   "permits_eoh_2025": 11,
+   "co_eoh_2025": 0,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 1579,
+    "units_1": 1492,
+    "units_2": 0,
+    "units_3_4": 17,
+    "units_5plus": 70,
+    "units_mobile": 0,
+    "occupied": 1503,
+    "vacant": 76
+   },
+   "lmih_2024": {
+    "lmih_units": 38,
+    "year_round_units_2020": 1816,
+    "lmih_share": 0.0209
+   },
+   "n_R1": 1727.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 1707.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 1707.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 27.0,
+   "n_A1": 749.0,
+   "n_DV": 0.0,
+   "res_area_acres": 32028.553,
+   "mean_min_lot_sf": 200000.0,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 80.0
+  },
+  "Glocester": {
+   "municipality": "Glocester",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 31,
+    "2019": 39,
+    "2020": 52,
+    "2021": 29,
+    "2022": 23,
+    "2023": 36,
+    "2024": 37,
+    "2025": 17
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 0,
+    "2025": 12
+   },
+   "permits_eoh_2025": 17,
+   "co_eoh_2025": 32,
+   "mf_share_2018_2025": 0.2273,
+   "stock": {
+    "units_total": 4306,
+    "units_1": 3835,
+    "units_2": 98,
+    "units_3_4": 9,
+    "units_5plus": 45,
+    "units_mobile": 319,
+    "occupied": 3873,
+    "vacant": 433
+   },
+   "lmih_2024": {
+    "lmih_units": 102,
+    "year_round_units_2020": 4022,
+    "lmih_share": 0.0254
+   },
+   "n_R1": 3867.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 3840.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 3536.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 304.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 139.0,
+   "n_A1": 717.0,
+   "n_DV": 0.0,
+   "res_area_acres": 34975.683999999965,
+   "mean_min_lot_sf": 165983.3488397254,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 402.0
+  },
+  "Hopkinton": {
+   "municipality": "Hopkinton",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 15,
+    "2019": 36,
+    "2020": 9,
+    "2021": 16,
+    "2022": 21,
+    "2023": 19,
+    "2024": 22,
+    "2025": 12
+   },
+   "months_reported": {
+    "2018": 0,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 12,
+   "co_eoh_2025": 19,
+   "mf_share_2018_2025": 0.04,
+   "stock": {
+    "units_total": 3715,
+    "units_1": 3132,
+    "units_2": 128,
+    "units_3_4": 110,
+    "units_5plus": 345,
+    "units_mobile": 0,
+    "occupied": 3416,
+    "vacant": 299
+   },
+   "lmih_2024": {
+    "lmih_units": 265,
+    "year_round_units_2020": 3534,
+    "lmih_share": 0.075
+   },
+   "n_R1": 2974.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 2918.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 1.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2917.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 172.0,
+   "n_A1": 759.0,
+   "n_DV": 0.0,
+   "res_area_acres": 24167.427000000014,
+   "mean_min_lot_sf": 77417.14581366064,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 107.0
+  },
+  "Jamestown": {
+   "municipality": "Jamestown",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 30,
+    "2019": 24,
+    "2020": 22,
+    "2021": 26,
+    "2022": 22,
+    "2023": 20,
+    "2024": 22,
+    "2025": 7
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 12
+   },
+   "permits_eoh_2025": 9,
+   "co_eoh_2025": 28,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 3103,
+    "units_1": 2781,
+    "units_2": 0,
+    "units_3_4": 176,
+    "units_5plus": 98,
+    "units_mobile": 48,
+    "occupied": 2500,
+    "vacant": 603
+   },
+   "lmih_2024": {
+    "lmih_units": 110,
+    "year_round_units_2020": 2622,
+    "lmih_share": 0.042
+   },
+   "n_R1": 2820.0,
+   "n_R1_sewered": 1018.0,
+   "n_R1_lot20k_plus": 2353.0,
+   "n_R1_lot20k_plus_sewered": 553.0,
+   "n_R1_sf_only": 707.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 1646.0,
+   "n_R1_unknown_sewered": 553.0,
+   "n_R2": 68.0,
+   "n_A1": 141.0,
+   "n_DV": 0.0,
+   "res_area_acres": 4648.375000000003,
+   "mean_min_lot_sf": 80249.85247532735,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 117.0
+  },
+  "Johnston": {
+   "municipality": "Johnston",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 16,
+    "2019": 31,
+    "2020": 33,
+    "2021": 39,
+    "2022": 35,
+    "2023": 14,
+    "2024": 21,
+    "2025": 18
+   },
+   "months_reported": {
+    "2018": 6,
+    "2019": 12,
+    "2020": 6,
+    "2021": 0,
+    "2022": 12,
+    "2023": 6,
+    "2024": 0,
+    "2025": 0
+   },
+   "permits_eoh_2025": 68,
+   "co_eoh_2025": 37,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 12328,
+    "units_1": 9282,
+    "units_2": 909,
+    "units_3_4": 606,
+    "units_5plus": 1517,
+    "units_mobile": 14,
+    "occupied": 11675,
+    "vacant": 653
+   },
+   "lmih_2024": {
+    "lmih_units": 1140,
+    "year_round_units_2020": 12465,
+    "lmih_share": 0.0915
+   },
+   "n_R1": 8593.0,
+   "n_R1_sewered": 6052.0,
+   "n_R1_lot20k_plus": 4065.0,
+   "n_R1_lot20k_plus_sewered": 1617.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 8220.0,
+   "n_R1_unknown_sewered": 5742.0,
+   "n_R2": 1112.0,
+   "n_A1": 350.0,
+   "n_DV": 3.0,
+   "res_area_acres": 10416.970000000001,
+   "mean_min_lot_sf": 33680.004166278675,
+   "tod_districts": [
+    [
+     5.382,
+     1.089
+    ],
+    [
+     0.134,
+     2.904
+    ],
+    [
+     0.456,
+     2.904
+    ],
+    [
+     0.352,
+     1.089
+    ],
+    [
+     2.285,
+     2.904
+    ],
+    [
+     0.065,
+     2.904
+    ],
+    [
+     1.325,
+     2.904
+    ],
+    [
+     1.702,
+     2.904
+    ],
+    [
+     1.675,
+     2.904
+    ]
+   ],
+   "n_R1_tod_any": 6.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 624.0
+  },
+  "Lincoln": {
+   "municipality": "Lincoln",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 65,
+    "2019": 38,
+    "2020": 18,
+    "2021": 95,
+    "2022": 72,
+    "2023": 68,
+    "2024": 78,
+    "2025": 101
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 0,
+    "2024": 0,
+    "2025": 12
+   },
+   "permits_eoh_2025": 237,
+   "co_eoh_2025": 77,
+   "mf_share_2018_2025": 0.486,
+   "stock": {
+    "units_total": 9006,
+    "units_1": 5875,
+    "units_2": 948,
+    "units_3_4": 526,
+    "units_5plus": 1618,
+    "units_mobile": 39,
+    "occupied": 8795,
+    "vacant": 211
+   },
+   "lmih_2024": {
+    "lmih_units": 761,
+    "year_round_units_2020": 9492,
+    "lmih_share": 0.0801
+   },
+   "n_R1": 5635.0,
+   "n_R1_sewered": 5519.0,
+   "n_R1_lot20k_plus": 1369.0,
+   "n_R1_lot20k_plus_sewered": 1293.0,
+   "n_R1_sf_only": 3653.0,
+   "n_R1_sf_only_sewered": 3577.0,
+   "n_R1_unknown": 710.0,
+   "n_R1_unknown_sewered": 709.0,
+   "n_R2": 1358.0,
+   "n_A1": 502.0,
+   "n_DV": 0.0,
+   "res_area_acres": 3608.336,
+   "mean_min_lot_sf": 14883.177453540913,
+   "tod_districts": [
+    [
+     49.448,
+     2.178
+    ]
+   ],
+   "n_R1_tod_any": 47.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 229.0
+  },
+  "Little Compton": {
+   "municipality": "Little Compton",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 15,
+    "2019": 17,
+    "2020": 15,
+    "2021": 13,
+    "2022": 16,
+    "2023": 12,
+    "2024": 10,
+    "2025": 14
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 11
+   },
+   "permits_eoh_2025": 12,
+   "co_eoh_2025": 28,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 2340,
+    "units_1": 2331,
+    "units_2": 0,
+    "units_3_4": 0,
+    "units_5plus": 0,
+    "units_mobile": 9,
+    "occupied": 1557,
+    "vacant": 783
+   },
+   "lmih_2024": {
+    "lmih_units": 11,
+    "year_round_units_2020": 1702,
+    "lmih_share": 0.006500000000000001
+   },
+   "n_R1": 2330.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2324.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 6.0,
+   "n_A1": 550.0,
+   "n_DV": 0.0,
+   "res_area_acres": 14588.204000000003,
+   "mean_min_lot_sf": null,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 52.0
+  },
+  "Middletown": {
+   "municipality": "Middletown",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 30,
+    "2019": 42,
+    "2020": 14,
+    "2021": 10,
+    "2022": 13,
+    "2023": 62,
+    "2024": 16,
+    "2025": 29
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 133,
+   "co_eoh_2025": 19,
+   "mf_share_2018_2025": 0.3009,
+   "stock": {
+    "units_total": 8225,
+    "units_1": 5307,
+    "units_2": 801,
+    "units_3_4": 691,
+    "units_5plus": 1061,
+    "units_mobile": 293,
+    "occupied": 7226,
+    "vacant": 999
+   },
+   "lmih_2024": {
+    "lmih_units": 460,
+    "year_round_units_2020": 7507,
+    "lmih_share": 0.0613
+   },
+   "n_R1": 4587.0,
+   "n_R1_sewered": 4043.0,
+   "n_R1_lot20k_plus": 2331.0,
+   "n_R1_lot20k_plus_sewered": 1791.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2331.0,
+   "n_R1_unknown_sewered": 1791.0,
+   "n_R2": 1622.0,
+   "n_A1": 433.0,
+   "n_DV": 0.0,
+   "res_area_acres": 5093.139000000002,
+   "mean_min_lot_sf": 33289.63352462989,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 217.0
+  },
+  "Narragansett": {
+   "municipality": "Narragansett",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 19,
+    "2019": 29,
+    "2020": 23,
+    "2021": 14,
+    "2022": 7,
+    "2023": 18,
+    "2024": 6,
+    "2025": 11
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 15,
+   "co_eoh_2025": 11,
+   "mf_share_2018_2025": 0.0551,
+   "stock": {
+    "units_total": 9757,
+    "units_1": 8455,
+    "units_2": 171,
+    "units_3_4": 95,
+    "units_5plus": 931,
+    "units_mobile": 105,
+    "occupied": 6263,
+    "vacant": 3494
+   },
+   "lmih_2024": {
+    "lmih_units": 334,
+    "year_round_units_2020": 7256,
+    "lmih_share": 0.046
+   },
+   "n_R1": 7807.0,
+   "n_R1_sewered": 5436.0,
+   "n_R1_lot20k_plus": 2691.0,
+   "n_R1_lot20k_plus_sewered": 1000.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 7731.0,
+   "n_R1_unknown_sewered": 5403.0,
+   "n_R2": 701.0,
+   "n_A1": 297.0,
+   "n_DV": 0.0,
+   "res_area_acres": 6707.0109999999995,
+   "mean_min_lot_sf": 51021.92429818552,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 167.0
+  },
+  "New Shoreham": {
+   "municipality": "New Shoreham",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 8,
+    "2019": 10,
+    "2020": 8,
+    "2021": 9,
+    "2022": 7,
+    "2023": 10,
+    "2024": 13,
+    "2025": 12
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 12,
+   "co_eoh_2025": 5,
+   "mf_share_2018_2025": 0.0519,
+   "stock": {
+    "units_total": 1989,
+    "units_1": 1826,
+    "units_2": 89,
+    "units_3_4": 24,
+    "units_5plus": 50,
+    "units_mobile": 0,
+    "occupied": 412,
+    "vacant": 1577
+   },
+   "lmih_2024": {
+    "lmih_units": 54,
+    "year_round_units_2020": 730,
+    "lmih_share": 0.07400000000000001
+   },
+   "n_R1": 1162.0,
+   "n_R1_sewered": 19.0,
+   "n_R1_lot20k_plus": 1090.0,
+   "n_R1_lot20k_plus_sewered": 4.0,
+   "n_R1_sf_only": 811.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 246.0,
+   "n_R1_unknown_sewered": 2.0,
+   "n_R2": 17.0,
+   "n_A1": 65.0,
+   "n_DV": 2.0,
+   "res_area_acres": 6014.578000000004,
+   "mean_min_lot_sf": 120553.21919509557,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 89.0
+  },
+  "Newport": {
+   "municipality": "Newport",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 9,
+    "2019": 8,
+    "2020": 7,
+    "2021": 11,
+    "2022": 8,
+    "2023": 10,
+    "2024": 12,
+    "2025": 9
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0
+   },
+   "permits_eoh_2025": 59,
+   "co_eoh_2025": 76,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 13552,
+    "units_1": 6228,
+    "units_2": 2098,
+    "units_3_4": 2453,
+    "units_5plus": 2773,
+    "units_mobile": 0,
+    "occupied": 11049,
+    "vacant": 2503
+   },
+   "lmih_2024": {
+    "lmih_units": 2046,
+    "year_round_units_2020": 11850,
+    "lmih_share": 0.1727
+   },
+   "n_R1": 5276.0,
+   "n_R1_sewered": 5192.0,
+   "n_R1_lot20k_plus": 617.0,
+   "n_R1_lot20k_plus_sewered": 544.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 5119.0,
+   "n_R1_unknown_sewered": 5046.0,
+   "n_R2": 3017.0,
+   "n_A1": 517.0,
+   "n_DV": 1.0,
+   "res_area_acres": 3373.024000000001,
+   "mean_min_lot_sf": 59186.93801328041,
+   "tod_districts": [
+    [
+     54.802,
+     4.356
+    ],
+    [
+     9.043,
+     14.52
+    ]
+   ],
+   "n_R1_tod_any": 355.0,
+   "n_R2_tod_any": 159.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 142.0
+  },
+  "North Kingstown": {
+   "municipality": "North Kingstown",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 116,
+    "2019": 44,
+    "2020": 39,
+    "2021": 67,
+    "2022": 75,
+    "2023": 93,
+    "2024": 95,
+    "2025": 50
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 178,
+   "co_eoh_2025": 104,
+   "mf_share_2018_2025": 0.2694,
+   "stock": {
+    "units_total": 12641,
+    "units_1": 9463,
+    "units_2": 849,
+    "units_3_4": 556,
+    "units_5plus": 1485,
+    "units_mobile": 288,
+    "occupied": 11694,
+    "vacant": 947
+   },
+   "lmih_2024": {
+    "lmih_units": 1066,
+    "year_round_units_2020": 11831,
+    "lmih_share": 0.0901
+   },
+   "n_R1": 8760.0,
+   "n_R1_sewered": 54.0,
+   "n_R1_lot20k_plus": 6416.0,
+   "n_R1_lot20k_plus_sewered": 52.0,
+   "n_R1_sf_only": 2071.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 6304.0,
+   "n_R1_unknown_sewered": 49.0,
+   "n_R2": 1778.0,
+   "n_A1": 775.0,
+   "n_DV": 0.0,
+   "res_area_acres": 18467.214000000018,
+   "mean_min_lot_sf": 89224.26323424325,
+   "tod_districts": [
+    [
+     40.709,
+     1.089
+    ],
+    [
+     9.326,
+     2.178
+    ]
+   ],
+   "n_R1_tod_any": 35.0,
+   "n_R2_tod_any": 3.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 416.0
+  },
+  "North Providence": {
+   "municipality": "North Providence",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 5,
+    "2019": 9,
+    "2020": 7,
+    "2021": 6,
+    "2022": 3,
+    "2023": 4,
+    "2024": 7,
+    "2025": 0
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 7,
+   "co_eoh_2025": 7,
+   "mf_share_2018_2025": 0.0732,
+   "stock": {
+    "units_total": 15555,
+    "units_1": 8932,
+    "units_2": 1233,
+    "units_3_4": 1081,
+    "units_5plus": 4267,
+    "units_mobile": 29,
+    "occupied": 15029,
+    "vacant": 526
+   },
+   "lmih_2024": {
+    "lmih_units": 1291,
+    "year_round_units_2020": 15877,
+    "lmih_share": 0.08130000000000001
+   },
+   "n_R1": 7865.0,
+   "n_R1_sewered": 7586.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 5636.0,
+   "n_R1_sf_only_sewered": 5357.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 2373.0,
+   "n_A1": 194.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2267.8150000000014,
+   "mean_min_lot_sf": 9874.755215923691,
+   "tod_districts": [
+    [
+     11.567,
+     5.445
+    ],
+    [
+     21.953,
+     5.445
+    ],
+    [
+     12.539,
+     3.351
+    ],
+    [
+     0.134,
+     5.445
+    ],
+    [
+     0.107,
+     5.445
+    ],
+    [
+     0.103,
+     3.351
+    ]
+   ],
+   "n_R1_tod_any": 77.0,
+   "n_R2_tod_any": 15.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 101.0
+  },
+  "North Smithfield": {
+   "municipality": "North Smithfield",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 30,
+    "2019": 28,
+    "2020": 16,
+    "2021": 9,
+    "2022": 11,
+    "2023": 7,
+    "2024": 37,
+    "2025": 4
+   },
+   "months_reported": {
+    "2018": 0,
+    "2019": 0,
+    "2020": 9,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 35,
+   "co_eoh_2025": 8,
+   "mf_share_2018_2025": 0.2113,
+   "stock": {
+    "units_total": 5240,
+    "units_1": 3867,
+    "units_2": 383,
+    "units_3_4": 104,
+    "units_5plus": 886,
+    "units_mobile": 0,
+    "occupied": 5015,
+    "vacant": 225
+   },
+   "lmih_2024": {
+    "lmih_units": 439,
+    "year_round_units_2020": 5315,
+    "lmih_share": 0.08259999999999999
+   },
+   "n_R1": 3616.0,
+   "n_R1_sewered": 1240.0,
+   "n_R1_lot20k_plus": 3520.0,
+   "n_R1_lot20k_plus_sewered": 1213.0,
+   "n_R1_sf_only": 2413.0,
+   "n_R1_sf_only_sewered": 384.0,
+   "n_R1_unknown": 1107.0,
+   "n_R1_unknown_sewered": 829.0,
+   "n_R2": 626.0,
+   "n_A1": 564.0,
+   "n_DV": 2.0,
+   "res_area_acres": 13396.371999999998,
+   "mean_min_lot_sf": 72715.38555364095,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 126.0
+  },
+  "Pawtucket": {
+   "municipality": "Pawtucket",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 15,
+    "2019": 13,
+    "2020": 22,
+    "2021": 31,
+    "2022": 20,
+    "2023": 4,
+    "2024": 2,
+    "2025": 2
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 190,
+   "co_eoh_2025": 14,
+   "mf_share_2018_2025": 0.3394,
+   "stock": {
+    "units_total": 32810,
+    "units_1": 12200,
+    "units_2": 5604,
+    "units_3_4": 7708,
+    "units_5plus": 7026,
+    "units_mobile": 272,
+    "occupied": 30598,
+    "vacant": 2212
+   },
+   "lmih_2024": {
+    "lmih_units": 3517,
+    "year_round_units_2020": 33771,
+    "lmih_share": 0.1041
+   },
+   "n_R1": 10537.0,
+   "n_R1_sewered": 10536.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 6265.0,
+   "n_R1_sf_only_sewered": 6264.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 9828.0,
+   "n_A1": 931.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2778.1940000000022,
+   "mean_min_lot_sf": 5093.06094588638,
+   "tod_districts": [
+    [
+     9.744,
+     21.78
+    ],
+    [
+     3.378,
+     21.78
+    ],
+    [
+     127.71,
+     8.712
+    ],
+    [
+     8.51,
+     8.712
+    ],
+    [
+     4.359,
+     8.712
+    ],
+    [
+     0.124,
+     8.712
+    ],
+    [
+     21.779,
+     8.712
+    ],
+    [
+     1.965,
+     8.712
+    ],
+    [
+     19.833,
+     8.712
+    ],
+    [
+     0.004,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ]
+   ],
+   "n_R1_tod_any": 415.0,
+   "n_R2_tod_any": 1123.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 406.0
+  },
+  "Portsmouth": {
+   "municipality": "Portsmouth",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 26,
+    "2019": 30,
+    "2020": 29,
+    "2021": 35,
+    "2022": 27,
+    "2023": 22,
+    "2024": 117,
+    "2025": 56
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 10,
+    "2021": 0,
+    "2022": 12,
+    "2023": 0,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 91,
+   "co_eoh_2025": 5,
+   "mf_share_2018_2025": 0.3041,
+   "stock": {
+    "units_total": 8612,
+    "units_1": 7100,
+    "units_2": 385,
+    "units_3_4": 373,
+    "units_5plus": 494,
+    "units_mobile": 260,
+    "occupied": 7541,
+    "vacant": 1071
+   },
+   "lmih_2024": {
+    "lmih_units": 268,
+    "year_round_units_2020": 7663,
+    "lmih_share": 0.035
+   },
+   "n_R1": 6759.0,
+   "n_R1_sewered": 2.0,
+   "n_R1_lot20k_plus": 5197.0,
+   "n_R1_lot20k_plus_sewered": 2.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 6449.0,
+   "n_R1_unknown_sewered": 2.0,
+   "n_R2": 979.0,
+   "n_A1": 760.0,
+   "n_DV": 2.0,
+   "res_area_acres": 12416.353000000001,
+   "mean_min_lot_sf": 38077.598953573564,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 75.0
+  },
+  "Providence": {
+   "municipality": "Providence",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 1,
+    "2019": 197,
+    "2020": 213,
+    "2021": 54,
+    "2022": 299,
+    "2023": 5,
+    "2024": 269,
+    "2025": 324
+   },
+   "months_reported": {
+    "2018": 10,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 778,
+   "co_eoh_2025": 727,
+   "mf_share_2018_2025": 0.9082,
+   "stock": {
+    "units_total": 79423,
+    "units_1": 23869,
+    "units_2": 15413,
+    "units_3_4": 20142,
+    "units_5plus": 19840,
+    "units_mobile": 159,
+    "occupied": 71497,
+    "vacant": 7926
+   },
+   "lmih_2024": {
+    "lmih_units": 12442,
+    "year_round_units_2020": 74982,
+    "lmih_share": 0.1659
+   },
+   "n_R1": 17009.0,
+   "n_R1_sewered": 17009.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 16166.0,
+   "n_R1_unknown_sewered": 16166.0,
+   "n_R2": 24257.0,
+   "n_A1": 1246.0,
+   "n_DV": 12.0,
+   "res_area_acres": 4847.468000000008,
+   "mean_min_lot_sf": 5520.17517186291,
+   "tod_districts": [
+    [
+     38.061,
+     8.712
+    ],
+    [
+     0.046,
+     5.808
+    ],
+    [
+     1.414,
+     12.446
+    ],
+    [
+     13.262,
+     5.808
+    ],
+    [
+     0.011,
+     5.808
+    ],
+    [
+     8.97,
+     5.808
+    ],
+    [
+     3.352,
+     5.808
+    ],
+    [
+     4.31,
+     5.808
+    ],
+    [
+     0.314,
+     5.808
+    ],
+    [
+     7.866,
+     5.808
+    ],
+    [
+     8.973,
+     5.808
+    ],
+    [
+     7.656,
+     5.808
+    ],
+    [
+     0.012,
+     5.808
+    ],
+    [
+     4.757,
+     5.808
+    ],
+    [
+     7.919,
+     5.808
+    ],
+    [
+     0.827,
+     5.808
+    ],
+    [
+     0.823,
+     5.808
+    ],
+    [
+     3.002,
+     8.712
+    ],
+    [
+     20.026,
+     8.712
+    ],
+    [
+     3.099,
+     8.712
+    ],
+    [
+     2.356,
+     8.712
+    ],
+    [
+     6.977,
+     8.712
+    ],
+    [
+     3.422,
+     8.712
+    ],
+    [
+     7.956,
+     8.712
+    ],
+    [
+     5.393,
+     8.712
+    ],
+    [
+     1.95,
+     8.712
+    ],
+    [
+     72.151,
+     8.712
+    ],
+    [
+     5.112,
+     8.712
+    ],
+    [
+     11.984,
+     8.712
+    ],
+    [
+     0.525,
+     12.446
+    ],
+    [
+     7.272,
+     8.712
+    ],
+    [
+     7.138,
+     8.712
+    ],
+    [
+     1.456,
+     8.712
+    ],
+    [
+     0.568,
+     8.712
+    ],
+    [
+     19.875,
+     8.712
+    ],
+    [
+     3.904,
+     8.712
+    ],
+    [
+     23.846,
+     8.712
+    ],
+    [
+     7.979,
+     8.712
+    ],
+    [
+     16.564,
+     8.712
+    ],
+    [
+     34.493,
+     8.712
+    ],
+    [
+     2.627,
+     8.712
+    ],
+    [
+     12.031,
+     8.712
+    ],
+    [
+     12.381,
+     8.712
+    ],
+    [
+     1.632,
+     12.446
+    ],
+    [
+     1.9,
+     12.446
+    ],
+    [
+     5.283,
+     12.446
+    ],
+    [
+     24.203,
+     12.446
+    ],
+    [
+     0.031,
+     12.446
+    ],
+    [
+     12.259,
+     12.446
+    ],
+    [
+     0.314,
+     12.446
+    ],
+    [
+     2.15,
+     12.446
+    ],
+    [
+     31.556,
+     8.712
+    ],
+    [
+     5.14,
+     12.446
+    ],
+    [
+     6.636,
+     12.446
+    ],
+    [
+     0.069,
+     12.446
+    ],
+    [
+     0.154,
+     12.446
+    ],
+    [
+     0.121,
+     12.446
+    ],
+    [
+     2.676,
+     12.446
+    ],
+    [
+     0.002,
+     8.712
+    ],
+    [
+     3.106,
+     8.712
+    ],
+    [
+     6.453,
+     8.712
+    ],
+    [
+     1.339,
+     8.712
+    ],
+    [
+     1.054,
+     8.712
+    ],
+    [
+     3.202,
+     8.712
+    ],
+    [
+     2.756,
+     12.446
+    ],
+    [
+     5.051,
+     12.446
+    ],
+    [
+     24.324,
+     5.808
+    ],
+    [
+     6.853,
+     5.808
+    ],
+    [
+     0.179,
+     8.712
+    ],
+    [
+     0.448,
+     8.712
+    ],
+    [
+     0.121,
+     8.712
+    ],
+    [
+     0.748,
+     8.712
+    ],
+    [
+     0.034,
+     8.712
+    ],
+    [
+     0.376,
+     12.446
+    ],
+    [
+     0.806,
+     12.446
+    ],
+    [
+     1.621,
+     8.712
+    ],
+    [
+     2.704,
+     12.446
+    ],
+    [
+     2.002,
+     8.712
+    ],
+    [
+     4.737,
+     8.712
+    ],
+    [
+     0.099,
+     12.446
+    ],
+    [
+     0.06,
+     12.446
+    ],
+    [
+     0.101,
+     12.446
+    ],
+    [
+     32.789,
+     12.446
+    ],
+    [
+     0.117,
+     8.712
+    ],
+    [
+     0.094,
+     12.446
+    ],
+    [
+     0.011,
+     12.446
+    ],
+    [
+     3.121,
+     8.712
+    ],
+    [
+     1.124,
+     8.712
+    ],
+    [
+     0.777,
+     12.446
+    ],
+    [
+     0.054,
+     8.712
+    ],
+    [
+     0.024,
+     12.446
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.001,
+     5.808
+    ],
+    [
+     0.026,
+     8.712
+    ],
+    [
+     0.039,
+     12.446
+    ],
+    [
+     0.103,
+     8.712
+    ],
+    [
+     0.687,
+     8.712
+    ],
+    [
+     0.687,
+     12.446
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     0.009,
+     8.712
+    ],
+    [
+     0.009,
+     12.446
+    ],
+    [
+     0.03,
+     12.446
+    ],
+    [
+     1.044,
+     12.446
+    ],
+    [
+     0.05,
+     12.446
+    ],
+    [
+     0.302,
+     12.446
+    ],
+    [
+     0.298,
+     12.446
+    ],
+    [
+     0.279,
+     12.446
+    ],
+    [
+     0.976,
+     12.446
+    ],
+    [
+     0.198,
+     12.446
+    ],
+    [
+     0.705,
+     12.446
+    ],
+    [
+     1.17,
+     12.446
+    ],
+    [
+     1.1,
+     12.446
+    ],
+    [
+     1.358,
+     12.446
+    ],
+    [
+     3.23,
+     12.446
+    ],
+    [
+     0.74,
+     12.446
+    ],
+    [
+     2.681,
+     12.446
+    ],
+    [
+     1.027,
+     12.446
+    ],
+    [
+     0.487,
+     12.446
+    ],
+    [
+     0.934,
+     12.446
+    ],
+    [
+     1.137,
+     12.446
+    ],
+    [
+     3.048,
+     12.446
+    ],
+    [
+     0.945,
+     12.446
+    ],
+    [
+     1.573,
+     12.446
+    ],
+    [
+     1.514,
+     12.446
+    ],
+    [
+     0.633,
+     12.446
+    ],
+    [
+     3.331,
+     12.446
+    ],
+    [
+     0.07,
+     12.446
+    ],
+    [
+     0.542,
+     12.446
+    ],
+    [
+     0.031,
+     12.446
+    ],
+    [
+     0.983,
+     12.446
+    ],
+    [
+     3.528,
+     12.446
+    ],
+    [
+     1.007,
+     12.446
+    ],
+    [
+     1.004,
+     12.446
+    ],
+    [
+     0.059,
+     12.446
+    ],
+    [
+     0.248,
+     12.446
+    ],
+    [
+     0.077,
+     12.446
+    ],
+    [
+     0.221,
+     12.446
+    ],
+    [
+     0.249,
+     12.446
+    ],
+    [
+     0.597,
+     12.446
+    ],
+    [
+     0.431,
+     12.446
+    ],
+    [
+     0.872,
+     12.446
+    ],
+    [
+     0.551,
+     12.446
+    ],
+    [
+     0.086,
+     12.446
+    ],
+    [
+     0.108,
+     12.446
+    ],
+    [
+     0.093,
+     12.446
+    ],
+    [
+     2.969,
+     12.446
+    ],
+    [
+     1.478,
+     12.446
+    ],
+    [
+     0.003,
+     12.446
+    ],
+    [
+     0.296,
+     12.446
+    ],
+    [
+     0.665,
+     12.446
+    ],
+    [
+     0.507,
+     12.446
+    ],
+    [
+     2.124,
+     12.446
+    ],
+    [
+     1.437,
+     12.446
+    ],
+    [
+     2.087,
+     12.446
+    ],
+    [
+     0.511,
+     12.446
+    ],
+    [
+     0.965,
+     12.446
+    ],
+    [
+     2.085,
+     12.446
+    ],
+    [
+     1.01,
+     12.446
+    ],
+    [
+     1.705,
+     12.446
+    ],
+    [
+     2.008,
+     12.446
+    ],
+    [
+     0.872,
+     12.446
+    ],
+    [
+     2.249,
+     12.446
+    ],
+    [
+     0.002,
+     12.446
+    ],
+    [
+     0.416,
+     12.446
+    ],
+    [
+     2.838,
+     12.446
+    ],
+    [
+     1.315,
+     12.446
+    ],
+    [
+     0.515,
+     12.446
+    ],
+    [
+     0.996,
+     12.446
+    ],
+    [
+     0.198,
+     12.446
+    ],
+    [
+     0.316,
+     12.446
+    ],
+    [
+     0.631,
+     8.712
+    ],
+    [
+     0.609,
+     8.712
+    ],
+    [
+     0.825,
+     8.712
+    ],
+    [
+     0.418,
+     8.712
+    ],
+    [
+     1.216,
+     8.712
+    ],
+    [
+     0.606,
+     8.712
+    ],
+    [
+     1.451,
+     8.712
+    ],
+    [
+     0.268,
+     8.712
+    ],
+    [
+     1.858,
+     8.712
+    ],
+    [
+     0.876,
+     8.712
+    ],
+    [
+     0.961,
+     8.712
+    ],
+    [
+     0.842,
+     8.712
+    ],
+    [
+     1.938,
+     8.712
+    ],
+    [
+     0.285,
+     8.712
+    ],
+    [
+     0.924,
+     8.712
+    ],
+    [
+     2.163,
+     8.712
+    ],
+    [
+     2.806,
+     8.712
+    ],
+    [
+     2.475,
+     8.712
+    ],
+    [
+     0.295,
+     8.712
+    ],
+    [
+     1.779,
+     8.712
+    ],
+    [
+     1.944,
+     8.712
+    ],
+    [
+     1.119,
+     8.712
+    ],
+    [
+     1.883,
+     8.712
+    ],
+    [
+     0.081,
+     8.712
+    ],
+    [
+     1.077,
+     8.712
+    ],
+    [
+     1.367,
+     8.712
+    ],
+    [
+     0.658,
+     8.712
+    ],
+    [
+     1.257,
+     8.712
+    ],
+    [
+     0.476,
+     8.712
+    ],
+    [
+     0.751,
+     8.712
+    ],
+    [
+     0.529,
+     8.712
+    ],
+    [
+     0.649,
+     8.712
+    ],
+    [
+     1.16,
+     8.712
+    ],
+    [
+     0.882,
+     8.712
+    ],
+    [
+     1.652,
+     8.712
+    ],
+    [
+     1.165,
+     8.712
+    ],
+    [
+     1.788,
+     8.712
+    ],
+    [
+     1.002,
+     8.712
+    ],
+    [
+     0.964,
+     8.712
+    ],
+    [
+     0.894,
+     8.712
+    ],
+    [
+     0.001,
+     8.712
+    ],
+    [
+     1.263,
+     8.712
+    ],
+    [
+     2.416,
+     8.712
+    ],
+    [
+     1.056,
+     8.712
+    ],
+    [
+     0.637,
+     8.712
+    ],
+    [
+     1.576,
+     8.712
+    ],
+    [
+     2.254,
+     8.712
+    ],
+    [
+     1.396,
+     8.712
+    ],
+    [
+     0.373,
+     8.712
+    ],
+    [
+     0.213,
+     8.712
+    ],
+    [
+     1.153,
+     8.712
+    ],
+    [
+     1.193,
+     8.712
+    ],
+    [
+     0.336,
+     8.712
+    ],
+    [
+     0.689,
+     8.712
+    ],
+    [
+     0.097,
+     8.712
+    ],
+    [
+     0.838,
+     8.712
+    ],
+    [
+     2.02,
+     8.712
+    ],
+    [
+     0.923,
+     8.712
+    ],
+    [
+     1.12,
+     8.712
+    ],
+    [
+     0.755,
+     8.712
+    ],
+    [
+     2.377,
+     8.712
+    ],
+    [
+     0.698,
+     8.712
+    ],
+    [
+     0.127,
+     8.712
+    ],
+    [
+     0.242,
+     8.712
+    ],
+    [
+     1.09,
+     8.712
+    ],
+    [
+     1.964,
+     8.712
+    ],
+    [
+     2.147,
+     8.712
+    ],
+    [
+     2.766,
+     8.712
+    ],
+    [
+     3.112,
+     8.712
+    ],
+    [
+     1.346,
+     8.712
+    ],
+    [
+     0.038,
+     8.712
+    ],
+    [
+     0.454,
+     8.712
+    ],
+    [
+     2.727,
+     8.712
+    ],
+    [
+     0.236,
+     8.712
+    ],
+    [
+     1.472,
+     8.712
+    ],
+    [
+     0.904,
+     8.712
+    ],
+    [
+     1.449,
+     8.712
+    ],
+    [
+     3.834,
+     8.712
+    ],
+    [
+     2.255,
+     8.712
+    ],
+    [
+     3.581,
+     8.712
+    ],
+    [
+     1.794,
+     12.446
+    ],
+    [
+     1.148,
+     12.446
+    ],
+    [
+     6.53,
+     12.446
+    ],
+    [
+     0.216,
+     8.712
+    ],
+    [
+     0.325,
+     8.712
+    ],
+    [
+     1.178,
+     8.712
+    ]
+   ],
+   "n_R1_tod_any": 1765.0,
+   "n_R2_tod_any": 4758.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 1528.0
+  },
+  "Richmond": {
+   "municipality": "Richmond",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 51,
+    "2019": 78,
+    "2020": 29,
+    "2021": 22,
+    "2022": 17,
+    "2023": 12,
+    "2024": 22,
+    "2025": 12
+   },
+   "months_reported": {
+    "2018": 7,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 11,
+   "co_eoh_2025": 10,
+   "mf_share_2018_2025": 0.0905,
+   "stock": {
+    "units_total": 3214,
+    "units_1": 2852,
+    "units_2": 156,
+    "units_3_4": 44,
+    "units_5plus": 27,
+    "units_mobile": 135,
+    "occupied": 2997,
+    "vacant": 217
+   },
+   "lmih_2024": {
+    "lmih_units": 107,
+    "year_round_units_2020": 3097,
+    "lmih_share": 0.0345
+   },
+   "n_R1": 2777.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 2687.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2687.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 301.0,
+   "n_A1": 381.0,
+   "n_DV": 8.0,
+   "res_area_acres": 15764.138000000006,
+   "mean_min_lot_sf": 103851.10197588985,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 517.0
+  },
+  "Scituate": {
+   "municipality": "Scituate",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 16,
+    "2019": 23,
+    "2020": 19,
+    "2021": 26,
+    "2022": 22,
+    "2023": 8,
+    "2024": 10,
+    "2025": 18
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 1,
+    "2021": 0,
+    "2022": 0,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 25,
+   "co_eoh_2025": 8,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 4401,
+    "units_1": 4053,
+    "units_2": 141,
+    "units_3_4": 46,
+    "units_5plus": 161,
+    "units_mobile": 0,
+    "occupied": 4204,
+    "vacant": 197
+   },
+   "lmih_2024": {
+    "lmih_units": 56,
+    "year_round_units_2020": 4236,
+    "lmih_share": 0.0132
+   },
+   "n_R1": 3771.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 3731.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 3061.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 670.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 319.0,
+   "n_A1": 634.0,
+   "n_DV": 0.0,
+   "res_area_acres": 18978.778000000002,
+   "mean_min_lot_sf": 101283.83713640571,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 139.0
+  },
+  "Smithfield": {
+   "municipality": "Smithfield",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 21,
+    "2019": 27,
+    "2020": 18,
+    "2021": 28,
+    "2022": 17,
+    "2023": 14,
+    "2024": 25,
+    "2025": 30
+   },
+   "months_reported": {
+    "2018": 11,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 30,
+   "co_eoh_2025": 21,
+   "mf_share_2018_2025": 0.0889,
+   "stock": {
+    "units_total": 8220,
+    "units_1": 6102,
+    "units_2": 306,
+    "units_3_4": 449,
+    "units_5plus": 1363,
+    "units_mobile": 0,
+    "occupied": 7934,
+    "vacant": 286
+   },
+   "lmih_2024": {
+    "lmih_units": 463,
+    "year_round_units_2020": 7916,
+    "lmih_share": 0.058499999999999996
+   },
+   "n_R1": 5630.0,
+   "n_R1_sewered": 4272.0,
+   "n_R1_lot20k_plus": 2208.0,
+   "n_R1_lot20k_plus_sewered": 997.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 5525.0,
+   "n_R1_unknown_sewered": 4169.0,
+   "n_R2": 976.0,
+   "n_A1": 353.0,
+   "n_DV": 1.0,
+   "res_area_acres": 13469.18000000001,
+   "mean_min_lot_sf": 94933.44939982571,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 357.0
+  },
+  "South Kingstown": {
+   "municipality": "South Kingstown",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 78,
+    "2019": 129,
+    "2020": 102,
+    "2021": 105,
+    "2022": 77,
+    "2023": 70,
+    "2024": 86,
+    "2025": 87
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 72,
+   "co_eoh_2025": 62,
+   "mf_share_2018_2025": 0.1335,
+   "stock": {
+    "units_total": 13993,
+    "units_1": 11268,
+    "units_2": 450,
+    "units_3_4": 493,
+    "units_5plus": 1656,
+    "units_mobile": 117,
+    "occupied": 11360,
+    "vacant": 2633
+   },
+   "lmih_2024": {
+    "lmih_units": 664,
+    "year_round_units_2020": 11610,
+    "lmih_share": 0.0572
+   },
+   "n_R1": 9981.0,
+   "n_R1_sewered": 3021.0,
+   "n_R1_lot20k_plus": 8091.0,
+   "n_R1_lot20k_plus_sewered": 1290.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 9859.0,
+   "n_R1_unknown_sewered": 2956.0,
+   "n_R2": 849.0,
+   "n_A1": 1080.0,
+   "n_DV": 0.0,
+   "res_area_acres": 26360.473999999973,
+   "mean_min_lot_sf": 83470.02409744234,
+   "tod_districts": [
+    [
+     2.513,
+     4.356
+    ]
+   ],
+   "n_R1_tod_any": 2.0,
+   "n_R2_tod_any": 3.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 652.0
+  },
+  "Tiverton": {
+   "municipality": "Tiverton",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 30,
+    "2019": 35,
+    "2020": 36,
+    "2021": 38,
+    "2022": 38,
+    "2023": 0,
+    "2024": 3,
+    "2025": 16
+   },
+   "months_reported": {
+    "2018": 10,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 0,
+    "2023": 12,
+    "2024": 8,
+    "2025": 12
+   },
+   "permits_eoh_2025": 17,
+   "co_eoh_2025": 3,
+   "mf_share_2018_2025": 0.0102,
+   "stock": {
+    "units_total": 7831,
+    "units_1": 6234,
+    "units_2": 390,
+    "units_3_4": 290,
+    "units_5plus": 655,
+    "units_mobile": 262,
+    "occupied": 6995,
+    "vacant": 836
+   },
+   "lmih_2024": {
+    "lmih_units": 450,
+    "year_round_units_2020": 7482,
+    "lmih_share": 0.0601
+   },
+   "n_R1": 5964.0,
+   "n_R1_sewered": 171.0,
+   "n_R1_lot20k_plus": 5775.0,
+   "n_R1_lot20k_plus_sewered": 170.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 5775.0,
+   "n_R1_unknown_sewered": 170.0,
+   "n_R2": 569.0,
+   "n_A1": 736.0,
+   "n_DV": 0.0,
+   "res_area_acres": 14759.932000000003,
+   "mean_min_lot_sf": 69513.67323372493,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 87.0
+  },
+  "Warren": {
+   "municipality": "Warren",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 107,
+    "2019": 6,
+    "2020": 13,
+    "2021": 22,
+    "2022": 26,
+    "2023": 6,
+    "2024": 6,
+    "2025": 56
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 52,
+   "co_eoh_2025": 4,
+   "mf_share_2018_2025": 0.781,
+   "stock": {
+    "units_total": 5607,
+    "units_1": 3247,
+    "units_2": 784,
+    "units_3_4": 673,
+    "units_5plus": 903,
+    "units_mobile": 0,
+    "occupied": 5145,
+    "vacant": 462
+   },
+   "lmih_2024": {
+    "lmih_units": 373,
+    "year_round_units_2020": 5370,
+    "lmih_share": 0.0695
+   },
+   "n_R1": 2870.0,
+   "n_R1_sewered": 2388.0,
+   "n_R1_lot20k_plus": 584.0,
+   "n_R1_lot20k_plus_sewered": 112.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2360.0,
+   "n_R1_unknown_sewered": 1880.0,
+   "n_R2": 976.0,
+   "n_A1": 305.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2628.3470000000007,
+   "mean_min_lot_sf": 26808.250965340565,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 81.0
+  },
+  "Warwick": {
+   "municipality": "Warwick",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 63,
+    "2019": 96,
+    "2020": 60,
+    "2021": 80,
+    "2022": 72,
+    "2023": 102,
+    "2024": 317,
+    "2025": 119
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 416,
+   "co_eoh_2025": 119,
+   "mf_share_2018_2025": 0.5193,
+   "stock": {
+    "units_total": 37516,
+    "units_1": 27267,
+    "units_2": 1798,
+    "units_3_4": 1307,
+    "units_5plus": 6981,
+    "units_mobile": 145,
+    "occupied": 36055,
+    "vacant": 1461
+   },
+   "lmih_2024": {
+    "lmih_units": 2202,
+    "year_round_units_2020": 38090,
+    "lmih_share": 0.057800000000000004
+   },
+   "n_R1": 27398.0,
+   "n_R1_sewered": 24040.0,
+   "n_R1_lot20k_plus": 1668.0,
+   "n_R1_lot20k_plus_sewered": 1270.0,
+   "n_R1_sf_only": 27006.0,
+   "n_R1_sf_only_sewered": 23659.0,
+   "n_R1_unknown": 0.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 2934.0,
+   "n_A1": 1522.0,
+   "n_DV": 0.0,
+   "res_area_acres": 13953.977000000015,
+   "mean_min_lot_sf": 16547.34238131536,
+   "tod_districts": [
+    [
+     0.008,
+     6.223
+    ],
+    [
+     125.1,
+     2.904
+    ],
+    [
+     17.69,
+     6.223
+    ],
+    [
+     0.345,
+     6.223
+    ]
+   ],
+   "n_R1_tod_any": 58.0,
+   "n_R2_tod_any": 1.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 1206.0
+  },
+  "West Greenwich": {
+   "municipality": "West Greenwich",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 26,
+    "2019": 9,
+    "2020": 42,
+    "2021": 21,
+    "2022": 10,
+    "2023": 7,
+    "2024": 5,
+    "2025": 4
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 10,
+   "co_eoh_2025": 9,
+   "mf_share_2018_2025": 0.0,
+   "stock": {
+    "units_total": 2624,
+    "units_1": 2341,
+    "units_2": 32,
+    "units_3_4": 16,
+    "units_5plus": 205,
+    "units_mobile": 16,
+    "occupied": 2514,
+    "vacant": 110
+   },
+   "lmih_2024": {
+    "lmih_units": 45,
+    "year_round_units_2020": 2542,
+    "lmih_share": 0.0177
+   },
+   "n_R1": 2117.0,
+   "n_R1_sewered": 0.0,
+   "n_R1_lot20k_plus": 1958.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 2072.0,
+   "n_R1_unknown_sewered": 0.0,
+   "n_R2": 32.0,
+   "n_A1": 292.0,
+   "n_DV": 3.0,
+   "res_area_acres": 18316.42099999999,
+   "mean_min_lot_sf": 128761.01715208824,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 153.0
+  },
+  "West Warwick": {
+   "municipality": "West Warwick",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 39,
+    "2019": 10,
+    "2020": 49,
+    "2021": 35,
+    "2022": 48,
+    "2023": 19,
+    "2024": 82,
+    "2025": 55
+   },
+   "months_reported": {
+    "2018": 11,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 167,
+   "co_eoh_2025": 183,
+   "mf_share_2018_2025": 0.8249,
+   "stock": {
+    "units_total": 15269,
+    "units_1": 8058,
+    "units_2": 1881,
+    "units_3_4": 1597,
+    "units_5plus": 3733,
+    "units_mobile": 0,
+    "occupied": 14361,
+    "vacant": 908
+   },
+   "lmih_2024": {
+    "lmih_units": 1520,
+    "year_round_units_2020": 14338,
+    "lmih_share": 0.106
+   },
+   "n_R1": 6161.0,
+   "n_R1_sewered": 6087.0,
+   "n_R1_lot20k_plus": 0.0,
+   "n_R1_lot20k_plus_sewered": 0.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 1860.0,
+   "n_R1_unknown_sewered": 1805.0,
+   "n_R2": 3693.0,
+   "n_A1": 448.0,
+   "n_DV": 45.0,
+   "res_area_acres": 3377.6579999999994,
+   "mean_min_lot_sf": 10000.000000000002,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 67.0
+  },
+  "Westerly": {
+   "municipality": "Westerly",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 53,
+    "2019": 44,
+    "2020": 43,
+    "2021": 45,
+    "2022": 78,
+    "2023": 61,
+    "2024": 36,
+    "2025": 43
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 10,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 40,
+   "co_eoh_2025": 40,
+   "mf_share_2018_2025": 0.1489,
+   "stock": {
+    "units_total": 13090,
+    "units_1": 9524,
+    "units_2": 1323,
+    "units_3_4": 869,
+    "units_5plus": 1353,
+    "units_mobile": 21,
+    "occupied": 10498,
+    "vacant": 2592
+   },
+   "lmih_2024": {
+    "lmih_units": 706,
+    "year_round_units_2020": 10949,
+    "lmih_share": 0.0645
+   },
+   "n_R1": 8238.0,
+   "n_R1_sewered": 3578.0,
+   "n_R1_lot20k_plus": 4529.0,
+   "n_R1_lot20k_plus_sewered": 703.0,
+   "n_R1_sf_only": 169.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 7941.0,
+   "n_R1_unknown_sewered": 3488.0,
+   "n_R2": 1915.0,
+   "n_A1": 818.0,
+   "n_DV": 0.0,
+   "res_area_acres": 12046.031999999997,
+   "mean_min_lot_sf": 36746.48589676668,
+   "tod_districts": [],
+   "n_R1_tod_any": 0.0,
+   "n_R2_tod_any": 0.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 381.0
+  },
+  "Woonsocket": {
+   "municipality": "Woonsocket",
+   "tier": "B",
+   "permits_bps": {
+    "2018": 6,
+    "2019": 19,
+    "2020": 35,
+    "2021": 35,
+    "2022": 18,
+    "2023": 198,
+    "2024": 26,
+    "2025": 28
+   },
+   "months_reported": {
+    "2018": 12,
+    "2019": 12,
+    "2020": 12,
+    "2021": 12,
+    "2022": 12,
+    "2023": 12,
+    "2024": 12,
+    "2025": 12
+   },
+   "permits_eoh_2025": 149,
+   "co_eoh_2025": 149,
+   "mf_share_2018_2025": 0.5699,
+   "stock": {
+    "units_total": 19429,
+    "units_1": 5526,
+    "units_2": 2574,
+    "units_3_4": 5111,
+    "units_5plus": 6218,
+    "units_mobile": 0,
+    "occupied": 17618,
+    "vacant": 1811
+   },
+   "lmih_2024": {
+    "lmih_units": 3371,
+    "year_round_units_2020": 19728,
+    "lmih_share": 0.1709
+   },
+   "n_R1": 5271.0,
+   "n_R1_sewered": 5195.0,
+   "n_R1_lot20k_plus": 138.0,
+   "n_R1_lot20k_plus_sewered": 112.0,
+   "n_R1_sf_only": 0.0,
+   "n_R1_sf_only_sewered": 0.0,
+   "n_R1_unknown": 4219.0,
+   "n_R1_unknown_sewered": 4152.0,
+   "n_R2": 5700.0,
+   "n_A1": 689.0,
+   "n_DV": 0.0,
+   "res_area_acres": 2952.327000000004,
+   "mean_min_lot_sf": 10134.763527210895,
+   "tod_districts": [
+    [
+     6.142,
+     7.26
+    ],
+    [
+     13.129,
+     7.26
+    ],
+    [
+     10.99,
+     7.26
+    ],
+    [
+     0.007,
+     7.26
+    ],
+    [
+     0.002,
+     7.26
+    ],
+    [
+     0.001,
+     7.26
+    ]
+   ],
+   "n_R1_tod_any": 38.0,
+   "n_R2_tod_any": 139.0,
+   "tier_A_rows": 0.0,
+   "district_rows": 409.0
+  }
+ }
+}

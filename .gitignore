@@ -1,13 +1,51 @@
-# Raw downloads are never committed: the acquisition scripts retrieve them
-# from their authoritative sources (challenge rule) and record a manifest.
+# --- Secrets and credentials (NEVER commit these) -----------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+secrets.*
+*.secret
+
+# --- Data ---------------------------------------------------------------------
+# Raw downloads are never committed: `headroom acquire` retrieves every input
+# from its authoritative source (challenge rule) and records cache/manifest.json.
 cache/
-# Virtualenv
+# data/ holds only small team-created inputs (the eight named mobility hubs) and
+# the optional tier-A district table, each a few KB and documented in
+# docs/DATA_PROVENANCE.md.
+
+# --- Build / output artifacts -------------------------------------------------
+# Run outputs, except the committed reference results the reproducibility check
+# compares against.
+out/*
+!out/README.md
+!out/reference/
+# The software bill of materials is exported from GitHub's dependency graph
+# (Insights → Dependency graph → Export SBOM); reproduce.yml also builds a
+# CycloneDX one as a CI artifact. Neither is committed.
+*.bom
+sbom.json
+sbom.spdx.json
+
+# --- Python -------------------------------------------------------------------
 .venv/
 __pycache__/
 *.pyc
 .pytest_cache/
-# Build outputs except the committed reference results used by the
-# reproducibility check.
-out/*
-!out/README.md
-!out/reference/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# --- Local environment / OS ---------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log

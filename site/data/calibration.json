@@ -1,0 +1,10 @@
+{
+ "eligible_lots_detached_by_right_today_sewer_adjusted": 63960,
+ "eligible_lots_conversion_sewer_adjusted": 214884,
+ "implied_annual_adu_permits_at_steady_state": 299.8,
+ "implied_2024_if_ramp_year_1": 99.9,
+ "implied_2024_if_ramp_year_2": 199.9,
+ "observed_2024_adu_permits": 163,
+ "observed_source": "HousingWorks RI 2025 Housing Fact Book (11 in 2021, 163 in 2024)",
+ "observed_within_bracket": true
+}

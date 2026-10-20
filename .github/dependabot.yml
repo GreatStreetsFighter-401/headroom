@@ -1,0 +1,15 @@
+# Dependabot keeps dependencies patched and flags known vulnerabilities (a challenge
+# eligibility gate: Dependabot alerts enabled, no unaddressed critical/high findings).
+version: 2
+updates:
+  # The actions used in .github/workflows.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # The Python dependencies, pinned in uv.lock.
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "weekly"
