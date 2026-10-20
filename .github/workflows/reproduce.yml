@@ -46,7 +46,7 @@ jobs:
           uv run headroom site
       - name: SBOM (CycloneDX, runtime dependencies; GitHub's own export is the source of truth)
         run: uv run cyclonedx-py environment --of JSON -o sbom.json .venv
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: headroom-outputs
           path: |
