@@ -60,6 +60,6 @@ Runtime dependencies are permissively licensed and compatible with closed-source
 
 # Generated or Copied Code
 
-* `docs/CHALLENGE_SPEC.md`, `docs/PRESENTATION_GUIDE.md`, `data/DATA_SOURCES.md`, `.github/workflows/codeql.yml` and `.github/PULL_REQUEST_TEMPLATE.md` are copied from the challenge's starter template (The Turnout, Apache-2.0) and attributed in `NOTICE`; the four document templates in `docs/` follow its section structure.
+* `docs/CHALLENGE_SPEC.md`, `docs/PRESENTATION_GUIDE.md`, `data/DATA_SOURCES.md` and `.github/PULL_REQUEST_TEMPLATE.md` are copied from the challenge's starter template (The Turnout, Apache-2.0) and attributed in `NOTICE`; the four document templates in `docs/` follow its section structure.
 * The transverse Mercator projection used to place GTFS stop coordinates in the State plane system (`build/transit.py`) is implemented from the published NAD83 / Rhode Island zone parameters; it is original code with an accuracy of about 3.4 ft, documented in the module.
 * No other code is copied or adapted from external sources. The municipality list, the FIPS crosswalk and the mobility-hub table were built from the primary sources named in `DATA_PROVENANCE.md`.

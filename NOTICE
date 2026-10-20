@@ -17,7 +17,6 @@ Apache License 2.0) and are reproduced here unchanged except where noted:
   docs/CHALLENGE_SPEC.md
   docs/PRESENTATION_GUIDE.md
   data/DATA_SOURCES.md
-  .github/workflows/codeql.yml
   .github/PULL_REQUEST_TEMPLATE.md
 
 The document templates in docs/ (MODEL_AND_ASSUMPTIONS.md,
