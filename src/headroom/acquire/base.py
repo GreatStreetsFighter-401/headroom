@@ -23,7 +23,7 @@ import requests
 from headroom import CACHE_DIR
 
 USER_AGENT = (
-    "headroom/0.1 (+https://github.com/ Housing Data and Technology Innovation "
+    "headroom/0.2 (+https://github.com/GreatStreetsFighter-401/headroom; Housing Data and Technology Innovation "
     "Challenge entry; polite automated acquisition)"
 )
 

@@ -1,5 +1,9 @@
 # Headroom
 
+[![CI](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/ci.yml/badge.svg)](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/ci.yml) [![reproduce](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/reproduce.yml/badge.svg)](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/reproduce.yml)
+
+Public repository: https://github.com/GreatStreetsFighter-401/headroom
+
 **How much housing a state-level reform makes room for.** A transparent, replicable capacity-and-uptake model that estimates how many more homes a state is likely to permit over five years under each of the five benchmark reforms, as a range rather than a point, with every number traceable to a public dataset, a statute section or a named assumption. Built for the [Housing Data and Technology Innovation Challenge](https://housingchallenge.turnout.rocks/), with Rhode Island as the showcase state and a Census-only mode that runs for any state.
 
 ## What this tool does
