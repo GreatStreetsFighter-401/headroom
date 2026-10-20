@@ -57,9 +57,7 @@ def to_state_plane(lat_deg: float, lon_deg: float) -> tuple[float, float]:
     a = (lon - _LON0) * math.cos(lat)
     m = _merid(lat)
     m0 = _merid(_LAT0)
-    x = _FE + _K0 * n * (
-        a + (1 - t + c) * a**3 / 6 + (5 - 18 * t + t * t + 72 * c - 58 * ep2) * a**5 / 120
-    )
+    x = _FE + _K0 * n * (a + (1 - t + c) * a**3 / 6 + (5 - 18 * t + t * t + 72 * c - 58 * ep2) * a**5 / 120)
     y = _FN + _K0 * (
         m
         - m0
@@ -103,8 +101,17 @@ def buffers(
         for hub in named_hubs:
             x, y = to_state_plane(float(hub["lat"]), float(hub["lon"]))
             hub_pts.append(Point(x, y).buffer(QUARTER_MILE_FT))
-            hub_stops.append({"stop_id": "", "stop_name": hub["name"], "lat": hub["lat"], "lon": hub["lon"],
-                              "routes": [], "named": True, "source": hub.get("source", "")})
+            hub_stops.append(
+                {
+                    "stop_id": "",
+                    "stop_name": hub["name"],
+                    "lat": hub["lat"],
+                    "lon": hub["lon"],
+                    "routes": [],
+                    "named": True,
+                    "source": hub.get("source", ""),
+                }
+            )
     geoms = {
         "tod_stop": unary_union(stop_pts) if stop_pts else Point(0, 0).buffer(0),
         "tod_hub": unary_union(hub_pts) if hub_pts else Point(0, 0).buffer(0),

@@ -23,7 +23,7 @@ from pathlib import Path
 
 from headroom import DATA_DIR, OUT_DIR
 from headroom.acquire import acs, arcgis, bps, eoh, geos, gtfs
-from headroom.build import capacity, transit, zone_text
+from headroom.build import capacity, transit
 from headroom.municipalities import COUNTY_MCD_FIPS, RI_MUNICIPALITIES
 
 BASELINE_YEARS = list(range(2018, 2026))
@@ -38,9 +38,7 @@ def acquire_all(*, refresh: bool = False, with_transit: bool = True) -> dict:
             max_allowable_offset=5,
             refresh=refresh,
         ),
-        "sewer": arcgis.query_all(
-            "rigis_sewered", out_fields="WWTF", max_allowable_offset=5, refresh=refresh
-        ),
+        "sewer": arcgis.query_all("rigis_sewered", out_fields="WWTF", max_allowable_offset=5, refresh=refresh),
         "points": arcgis.query_all(
             "rigis_e911_points",
             where="pointtype IN ('R1','R2','R3','R4','R5','R6','A1','DV')",
@@ -179,12 +177,27 @@ def build_towns(
         if t is not None:
             # A town with districts but no row of a given kind has zero of it,
             # not "unknown"; only tier C leaves Stage 1 fields as None.
-            t = {k: t.get(k, 0.0) for k in (
-                "n_R1", "n_R1_sewered", "n_R1_lot20k_plus", "n_R1_lot20k_plus_sewered",
-                "n_R1_sf_only", "n_R1_sf_only_sewered", "n_R1_unknown", "n_R1_unknown_sewered",
-                "n_R2", "n_A1", "n_DV", "res_area_acres", "n_R1_tod_any", "n_R2_tod_any",
-                "tier_A_rows", "rows",
-            )} | {k: t.get(k) for k in ("mean_min_lot_sf",)}
+            t = {
+                k: t.get(k, 0.0)
+                for k in (
+                    "n_R1",
+                    "n_R1_sewered",
+                    "n_R1_lot20k_plus",
+                    "n_R1_lot20k_plus_sewered",
+                    "n_R1_sf_only",
+                    "n_R1_sf_only_sewered",
+                    "n_R1_unknown",
+                    "n_R1_unknown_sewered",
+                    "n_R2",
+                    "n_A1",
+                    "n_DV",
+                    "res_area_acres",
+                    "n_R1_tod_any",
+                    "n_R2_tod_any",
+                    "tier_A_rows",
+                    "rows",
+                )
+            } | {k: t.get(k) for k in ("mean_min_lot_sf",)}
         else:
             t = {}
         s = series[m]
@@ -254,9 +267,7 @@ def build_towns(
         derived = {
             "n_R1_total": r1,
             "n_R1_in_residential_districts": r1_res,
-            "share_R1_lot20k_plus": round(
-                sum(v.get("n_R1_lot20k_plus", 0) for v in totals.values()) / r1, 4
-            ),
+            "share_R1_lot20k_plus": round(sum(v.get("n_R1_lot20k_plus", 0) for v in totals.values()) / r1, 4),
             "share_R1_sewered": round(sum(v.get("n_R1_sewered", 0) for v in totals.values()) / r1, 4),
             # Among residential-district structures whose district text could be
             # read, the share in single-family-only districts.

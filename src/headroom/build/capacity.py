@@ -176,8 +176,14 @@ def build_districts(
                 inter = geom.intersection(transit_buffers[name])
                 row[f"area_acres_{name}"] = round(inter.area / SQFT_PER_ACRE, 3)
         if prow:
-            for k in ("max_height_ft", "max_stories", "max_lot_coverage", "max_far",
-                      "parking_per_unit_sf", "parking_per_unit_mf"):
+            for k in (
+                "max_height_ft",
+                "max_stories",
+                "max_lot_coverage",
+                "max_far",
+                "parking_per_unit_sf",
+                "parking_per_unit_mf",
+            ):
                 v = (prow.get(k) or "").strip()
                 row[k] = float(v) if v else None
         rows.append(row)
