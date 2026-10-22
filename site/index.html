@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Headroom — Rhode Island</title>
-<meta name="description" content="How much housing a state-level reform makes room for: five-year permitted-unit estimates for Rhode Island under five reform scenarios, as ranges, with every assumption traceable.">
+<meta name="description" content="How much housing a state-level reform makes room for: five-year permitted-unit estimates for Rhode Island under five reform scenarios, as ranges, with every assumption traceable, re-run in your browser when you change one.">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
 </head>
 <body>
 <header class="masthead">
@@ -14,7 +15,8 @@
     <h1>Headroom</h1>
     <p class="standfirst">How much housing a state-level reform makes room for. Five-year estimates of
       permitted units under five reform scenarios, shown as ranges, with every number traceable to a
-      public dataset, a statute section or a named assumption.</p>
+      public dataset, a statute section or a named assumption. Change an assumption below and the model
+      runs again, in your browser, with the same code that produced these numbers.</p>
     <div class="controls">
       <label>Data tier
         <select id="tier">
@@ -29,6 +31,8 @@
 </header>
 
 <main class="wrap">
+  <div id="engine" class="engine" aria-live="polite"></div>
+
   <section id="summary" class="cards" aria-label="Statewide five-year results"></section>
 
   <section class="panel">
@@ -37,12 +41,24 @@
     <p class="note" id="chart-note"></p>
   </section>
 
-  <section class="panel">
-    <h2>Try an assumption <span class="muted">moves the median; the bands come from the full run</span></h2>
+  <section class="panel" id="try">
+    <h2>Try an assumption <span class="muted">pin any assumption at a value of your choosing; the model re-runs</span></h2>
+    <div class="try-controls">
+      <label>Draws per run
+        <select id="draws">
+          <option value="500" selected>500 (about a second)</option>
+          <option value="2000">2,000 (the committed run)</option>
+        </select>
+      </label>
+      <button id="reset-all" class="btn">Restore every assumption</button>
+      <span id="try-status" class="muted"></span>
+    </div>
     <div id="sliders" class="sliders"></div>
-    <p class="note">Each slider is one ledger entry. The scenario increments are proportional to their
-      uptake rate, so the median scales exactly with the slider; the P10–P90 band is only recomputed by
-      <code>headroom run</code>. The “why” link opens the entry’s source and justification.</p>
+    <p class="note" id="try-note">Each slider is one ledger entry. Moving it pins that assumption at the value you
+      choose, in place of its sampled range, and runs the whole model again on the same draw stream, so the
+      band that comes back is the remaining uncertainty given your choice. Statutory values and the
+      handbook's benchmarks are not sliders: the page cannot change the law. The “why” link opens the
+      entry's source and justification.</p>
   </section>
 
   <section class="panel">
@@ -79,9 +95,10 @@
 </aside>
 
 <footer class="wrap foot">
-  <p>Headroom · Apache-2.0 · results from <code>headroom run</code>, seed and draws shown above ·
-    every value in this page is in <code>site/data/*.json</code> and reproducible from the sources
-    listed under Data.</p>
+  <p>Headroom · Apache-2.0 · <a href="https://github.com/GreatStreetsFighter-401/headroom">source and documentation</a> ·
+    the committed results come from <code>headroom run</code> (seed and draws shown above); a re-run you trigger here
+    executes the same Python in your browser (Pyodide) on the same town table · every input is reproducible from the
+    sources listed under Data.</p>
 </footer>
 <script src="app.js"></script>
 </body>

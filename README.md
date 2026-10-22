@@ -50,6 +50,10 @@ headroom check                                   # compare with the committed re
 headroom build --state MA && headroom run --state MA   # any other state, tier C, Census data only
 ```
 
+## The page
+
+`scripts/run.sh` serves `site/` at http://localhost:8765/ (any static host works; there is no server-side code). The page shows the committed results and, under **Try an assumption**, offers every sampled ledger parameter as a slider. Moving one pins that assumption at your value and **re-runs the model in your browser**: `site/worker.js` loads Pyodide (CPython compiled to WebAssembly) and the model's own source files from `site/model/` — published by `headroom site` and checked against `src/` by the test suite — and calls `headroom.model.web.run`. Nothing is re-implemented in JavaScript; 500 draws take about a second. If the runtime cannot be fetched the page says so and the sliders fall back to rescaling the committed medians. `?pyodide=<dir>/` points the worker at a self-hosted copy of the runtime.
+
 ## Data
 
 No dataset is committed. `headroom acquire` (the first step of `scripts/run.sh`) retrieves every input from its authoritative source — the Rhode Island zoning layer, E-911 structure points and sewered areas (RIGIS), the Census Building Permits Survey and ACS summary files, the State's 2025 Integrated Housing Report, RIPTA's GTFS feed — and records each file's URL, retrieval time, size and SHA-256 in `cache/manifest.json`. See [data/README.md](data/README.md) for the two small team-created inputs that are committed, and [docs/DATA_PROVENANCE.md](docs/DATA_PROVENANCE.md) for every dataset's source, vintage, licence, cleaning steps and limitations.

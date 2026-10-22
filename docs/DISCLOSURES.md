@@ -30,6 +30,7 @@ The tool calls public data services at acquisition time only; after the first ru
 | RI Executive Office of Housing (`housing.ri.gov`) | 2025 Integrated Housing Report PDF | Free | Some hosts refuse automated clients (HTTP 403); a saved copy can be supplied | Public record |
 | RIPTA (`ripta.com`) | GTFS feed | Free | Feed URL has moved before (a 301 is followed) | Public developer use |
 | MuniAnchor (`munianchor.com`) — optional, tier A | Ordinance-derived district table | Free download, to be published under Apache-2.0 | The table is optional; the tool runs at tier B without it | Apache-2.0 (derived table) |
+| jsDelivr CDN (`cdn.jsdelivr.net`) — the page only | Pyodide 0.27.7 (CPython for WebAssembly) plus its numpy and PyYAML wheels, fetched by `site/worker.js` when the page's "Try an assumption" panel is used | Free, no key | If the CDN is unreachable the page says so and falls back to rescaling the committed medians; `?pyodide=<dir>/` points the worker at a self-hosted copy of the same release | Pyodide: MPL-2.0 (the runtime, loaded in the visitor's browser, never linked into this code — see the dependency note below); jsDelivr terms of use |
 
 No service limits commercial, government or downstream use of the outputs. MuniAnchor is a product of the Team Leader; it is disclosed as the publisher of one optional dataset and nothing from its code is part of this submission.
 
@@ -55,6 +56,8 @@ Runtime dependencies are permissively licensed and compatible with closed-source
 | └ cffi, pycparser | MIT; BSD-3-Clause | runtime | ok |
 | pytest, ruff | MIT | dev | ok |
 | cyclonedx-bom and its tree (incl. fqdn, MPL-2.0) | Apache-2.0; various permissive; fqdn MPL-2.0 | dev | fqdn is pulled in only by the SBOM generator and never ships |
+
+**Pyodide (MPL-2.0), in the browser only.** The page's in-browser engine is Pyodide, a CPython build for WebAssembly under the Mozilla Public License 2.0. It is not a dependency of this code: nothing imports it, it is not in `uv.lock` or the SBOM, and the tool's command contract never loads it. The visitor's browser fetches it from a CDN to execute this project's own Apache-2.0 Python files, the way a browser fetches any interpreter or runtime; the page works without it. It is listed here for completeness because the rules ask that every external service be disclosed.
 
 **Exception: certifi (MPL-2.0).** `certifi` is the Mozilla CA certificate bundle that `requests` uses to verify HTTPS connections; it is a transitive dependency of every Python HTTP client and is used unmodified. The Mozilla Public License 2.0 is a file-level copyleft: it applies only to the licensed files themselves and expressly permits combining them into a larger work under any licence (MPL 2.0 §3.3), so it does not affect the licensing of this tool or of anything that integrates it. The rules list MPL among copyleft licences and ask that such a dependency be flagged and resolved; it is flagged here, and resolved by this note rather than by replacement because the certificate bundle carries no code of ours and every alternative HTTP stack depends on the same bundle or on the operating system's.
 

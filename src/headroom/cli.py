@@ -256,7 +256,31 @@ def cmd_site(args) -> int:
         shutil.copy(hc, dest / "hindcast.json")
         copied.append("hindcast.json")
     print("site/data:", ", ".join(copied + ["ledger.json"]))
+    # The model itself, for the page's in-browser engine: site/worker.js loads
+    # these files into Pyodide and calls headroom.model.web.run, so the page
+    # re-runs the same Python the CLI runs rather than a JavaScript imitation.
+    # tests/test_site.py fails if these copies drift from src/.
+    model_dest = ROOT / "site" / "model"
+    for rel in SITE_MODEL_FILES:
+        target = model_dest / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy(ROOT / rel, target)
+    (model_dest / "files.json").write_text(json.dumps(list(SITE_MODEL_FILES), indent=1))
+    print("site/model:", ", ".join(SITE_MODEL_FILES))
     return 0
+
+
+# The files the page's engine needs, relative to the subproject root; the
+# package layout is kept so `from headroom import LEDGER_PATH` resolves the
+# ledger at the copied root exactly as it does from an installed package.
+SITE_MODEL_FILES = (
+    "assumptions.yaml",
+    "src/headroom/__init__.py",
+    "src/headroom/ledger.py",
+    "src/headroom/model/__init__.py",
+    "src/headroom/model/core.py",
+    "src/headroom/model/web.py",
+)
 
 
 def cmd_check(args) -> int:
