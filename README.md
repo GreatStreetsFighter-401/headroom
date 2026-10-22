@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/ci.yml/badge.svg)](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/ci.yml) [![reproduce](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/reproduce.yml/badge.svg)](https://github.com/GreatStreetsFighter-401/headroom/actions/workflows/reproduce.yml)
 
-Public repository: https://github.com/GreatStreetsFighter-401/headroom
+Public repository: https://github.com/GreatStreetsFighter-401/headroom · **Live page: https://greatstreetsfighter-401.github.io/headroom/** (published from `site/` by `pages.yml` on every push to `main`)
 
 **How much housing a state-level reform makes room for.** A transparent, replicable capacity-and-uptake model that estimates how many more homes a state is likely to permit over five years under each of the five benchmark reforms, as a range rather than a point, with every number traceable to a public dataset, a statute section or a named assumption. Built for the [Housing Data and Technology Innovation Challenge](https://housingchallenge.turnout.rocks/), with Rhode Island as the showcase state and a Census-only mode that runs for any state.
 
@@ -52,7 +52,7 @@ headroom build --state MA && headroom run --state MA   # any other state, tier C
 
 ## The page
 
-`scripts/run.sh` serves `site/` at http://localhost:8765/ (any static host works; there is no server-side code). The page shows the committed results and, under **Try an assumption**, offers every sampled ledger parameter as a slider. Moving one pins that assumption at your value and **re-runs the model in your browser**: `site/worker.js` loads Pyodide (CPython compiled to WebAssembly) and the model's own source files from `site/model/` — published by `headroom site` and checked against `src/` by the test suite — and calls `headroom.model.web.run`. Nothing is re-implemented in JavaScript; 500 draws take about a second. If the runtime cannot be fetched the page says so and the sliders fall back to rescaling the committed medians. `?pyodide=<dir>/` points the worker at a self-hosted copy of the runtime.
+The page is live at https://greatstreetsfighter-401.github.io/headroom/, and `scripts/run.sh` serves the same `site/` at http://localhost:8765/ (any static host works; there is no server-side code). The page shows the committed results and, under **Try an assumption**, offers every sampled ledger parameter as a slider. Moving one pins that assumption at your value and **re-runs the model in your browser**: `site/worker.js` loads Pyodide (CPython compiled to WebAssembly) and the model's own source files from `site/model/` — published by `headroom site` and checked against `src/` by the test suite — and calls `headroom.model.web.run`. Nothing is re-implemented in JavaScript; 500 draws take about a second. If the runtime cannot be fetched the page says so and the sliders fall back to rescaling the committed medians. `?pyodide=<dir>/` points the worker at a self-hosted copy of the runtime.
 
 ## Data
 

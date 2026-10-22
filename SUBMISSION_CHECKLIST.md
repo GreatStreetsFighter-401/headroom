@@ -14,7 +14,7 @@ See docs/REPO_SETUP_GUIDE.md in the starter template for the settings.
 
 ## Deliverables
 
-- [x] Interactive tool (functional) — the page in `site/` re-runs the model in the browser (Pyodide: the same Python as the CLI, on the same town table) when any assumption is pinned; 500 draws in about a second, 2,000 on request; the CLI runs everything else
+- [x] Interactive tool (functional) — live at https://greatstreetsfighter-401.github.io/headroom/ (GitHub Pages, published from `site/` on every push to `main`); the page re-runs the model in the browser (Pyodide: the same Python as the CLI, on the same town table) when any assumption is pinned; 500 draws in about a second, 2,000 on request; the CLI runs everything else
 - [ ] Slide deck (≤ 30 slides, PDF)
 - [ ] Demo video (5 minutes, viewable without an account)
 - [x] Model & Assumptions Overview (≤ 25 pages) — `docs/MODEL_AND_ASSUMPTIONS.md` (draft v0.2)
