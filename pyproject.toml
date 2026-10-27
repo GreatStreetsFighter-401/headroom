@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.6", "cyclonedx-bom>=4"]
+dev = ["pytest>=8", "ruff>=0.17.2", "cyclonedx-bom>=4"]
 
 [project.scripts]
 headroom = "headroom.cli:main"
