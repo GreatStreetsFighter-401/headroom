@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.12'",
@@ -418,7 +418,7 @@ wheels = [
 
 [[package]]
 name = "cyclonedx-bom"
-version = "7.5.0"
+version = "9.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "chardet" },
@@ -427,9 +427,9 @@ dependencies = [
     { name = "packaging" },
     { name = "pip-requirements-parser" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/02/87/65a331687130bcd70152b345e05b6ec6b81b8d5fb7709e8aab48babcdd32/cyclonedx_bom-7.5.0.tar.gz", hash = "sha256:396cc8c9cb7533d25a21f930b45d2699a1839e3ba2be9ba88f8bd61c566b51dc", size = 4421911, upload-time = "2026-09-29T15:45:58.645Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/13/91/f1a2a75a5dbbada2404de3117f0a0c544727382bc1352013ee1ba15ec015/cyclonedx_bom-9.0.0.tar.gz", hash = "sha256:23394e24ff47bbf4c614e8a7d5ca5e18c64869a091f7e35f3baa2faea2390972", size = 4424455, upload-time = "2026-11-19T14:47:55.549Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/39/f6/4da2674038e1558b93872dc6a3d10172be60db05c5ca9a5e5de73b3edd7e/cyclonedx_bom-7.5.0-py3-none-any.whl", hash = "sha256:a3020e225107214a66cb9c79ae83e3a71640a06d4ff3a0e2f9cb0d238f7061fd", size = 61392, upload-time = "2026-09-29T15:45:56.567Z" },
+    { url = "https://files.pythonhosted.org/packages/37/bb/d6867a1222f4db2b7c775b98caf8ac9344ec79be67c7594529f6a62bf9a2/cyclonedx_bom-9.0.0-py3-none-any.whl", hash = "sha256:15ccb78616831688cab1d1ddd5e0ba2e7886cd83462f63d11d1b922f43a294c0", size = 62120, upload-time = "2026-11-19T14:47:53.863Z" },
 ]
 
 [[package]]
@@ -495,7 +495,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "cyclonedx-bom", marker = "extra == 'dev'", specifier = ">=4" },
+    { name = "cyclonedx-bom", marker = "extra == 'dev'", specifier = ">=9.0.0" },
     { name = "numpy", specifier = ">=1.26" },
     { name = "pdfplumber", specifier = ">=0.11" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8" },
